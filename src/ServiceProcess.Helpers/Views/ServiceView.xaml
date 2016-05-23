@@ -1,0 +1,31 @@
+﻿<UserControl xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:ServiceProcess.Helpers.Controls"
+             x:Class="ServiceProcess.Helpers.Views.ServiceView"
+             x:ClassModifier="internal">
+  
+  <UserControl.Resources>
+    <BooleanToVisibilityConverter x:Key="boolToVis" />
+  </UserControl.Resources>
+  
+  <Grid>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="Auto" />
+      <ColumnDefinition Width="20" />
+    </Grid.ColumnDefinitions>
+
+    <TextBlock Margin="2"
+               Grid.Column="0"
+               Text="{Binding Name}" />
+
+    <TextBlock Margin="2"
+               Grid.Column="1"
+               Text="{Binding CurrentState}" />
+
+    <controls:GifImage  Grid.Column="2"
+                        AnimationSource="pack://application:,,,/ServiceProcess.Helpers;component/Images/spinner.gif"
+                        Stretch="None"
+                        Visibility="{Binding Path=IsBusy, Converter={StaticResource boolToVis}}" />
+  </Grid>
+</UserControl>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>reactiveui-xaml</id>
+    <version>2.3.2.0</version>
+    <title>reactiveui-xaml</title>
+    <authors>Paul Betts</authors>
+    <owners>Paul Betts</owners>
+    <licenseUrl>http://opensource.org/licenses/ms-pl.html</licenseUrl>
+    <projectUrl>http://www.reactiveui.net/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>WPF and Silverlight specific extensions to ReactiveUI</description>
+    <summary>WPF and Silverlight specific extensions to ReactiveUI</summary>
+    <releaseNotes />
+    <copyright />
+    <language />
+    <dependencies>
+      <dependency id="reactiveui-core" version="2.3.2.0" />
+      <dependency id="Rx_Experimental-Xaml" version="1.1.10605" />
+    </dependencies>
+  </metadata>
+</package>

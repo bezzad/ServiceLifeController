@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Rx_Experimental-Xaml</id>
+    <version>1.1.10605</version>
+    <title>Rx_Experimental-Xaml</title>
+    <authors>Paul Betts, Microsoft Corporation</authors>
+    <owners>Paul Betts, Microsoft Corporation</owners>
+    <licenseUrl>http://go.microsoft.com/fwlink/?LinkID=186234</licenseUrl>
+    <projectUrl>http://go.microsoft.com/fwlink/?LinkID=179929</projectUrl>
+    <iconUrl>http://go.microsoft.com/fwlink/?LinkId=215482</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Unofficial combination of Rx_Experimental-WPF and Rx_Experimental-Silverlight - extensions library for Rx. Contains scheduler functionality for the WPF/SL/WP7 Dispatcher.</description>
+    <summary>Unofficial combination of Rx_Experimental-WPF and Rx_Experimental-Silverlight - extensions library for Rx. Contains scheduler functionality for the WPF/SL/WP7 Dispatcher.</summary>
+    <tags>Rx Reactive Extensions Observable</tags>
+    <dependencies>
+      <dependency id="Rx_Experimental-Main" version="1.1.10605" />
+    </dependencies>
+  </metadata>
+</package>

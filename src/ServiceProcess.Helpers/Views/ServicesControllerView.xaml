@@ -1,0 +1,31 @@
+﻿<UserControl xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="ServiceProcess.Helpers.Views.ServicesControllerView"
+             x:ClassModifier="internal">
+  
+  <UserControl.Resources>
+    <Style TargetType="{x:Type Image}">
+      <Style.Triggers>
+        <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type Button}, AncestorLevel=1}, Path=IsEnabled}" Value="False">
+          <Setter Property="Opacity" Value="0.50" />
+        </DataTrigger>
+      </Style.Triggers>
+    </Style>
+  </UserControl.Resources>
+  
+  <DockPanel>
+    <ToolBar DockPanel.Dock="Top">
+      <Button Command="{Binding StartCommand}">
+        <Image Width="32" Height="32" Source="/ServiceProcess.Helpers;component/Images/control_play_blue.png" />
+      </Button>
+      <Button Command="{Binding PauseCommand}">
+        <Image Width="32" Height="32" Source="/ServiceProcess.Helpers;component/Images/control_pause_blue.png" />
+      </Button>
+      <Button Command="{Binding StopCommand}">
+        <Image Width="32" Height="32" Source="/ServiceProcess.Helpers;component/Images/control_stop_blue.png" />
+      </Button>
+    </ToolBar>
+    
+    <ListView ItemsSource="{Binding Services}" SelectedItem="{Binding SelectedService}" />
+  </DockPanel>
+</UserControl>
