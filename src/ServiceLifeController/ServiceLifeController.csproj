@@ -131,7 +131,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Components\Windows.Forms.HintTextBox\Windows.Forms.HintTextBox.csproj">
+      <Project>{cd5da55b-c69b-45c7-aefe-c9f4990cd873}</Project>
+      <Name>Windows.Forms.HintTextBox</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

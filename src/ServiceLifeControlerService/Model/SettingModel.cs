@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Models;
 
 namespace Model
@@ -11,8 +12,8 @@ namespace Model
         public string SenderMobileNo { get; set; }
         public string SenderEmailAddress { get; set; }
         public string SenderEmailPassword { get; set; }
-        public ServiceInfo[] CoveredServices { get; set; }
-        public Tuple<string, string> ReceiverMobilesNo { get; set; }
-        public Tuple<string, string> ReceiverEmails { get; set; }
+        public List<ServiceInfo> CoveredServices { get; set; } = new List<ServiceInfo>();
+        public List<string> ReceiverMobilesNo { get; set; } = new List<string>();
+        public List<string> ReceiverEmails { get; set; } = new List<string>();
     }
 }

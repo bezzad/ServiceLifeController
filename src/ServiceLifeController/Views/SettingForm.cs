@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Helper;
+using Model;
 using Models;
 using Newtonsoft.Json;
 
@@ -16,22 +17,20 @@ namespace ServiceLifeController.Views
 {
     public partial class SettingForm : BaseForm
     {
-        public List<ServiceInfo> SelectedServices;
+        public SettingModel SettingObject;
 
-        public SettingForm(List<ServiceInfo> selectedServices)
+        public SettingForm(SettingModel setting)
         {
             InitializeComponent();
 
-            SelectedServices = selectedServices;
+            SettingObject = setting;
         }
 
         private async void btnSaveSetting_Click(object sender, EventArgs e)
         {
-            var commonApplicationData = System.Environment.GetFolderPath(System.Environment.SpecialFolder.CommonApplicationData);
+            var path = FileManager.DefaultApplicationDataPath;
 
-            var path = Path.Combine(commonApplicationData, Properties.Settings.Default.SettingFileName);
-
-            var data = JsonConvert.SerializeObject(SelectedServices, Formatting.Indented);
+            var data = JsonConvert.SerializeObject(SettingObject, Formatting.Indented);
 
             await FileManager.WriteFileSafelyAsync(path, data);
         }

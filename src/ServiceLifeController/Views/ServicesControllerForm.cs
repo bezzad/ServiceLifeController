@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Helper;
+using Model;
 using Models;
 using Newtonsoft.Json;
 using ServiceLifeController.Core;
@@ -14,7 +15,7 @@ namespace ServiceLifeController.Views
 {
     public partial class ServicesControllerForm : BaseForm
     {
-        public static Dictionary<string, ServiceInfo> SelectedServicesInfo = new Dictionary<string, ServiceInfo>();
+        private SettingModel setting = new SettingModel();
 
         public ServicesControllerForm()
         {
@@ -33,12 +34,12 @@ namespace ServiceLifeController.Views
                 var src = (SortableBindingList<ServiceInfo>)dgvServices.DataSource;
                 if (selected)
                 {
-                    SelectedServicesInfo.Add(src[e.RowIndex].Name, src[e.RowIndex]);
+                    setting.CoveredServices.Add(src[e.RowIndex]);
                     lstSelectedServices.Items.Add(src[e.RowIndex].Name);
                 }
-                else if (SelectedServicesInfo.ContainsKey(src[e.RowIndex].Name))
+                else if (setting.CoveredServices.Exists(cs=>cs.Name == src[e.RowIndex].Name))
                 {
-                    SelectedServicesInfo.Remove(src[e.RowIndex].Name);
+                    setting.CoveredServices.Remove(src[e.RowIndex]);
                     lstSelectedServices.Items.Remove(src[e.RowIndex].Name);
                 }
             }
@@ -55,7 +56,47 @@ namespace ServiceLifeController.Views
         {
             base.OnLoaded(sender, e);
 
-            var services = Core.ServicesHelper.GetAllServices();
+            LoadGridByServicesInfo();
+
+            LoadSettingData();
+        }
+
+        private async void LoadSettingData()
+        {
+            try
+            {
+                var path = FileManager.DefaultApplicationDataPath;
+
+                var settingJson = await FileManager.ReadFileSafelyAsync(path);
+
+                if (setting == null) return;
+
+                setting = JsonConvert.DeserializeObject<SettingModel>(settingJson);
+
+                SetStoredSelectedServices();
+            }
+            catch (Exception exp)
+            {
+                MessageBox.Show(exp.Message);
+            }
+        }
+
+        private void SetStoredSelectedServices()
+        {
+            //lstSelectedServices.Items.AddRange(setting.CoveredServices.Select(cs=> cs.Name).ToArray());
+
+            foreach (DataGridViewRow row in dgvServices.Rows)
+            {
+                if (setting.CoveredServices.Exists(cs => cs.Name == row.Cells["Name"]?.Value.ToString()))
+                {
+                    row.Cells["Selected"].Value = true;
+                }
+            }
+        }
+
+        private void LoadGridByServicesInfo()
+        {
+            var services = ServicesHelper.GetAllServices();
             var servicesSource = new SortableBindingList<ServiceInfo>(services);
 
             dgvServices.DataSource = servicesSource;
@@ -83,7 +124,7 @@ namespace ServiceLifeController.Views
 
         private void btnSaveSetting_Click(object sender, EventArgs e)
         {
-            new SettingForm(SelectedServicesInfo.Values.ToList()).ShowDialog(this);
+            new SettingForm(setting).ShowDialog(this);
         }
 
         private void btnShowEventLogs_Click(object sender, EventArgs e)
