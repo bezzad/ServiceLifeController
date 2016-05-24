@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Helper;
+using System;
 using System.ServiceProcess;
 
 namespace ServiceLifeControllerService

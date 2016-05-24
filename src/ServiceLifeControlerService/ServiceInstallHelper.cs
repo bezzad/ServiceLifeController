@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Security.Principal;
 using System.ServiceProcess;
+using Helper;
 using ServiceProcess.Helpers;
 
 namespace ServiceLifeControllerService
@@ -232,7 +233,7 @@ namespace ServiceLifeControllerService
         /// Is application running as administrator?
         /// </summary>
         /// <returns>Yes or No?</returns>
-        public static Boolean IsAdmin()
+        public static bool IsAdmin()
         {
             WindowsIdentity identity = WindowsIdentity.GetCurrent();
 

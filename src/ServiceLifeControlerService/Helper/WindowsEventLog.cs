@@ -5,10 +5,8 @@ using System.Linq;
 using ServiceLifeControllerService.Model;
 using ServiceLifeControllerService.Properties;
 
-namespace ServiceLifeControllerService
+namespace Helper
 {
-
-
     public static class WindowsEventLog
     {
         public static string EventLogName { get; set; }

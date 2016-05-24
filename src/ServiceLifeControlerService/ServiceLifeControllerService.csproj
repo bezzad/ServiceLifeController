@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helper\RegistryHelper.cs" />
     <Compile Include="Model\ILog.cs" />
     <Compile Include="Model\Log.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -67,7 +68,7 @@
     <Compile Include="ServiceLifeControllerService.Designer.cs">
       <DependentUpon>ServiceLifeControllerService.cs</DependentUpon>
     </Compile>
-    <Compile Include="WindowsEventLog.cs" />
+    <Compile Include="Helper\WindowsEventLog.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
