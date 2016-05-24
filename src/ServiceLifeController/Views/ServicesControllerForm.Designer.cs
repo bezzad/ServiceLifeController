@@ -33,9 +33,10 @@
             this.gbAllServices = new System.Windows.Forms.GroupBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.gbTools = new System.Windows.Forms.GroupBox();
+            this.btnSaveSetting = new System.Windows.Forms.Button();
             this.lstSelectedServices = new System.Windows.Forms.ListBox();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            this.btnSaveSetting = new System.Windows.Forms.Button();
+            this.btnShowEventLogs = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServices)).BeginInit();
             this.gbAllServices.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -93,6 +94,7 @@
             // 
             // gbTools
             // 
+            this.gbTools.Controls.Add(this.btnShowEventLogs);
             this.gbTools.Controls.Add(this.btnSaveSetting);
             this.gbTools.Controls.Add(this.lstSelectedServices);
             this.gbTools.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -102,6 +104,17 @@
             this.gbTools.TabIndex = 2;
             this.gbTools.TabStop = false;
             this.gbTools.Text = "Tools";
+            // 
+            // btnSaveSetting
+            // 
+            this.btnSaveSetting.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSaveSetting.Location = new System.Drawing.Point(314, 643);
+            this.btnSaveSetting.Name = "btnSaveSetting";
+            this.btnSaveSetting.Size = new System.Drawing.Size(174, 66);
+            this.btnSaveSetting.TabIndex = 1;
+            this.btnSaveSetting.Text = "&Save Setting";
+            this.btnSaveSetting.UseVisualStyleBackColor = true;
+            this.btnSaveSetting.Click += new System.EventHandler(this.btnSaveSetting_Click);
             // 
             // lstSelectedServices
             // 
@@ -123,16 +136,16 @@
             this.splitter1.TabIndex = 0;
             this.splitter1.TabStop = false;
             // 
-            // btnSaveSetting
+            // btnShowEventLogs
             // 
-            this.btnSaveSetting.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSaveSetting.Location = new System.Drawing.Point(314, 643);
-            this.btnSaveSetting.Name = "btnSaveSetting";
-            this.btnSaveSetting.Size = new System.Drawing.Size(174, 66);
-            this.btnSaveSetting.TabIndex = 1;
-            this.btnSaveSetting.Text = "&Save Setting";
-            this.btnSaveSetting.UseVisualStyleBackColor = true;
-            this.btnSaveSetting.Click += new System.EventHandler(this.btnSaveSetting_Click);
+            this.btnShowEventLogs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnShowEventLogs.Location = new System.Drawing.Point(134, 643);
+            this.btnShowEventLogs.Name = "btnShowEventLogs";
+            this.btnShowEventLogs.Size = new System.Drawing.Size(174, 66);
+            this.btnShowEventLogs.TabIndex = 2;
+            this.btnShowEventLogs.Text = "Show &Event Logs";
+            this.btnShowEventLogs.UseVisualStyleBackColor = true;
+            this.btnShowEventLogs.Click += new System.EventHandler(this.btnShowEventLogs_Click);
             // 
             // ServicesControllerForm
             // 
@@ -162,6 +175,7 @@
         private System.Windows.Forms.GroupBox gbTools;
         private System.Windows.Forms.ListBox lstSelectedServices;
         private System.Windows.Forms.Button btnSaveSetting;
+        private System.Windows.Forms.Button btnShowEventLogs;
     }
 }
 

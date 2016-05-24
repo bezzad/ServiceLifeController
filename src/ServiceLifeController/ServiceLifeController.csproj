@@ -76,6 +76,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Core\ServicesHelper.cs" />
+    <Compile Include="Views\ServiceLogViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ServiceLogViewer.Designer.cs">
+      <DependentUpon>ServiceLogViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ServicesControllerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\ServiceLogViewer.resx">
+      <DependentUpon>ServiceLogViewer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\ServicesControllerForm.resx">
       <DependentUpon>ServicesControllerForm.cs</DependentUpon>
     </EmbeddedResource>

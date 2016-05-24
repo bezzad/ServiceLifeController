@@ -91,7 +91,9 @@ namespace ServiceLifeController.Views
             await FileManager.WriteFileSafelyAsync(path, data);
         }
 
-
-        
+        private void btnShowEventLogs_Click(object sender, EventArgs e)
+        {
+            new ServiceLogViewer().Show(this);
+        }
     }
 }

@@ -153,7 +153,7 @@ namespace Helper
         }
 
 
-        public static IEnumerable<ILog> GetEntryCollection()
+        public static IEnumerable<Log> GetEntryCollection()
         {
             var log = new EventLog(EventLogName, Environment.MachineName, EventLogSourceName);
 
@@ -172,9 +172,9 @@ namespace Helper
 
             return logs;
         }
-        public static IEnumerable<ILog> GetEntryCollection(bool showErrors, bool showWarnings, bool showInformations, bool showSuccessAudits, bool showFailureAudits)
+        public static IEnumerable<Log> GetEntryCollection(bool showErrors, bool showWarnings, bool showInformations, bool showSuccessAudits, bool showFailureAudits)
         {
-            IEnumerable<ILog> logs = GetEntryCollection();
+            IEnumerable<Log> logs = GetEntryCollection();
 
             if (!showErrors)
                 logs = logs.Where(x => x.EntryType != EventLogEntryType.Error).ToList();
@@ -193,7 +193,7 @@ namespace Helper
 
             return logs;
         }
-        public static IEnumerable<ILog> GetEntryCollection(DateTime from, DateTime to)
+        public static IEnumerable<Log> GetEntryCollection(DateTime from, DateTime to)
         {
             var logs = GetEntryCollection();
 
@@ -201,7 +201,7 @@ namespace Helper
 
             return filteredLogs;
         }
-        public static IEnumerable<ILog> GetEntryCollection(DateTime from, DateTime to, bool showErrors, bool showWarnings, bool showInformations, bool showSuccessAudits, bool showFailureAudits)
+        public static IEnumerable<Log> GetEntryCollection(DateTime from, DateTime to, bool showErrors, bool showWarnings, bool showInformations, bool showSuccessAudits, bool showFailureAudits)
         {
             var logs = GetEntryCollection(from, to);
 
