@@ -1,6 +1,6 @@
 ﻿namespace ServiceLifeController.Views
 {
-    partial class ServiceLogViewer
+    partial class ServiceLogViewerForm
     {
         /// <summary>
         /// Required designer variable.

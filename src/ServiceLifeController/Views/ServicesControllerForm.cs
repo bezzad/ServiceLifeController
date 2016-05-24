@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -68,7 +69,7 @@ namespace ServiceLifeController.Views
             };
 
 
-            dgvServices.Columns.Add(colSelected);
+            dgvServices.Columns.Insert(0, colSelected);
         }
 
         private void SetGridColumnsToReadOnly(DataGridView dgv)
@@ -80,20 +81,14 @@ namespace ServiceLifeController.Views
             }
         }
 
-        private async void btnSaveSetting_Click(object sender, EventArgs e)
+        private void btnSaveSetting_Click(object sender, EventArgs e)
         {
-            var commonApplicationData = System.Environment.GetFolderPath(System.Environment.SpecialFolder.CommonApplicationData);
-
-            var path = Path.Combine(commonApplicationData, Properties.Settings.Default.SettingFileName);
-
-            var data = JsonConvert.SerializeObject(SelectedServicesInfo, Formatting.Indented);
-            
-            await FileManager.WriteFileSafelyAsync(path, data);
+            new SettingForm(SelectedServicesInfo.Values.ToList()).ShowDialog(this);
         }
 
         private void btnShowEventLogs_Click(object sender, EventArgs e)
         {
-            new ServiceLogViewer().Show(this);
+            new ServiceLogViewerForm().Show(this);
         }
     }
 }

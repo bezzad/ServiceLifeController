@@ -55,6 +55,7 @@
     <Compile Include="Model\ILog.cs" />
     <Compile Include="Model\Log.cs" />
     <Compile Include="Model\ServiceInfo.cs" />
+    <Compile Include="Model\SettingModel.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>

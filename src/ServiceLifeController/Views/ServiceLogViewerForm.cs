@@ -12,9 +12,9 @@ using ServiceLifeController.Core;
 
 namespace ServiceLifeController.Views
 {
-    public partial class ServiceLogViewer : BaseForm
+    public partial class ServiceLogViewerForm : BaseForm
     {
-        public ServiceLogViewer()
+        public ServiceLogViewerForm()
         {
             InitializeComponent();
 
