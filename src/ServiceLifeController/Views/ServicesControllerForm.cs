@@ -1,8 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using Helper;
+using Models;
+using Newtonsoft.Json;
 using ServiceLifeController.Core;
-using ServiceLifeController.Models;
 
 namespace ServiceLifeController.Views
 {
@@ -75,5 +80,18 @@ namespace ServiceLifeController.Views
             }
         }
 
+        private async void btnSaveSetting_Click(object sender, EventArgs e)
+        {
+            var commonApplicationData = System.Environment.GetFolderPath(System.Environment.SpecialFolder.CommonApplicationData);
+
+            var path = Path.Combine(commonApplicationData, Properties.Settings.Default.SettingFileName);
+
+            var data = JsonConvert.SerializeObject(SelectedServicesInfo, Formatting.Indented);
+            
+            await FileManager.WriteFileSafelyAsync(path, data);
+        }
+
+
+        
     }
 }

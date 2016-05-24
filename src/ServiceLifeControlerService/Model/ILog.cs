@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace ServiceLifeControllerService.Model
+namespace Model
 {
     public interface ILog
     {

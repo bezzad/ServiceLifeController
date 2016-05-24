@@ -10,6 +10,8 @@ namespace ServiceLifeControllerService
         /// </summary>
         static void Main(string[] args)
         {
+            WindowsEventLog.EventLogName = Properties.Settings.Default.EventLogName;
+            WindowsEventLog.EventLogSourceName = Properties.Settings.Default.EventLogSource;
             WindowsEventLog.CreateEventLog();
 
             var servicesToRun = new ServiceBase[] 

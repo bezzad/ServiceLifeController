@@ -32,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
@@ -56,9 +60,18 @@
     <Compile Include="..\ServiceLifeControlerService\Helper\WindowsEventLog.cs">
       <Link>Helper\WindowsEventLog.cs</Link>
     </Compile>
+    <Compile Include="..\ServiceLifeControlerService\Model\ILog.cs">
+      <Link>Models\ILog.cs</Link>
+    </Compile>
+    <Compile Include="..\ServiceLifeControlerService\Model\Log.cs">
+      <Link>Models\Log.cs</Link>
+    </Compile>
+    <Compile Include="..\ServiceLifeControlerService\Model\ServiceInfo.cs">
+      <Link>Models\ServiceInfo.cs</Link>
+    </Compile>
+    <Compile Include="Helper\FileManager.cs" />
     <Compile Include="Core\PropertyComparer.cs" />
     <Compile Include="Core\SortableBindingList.cs" />
-    <Compile Include="Models\ServiceInfo.cs" />
     <Compile Include="Views\BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +96,7 @@
     <EmbeddedResource Include="Views\ServicesControllerForm.resx">
       <DependentUpon>ServicesControllerForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

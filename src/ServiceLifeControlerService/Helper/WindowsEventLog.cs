@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using ServiceLifeControllerService.Model;
-using ServiceLifeControllerService.Properties;
+using Model;
 
 namespace Helper
 {
@@ -11,12 +10,6 @@ namespace Helper
     {
         public static string EventLogName { get; set; }
         public static string EventLogSourceName { get; set; }
-
-        static WindowsEventLog()
-        {
-            EventLogName = Settings.Default.EventLogName;
-            EventLogSourceName = Settings.Default.EventLogSource;
-        }
 
         #region Methods
 

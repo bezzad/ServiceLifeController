@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ServiceProcess;
 
-namespace ServiceLifeController.Models
+namespace Models
 {
     public class ServiceInfo
     {

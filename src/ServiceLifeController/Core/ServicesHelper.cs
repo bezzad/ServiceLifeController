@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Management;
 using System.ServiceProcess;
-using ServiceLifeController.Models;
+using Models;
 
 namespace ServiceLifeController.Core
 {

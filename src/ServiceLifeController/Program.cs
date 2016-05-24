@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Helper;
 using ServiceLifeController.Views;
 
 namespace ServiceLifeController
@@ -15,6 +13,9 @@ namespace ServiceLifeController
         [STAThread]
         static void Main()
         {
+            WindowsEventLog.EventLogName = Properties.Settings.Default.EventLogName;
+            WindowsEventLog.EventLogSourceName = Properties.Settings.Default.EventLogSource;
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new ServicesControllerForm());

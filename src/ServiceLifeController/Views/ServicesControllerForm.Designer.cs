@@ -32,9 +32,10 @@
             this.dgvServices = new System.Windows.Forms.DataGridView();
             this.gbAllServices = new System.Windows.Forms.GroupBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.splitter1 = new System.Windows.Forms.Splitter();
             this.gbTools = new System.Windows.Forms.GroupBox();
             this.lstSelectedServices = new System.Windows.Forms.ListBox();
+            this.splitter1 = new System.Windows.Forms.Splitter();
+            this.btnSaveSetting = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServices)).BeginInit();
             this.gbAllServices.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -90,17 +91,9 @@
             this.splitContainer1.SplitterWidth = 10;
             this.splitContainer1.TabIndex = 2;
             // 
-            // splitter1
-            // 
-            this.splitter1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.splitter1.Location = new System.Drawing.Point(0, 0);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 721);
-            this.splitter1.TabIndex = 0;
-            this.splitter1.TabStop = false;
-            // 
             // gbTools
             // 
+            this.gbTools.Controls.Add(this.btnSaveSetting);
             this.gbTools.Controls.Add(this.lstSelectedServices);
             this.gbTools.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbTools.Location = new System.Drawing.Point(3, 0);
@@ -120,6 +113,26 @@
             this.lstSelectedServices.Name = "lstSelectedServices";
             this.lstSelectedServices.Size = new System.Drawing.Size(488, 164);
             this.lstSelectedServices.TabIndex = 0;
+            // 
+            // splitter1
+            // 
+            this.splitter1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.splitter1.Location = new System.Drawing.Point(0, 0);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(3, 721);
+            this.splitter1.TabIndex = 0;
+            this.splitter1.TabStop = false;
+            // 
+            // btnSaveSetting
+            // 
+            this.btnSaveSetting.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSaveSetting.Location = new System.Drawing.Point(314, 643);
+            this.btnSaveSetting.Name = "btnSaveSetting";
+            this.btnSaveSetting.Size = new System.Drawing.Size(174, 66);
+            this.btnSaveSetting.TabIndex = 1;
+            this.btnSaveSetting.Text = "&Save Setting";
+            this.btnSaveSetting.UseVisualStyleBackColor = true;
+            this.btnSaveSetting.Click += new System.EventHandler(this.btnSaveSetting_Click);
             // 
             // ServicesControllerForm
             // 
@@ -148,7 +161,7 @@
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.GroupBox gbTools;
         private System.Windows.Forms.ListBox lstSelectedServices;
-
+        private System.Windows.Forms.Button btnSaveSetting;
     }
 }
 
