@@ -1,2 +1,0 @@
-sc delete "SignalRService"
-pause

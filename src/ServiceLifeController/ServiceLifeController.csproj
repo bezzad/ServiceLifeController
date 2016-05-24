@@ -56,9 +56,6 @@
     <Compile Include="Views\BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\BaseForm.Designer.cs">
-      <DependentUpon>BaseForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Core\ServicesHelper.cs" />
     <Compile Include="Views\ServicesControllerForm.cs">
       <SubType>Form</SubType>

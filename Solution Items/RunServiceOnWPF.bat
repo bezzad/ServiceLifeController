@@ -1,5 +1,5 @@
 cd /d %~dp0
 
-"..\Out\SignalR\Core.Server\SignalRServer.exe" /d
+"..\output\ServiceLifeControllerService\ServiceLifeControllerService.exe" /d
 
 pause

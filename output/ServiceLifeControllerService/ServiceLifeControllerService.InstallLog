@@ -1,0 +1,8 @@
+﻿Uninstalling assembly 'D:\Behzad\ServiceLifeController\output\ServiceLifeControllerService\ServiceLifeControllerService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\Behzad\ServiceLifeController\output\ServiceLifeControllerService\ServiceLifeControllerService.InstallLog
+   assemblypath = D:\Behzad\ServiceLifeController\output\ServiceLifeControllerService\ServiceLifeControllerService.exe
+Removing EventLog source SLCService.
+Service SLCService is being removed from the system...
+Service SLCService was successfully removed from the system.

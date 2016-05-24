@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceLifeController", "ServiceLifeController\ServiceLifeController.csproj", "{8D484152-AE38-4327-BD1C-E64B9506F79B}"
 EndProject
@@ -10,10 +10,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{23288852-49B1-4D7D-B582-25881073AA1C}"
 	ProjectSection(SolutionItems) = preProject
 		..\Solution Items\Auto Run Service.bat = ..\Solution Items\Auto Run Service.bat
-		..\Solution Items\DeleteSignalRService.bat = ..\Solution Items\DeleteSignalRService.bat
-		..\Solution Items\InstallSignalRService.bat = ..\Solution Items\InstallSignalRService.bat
+		..\Solution Items\DeleteSLCService.bat = ..\Solution Items\DeleteSLCService.bat
+		..\Solution Items\InstallSLCService.bat = ..\Solution Items\InstallSLCService.bat
 		..\Solution Items\RunServiceOnWPF.bat = ..\Solution Items\RunServiceOnWPF.bat
-		..\Solution Items\UninstallSignalRService.bat = ..\Solution Items\UninstallSignalRService.bat
+		..\Solution Items\UninstallSLCService.bat = ..\Solution Items\UninstallSLCService.bat
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceLifeControllerService", "ServiceLifeControlerService\ServiceLifeControllerService.csproj", "{10961EA4-B3B6-455C-8347-88990A4A8FEE}"

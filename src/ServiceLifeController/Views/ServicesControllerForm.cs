@@ -45,9 +45,9 @@ namespace ServiceLifeController.Views
 
 
 
-        protected override void LoadCompleted(object sender, EventArgs e)
+        protected override void OnLoaded(object sender, EventArgs e)
         {
-            base.LoadCompleted(sender, e);
+            base.OnLoaded(sender, e);
 
             var services = Core.ServicesHelper.GetAllServices();
             var servicesSource = new SortableBindingList<ServiceInfo>(services);
