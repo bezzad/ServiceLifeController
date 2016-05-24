@@ -60,11 +60,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceInstallHelper.cs" />
-    <Compile Include="SLCService.cs">
+    <Compile Include="ServiceLifeController.cs" />
+    <Compile Include="ServiceLifeControllerService.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="SLCService.Designer.cs">
-      <DependentUpon>SLCService.cs</DependentUpon>
+    <Compile Include="ServiceLifeControllerService.Designer.cs">
+      <DependentUpon>ServiceLifeControllerService.cs</DependentUpon>
     </Compile>
     <Compile Include="WindowsEventLog.cs" />
   </ItemGroup>

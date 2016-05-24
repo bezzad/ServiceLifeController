@@ -21,7 +21,7 @@ namespace ServiceLifeControllerService
             // 
             // serviceInstaller
             // 
-            this.serviceInstaller.ServiceName = typeof(SLCService).Name;
+            this.serviceInstaller.ServiceName = typeof(ServiceLifeControllerService).Name;
             this.serviceInstaller.StartType = System.ServiceProcess.ServiceStartMode.Automatic;
             // 
             // ProjectInstaller

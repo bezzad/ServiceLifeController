@@ -1,6 +1,6 @@
 ﻿namespace ServiceLifeControllerService
 {
-    partial class SLCService
+    partial class ServiceLifeControllerService
     {
         /// <summary> 
         /// Required designer variable.
