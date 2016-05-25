@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace Model
+namespace Models
 {
     public class Log : ILog
     {

@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using Models;
+﻿using System.Collections.Generic;
 
-namespace Model
+namespace Models
 {
     public class SettingModel
     {

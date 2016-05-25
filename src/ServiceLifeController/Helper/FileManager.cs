@@ -23,13 +23,13 @@ namespace Helper
                     Directory.CreateDirectory(pathDir);
 
                 //Open the File
-                using (StreamWriter sw = new StreamWriter(path, false, Encoding.UTF8))
-                {
-                    await sw.WriteAsync(data);
+    using (StreamWriter sw = new StreamWriter(path, false, Encoding.UTF8))
+    {
+        await sw.WriteAsync(data);
 
-                    //close the file
-                    sw.Close();
-                }
+        //close the file
+        sw.Close();
+    }
 
                 return true;
             }
@@ -42,22 +42,13 @@ namespace Helper
         }
 
 
-        public static async Task<string> ReadFileSafelyAsync(string path)
+        public static string ReadFileSafely(string path)
         {
             try
             {
                 if (!File.Exists(path)) return null;
 
-                //Open the File
-                byte[] result;
-
-                using (FileStream fs = File.Open(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
-                {
-                    result = new byte[fs.Length];
-                    await fs.ReadAsync(result, 0, (int)fs.Length);
-                }
-
-                return Encoding.UTF8.GetString(result);
+                return File.ReadAllText(path, Encoding.UTF8);
             }
             catch (Exception e)
             {

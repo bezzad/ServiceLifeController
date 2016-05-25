@@ -106,7 +106,6 @@
             this.txtSenderEmailPassword.EnterToTab = false;
             this.txtSenderEmailPassword.ForeColor = System.Drawing.Color.Gray;
             this.txtSenderEmailPassword.HintValue = "1234";
-            this.txtSenderEmailPassword.IsNumerical = true;
             this.txtSenderEmailPassword.Location = new System.Drawing.Point(96, 95);
             this.txtSenderEmailPassword.Name = "txtSenderEmailPassword";
             this.txtSenderEmailPassword.Size = new System.Drawing.Size(266, 22);
@@ -152,13 +151,13 @@
             // 
             this.txtNotifyMessageContent.EnterToTab = false;
             this.txtNotifyMessageContent.ForeColor = System.Drawing.Color.Gray;
-            this.txtNotifyMessageContent.HintValue = "\r\n\r\nNotify Message Content";
+            this.txtNotifyMessageContent.HintValue = "\r\n\r\n\r\n\r\n\r\nNotify Message Content\r\n";
             this.txtNotifyMessageContent.Location = new System.Drawing.Point(16, 207);
             this.txtNotifyMessageContent.Multiline = true;
             this.txtNotifyMessageContent.Name = "txtNotifyMessageContent";
             this.txtNotifyMessageContent.Size = new System.Drawing.Size(346, 186);
             this.txtNotifyMessageContent.TabIndex = 5;
-            this.txtNotifyMessageContent.Text = "\r\n\r\nNotify Message Content";
+            this.txtNotifyMessageContent.Text = "\r\n\r\n\r\n\r\n\r\nNotify Message Content\r\n";
             this.txtNotifyMessageContent.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtNotifyMessageContent.TextForeColor = System.Drawing.Color.Black;
             this.toolTip.SetToolTip(this.txtNotifyMessageContent, "Notify Message Content");
@@ -182,7 +181,10 @@
             // 
             // toolTip
             // 
-            this.toolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.toolTip.AutomaticDelay = 50;
+            this.toolTip.AutoPopDelay = 5000;
+            this.toolTip.InitialDelay = 50;
+            this.toolTip.ReshowDelay = 10;
             // 
             // txtReceiverMobiles
             // 

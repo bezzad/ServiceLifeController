@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Helper;
-using Model;
 using Models;
 using Newtonsoft.Json;
 using ServiceLifeController.Core;
@@ -15,32 +10,26 @@ namespace ServiceLifeController.Views
 {
     public partial class ServicesControllerForm : BaseForm
     {
-        private SettingModel setting = new SettingModel();
+        private SettingModel _setting = new SettingModel();
 
         public ServicesControllerForm()
         {
             InitializeComponent();
-
-            dgvServices.CellContentClick += dgvServices_CellContentClick;
-            dgvServices.CellValueChanged += dgvServices_CellValueChanged;
         }
 
         void dgvServices_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvServices.Columns[e.ColumnIndex].Name == "Selected")
-            {
-                bool selected = ((bool?)dgvServices[e.ColumnIndex, e.RowIndex].Value == true);
+            var src = (SortableBindingList<ServiceInfo>)dgvServices.DataSource;
 
-                var src = (SortableBindingList<ServiceInfo>)dgvServices.DataSource;
-                if (selected)
+            _setting.CoveredServices.Clear();
+            lstSelectedServices.Items.Clear();
+
+            foreach (DataGridViewRow row in dgvServices.Rows)
+            {
+                if ((bool?)row.Cells["Selected"].Value == true)
                 {
-                    setting.CoveredServices.Add(src[e.RowIndex]);
-                    lstSelectedServices.Items.Add(src[e.RowIndex].Name);
-                }
-                else if (setting.CoveredServices.Exists(cs=>cs.Name == src[e.RowIndex].Name))
-                {
-                    setting.CoveredServices.Remove(src[e.RowIndex]);
-                    lstSelectedServices.Items.Remove(src[e.RowIndex].Name);
+                    _setting.CoveredServices.Add(src[row.Index]);
+                    lstSelectedServices.Items.Add(src[row.Index].Name);
                 }
             }
         }
@@ -59,19 +48,23 @@ namespace ServiceLifeController.Views
             LoadGridByServicesInfo();
 
             LoadSettingData();
+
+            dgvServices.CellContentClick += dgvServices_CellContentClick;
+            dgvServices.CellValueChanged += dgvServices_CellValueChanged;
         }
 
-        private async void LoadSettingData()
+        private void LoadSettingData()
         {
             try
             {
                 var path = FileManager.DefaultApplicationDataPath;
 
-                var settingJson = await FileManager.ReadFileSafelyAsync(path);
+                var settingJson = FileManager.ReadFileSafely(path);
 
-                if (setting == null) return;
+                if (settingJson == null) return;
 
-                setting = JsonConvert.DeserializeObject<SettingModel>(settingJson);
+                _setting = JsonConvert.DeserializeObject<SettingModel>(settingJson);
+
 
                 SetStoredSelectedServices();
             }
@@ -87,11 +80,13 @@ namespace ServiceLifeController.Views
 
             foreach (DataGridViewRow row in dgvServices.Rows)
             {
-                if (setting.CoveredServices.Exists(cs => cs.Name == row.Cells["Name"]?.Value.ToString()))
+                if (_setting.CoveredServices.Exists(cs => cs.Name == row.Cells["Name"]?.Value.ToString()))
                 {
                     row.Cells["Selected"].Value = true;
                 }
             }
+
+            lstSelectedServices.Items.AddRange(_setting.CoveredServices.Select(cs => cs.Name).ToArray());
         }
 
         private void LoadGridByServicesInfo()
@@ -124,7 +119,7 @@ namespace ServiceLifeController.Views
 
         private void btnSaveSetting_Click(object sender, EventArgs e)
         {
-            new SettingForm(setting).ShowDialog(this);
+            new SettingForm(_setting).ShowDialog(this);
         }
 
         private void btnShowEventLogs_Click(object sender, EventArgs e)
