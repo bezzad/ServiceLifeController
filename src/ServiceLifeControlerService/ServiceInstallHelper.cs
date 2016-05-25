@@ -58,7 +58,7 @@ namespace ServiceLifeControllerService
                             break;
 
                         default:
-                            WindowsEventLog.WriteErrorLog(string.Format(@"\n'{0}' arguments is not defined.", arg));
+                            WindowsEventLog.WriteErrorLog($@"\n'{arg}' arguments is not defined.");
                             break;
                     }
                 }
@@ -67,16 +67,16 @@ namespace ServiceLifeControllerService
             {
                 if (Environment.UserInteractive) // Install Service
                 {
-                    WindowsEventLog.WriteInfoLog(string.Format(@"Service executed in UserInteractive mode"));
+                    WindowsEventLog.WriteInfoLog(@"Service executed in UserInteractive mode");
 
                     if (!IsAdmin())
                     {
-                        WindowsEventLog.WriteInfoLog(string.Format(@"Service go to executed in Run As Admin"));
+                        WindowsEventLog.WriteInfoLog(@"Service go to executed in Run As Admin");
                         RestartElevated(ExePath, args);
                         System.Environment.Exit(1);
                     }
 
-                    WindowsEventLog.WriteInfoLog(string.Format(@"Service in Run As Admin mode"));
+                    WindowsEventLog.WriteInfoLog(@"Service in Run As Admin mode");
 
                     SafeInstallService(serviceName);
 
@@ -94,8 +94,8 @@ namespace ServiceLifeControllerService
         {
             try
             {
-                WindowsEventLog.WriteInfoLog(string.Format(@"Installing Service"));
-                ManagedInstallerClass.InstallHelper(new string[] { ExePath });
+                WindowsEventLog.WriteInfoLog(@"Installing Service");
+                ManagedInstallerClass.InstallHelper(new[] { ExePath });
             }
             catch
             {
@@ -108,8 +108,8 @@ namespace ServiceLifeControllerService
         {
             try
             {
-                WindowsEventLog.WriteInfoLog(string.Format(@"Uninstalling Service"));
-                ManagedInstallerClass.InstallHelper(new string[] { "/u", ExePath });
+                WindowsEventLog.WriteInfoLog(@"Uninstalling Service");
+                ManagedInstallerClass.InstallHelper(new[] { "/u", ExePath });
             }
             catch
             {
@@ -162,7 +162,7 @@ namespace ServiceLifeControllerService
             {
                 try
                 {
-                    WindowsEventLog.WriteInfoLog(string.Format(@"Trying to Start the Service..."));
+                    WindowsEventLog.WriteInfoLog(@"Trying to Start the Service...");
 
                     if (controller.Status != ServiceControllerStatus.Running)
                     {
@@ -172,7 +172,7 @@ namespace ServiceLifeControllerService
                 }
                 catch (Exception ex)
                 {
-                    WindowsEventLog.WriteErrorLog(string.Format(@"\nError in starting service method \n{0}", ex.Message));
+                    WindowsEventLog.WriteErrorLog($@"\nError in starting service method \n{ex.Message}");
                 }
             }
         }
@@ -184,7 +184,7 @@ namespace ServiceLifeControllerService
             {
                 try
                 {
-                    WindowsEventLog.WriteInfoLog(string.Format(@"Trying to Stop the Service..."));
+                    WindowsEventLog.WriteInfoLog(@"Trying to Stop the Service...");
 
                     if (controller.Status != ServiceControllerStatus.Stopped)
                     {
@@ -195,7 +195,7 @@ namespace ServiceLifeControllerService
                 }
                 catch (Exception ex)
                 {
-                    WindowsEventLog.WriteErrorLog(string.Format(@"\nError in stopping service method \n{0}", ex.Message));
+                    WindowsEventLog.WriteErrorLog($@"\nError in stopping service method \n{ex.Message}");
                 }
             }
         }
@@ -205,7 +205,7 @@ namespace ServiceLifeControllerService
             if (!IsAdmin())
             {
                 RestartElevated(ExePath, args);
-                System.Environment.Exit(1);
+                Environment.Exit(1);
             }
 
             SafeUninstallService(serviceName, args);
@@ -216,17 +216,16 @@ namespace ServiceLifeControllerService
 
         public static void SafeUninstallService(string serviceName, string[] args)
         {
-            if (IsInstalled(serviceName)) // If service already installed then must uninstall them
-            {
-                if (!IsAdmin())
-                {
-                    RestartElevated(ExePath, args);
-                    System.Environment.Exit(1);
-                }
+            if (!IsInstalled(serviceName)) return;
 
-                if (IsRunning(serviceName)) StopService(serviceName);
-                UninstallService();
+            if (!IsAdmin())
+            {
+                RestartElevated(ExePath, args);
+                Environment.Exit(1);
             }
+
+            if (IsRunning(serviceName)) StopService(serviceName);
+            UninstallService();
         }
 
         /// <summary>
@@ -245,17 +244,19 @@ namespace ServiceLifeControllerService
 
         public static void RestartElevated(string fileName, params string[] args)
         {
-            String[] argumentsArray = Environment.GetCommandLineArgs();
-            String argumentsLine = String.Empty;
+            string[] argumentsArray = Environment.GetCommandLineArgs();
+            var argumentsLine = string.Empty;
 
-            for (Int32 i = 1; i < argumentsArray.Length; ++i)
+            for (int i = 1; i < argumentsArray.Length; ++i)
                 argumentsLine += "\"" + argumentsArray[i] + "\" ";
 
-            ProcessStartInfo info = new ProcessStartInfo();
-            info.Arguments = argumentsLine.TrimEnd();
-            info.FileName = fileName;
-            info.UseShellExecute = true;
-            info.Verb = "runas";
+            ProcessStartInfo info = new ProcessStartInfo
+            {
+                Arguments = argumentsLine.TrimEnd(),
+                FileName = fileName,
+                UseShellExecute = true,
+                Verb = "runas"
+            };
             info.Arguments = string.Join(" ", args);
             info.WorkingDirectory = Path.GetDirectoryName(fileName);
 

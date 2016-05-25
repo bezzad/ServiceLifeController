@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using SharedControllerHelper.Models;
 
 namespace Models
 {
@@ -13,5 +14,6 @@ namespace Models
         public List<ServiceInfo> CoveredServices { get; set; } = new List<ServiceInfo>();
         public List<string> ReceiverMobilesNo { get; set; } = new List<string>();
         public List<string> ReceiverEmails { get; set; } = new List<string>();
+        public ServiceControllerStatusChanging NotifyJustStatusChangingTo { get; set; } = ServiceControllerStatusChanging.AllChangingStatus;
     }
 }

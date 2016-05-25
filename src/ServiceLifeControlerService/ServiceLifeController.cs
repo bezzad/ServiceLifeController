@@ -1,44 +1,61 @@
 ﻿using System;
+using System.Linq;
+using System.ServiceProcess;
 using System.Timers;
 using Models;
 using Newtonsoft.Json;
 using SharedControllerHelper;
+using SharedControllerHelper.Models;
 
 namespace ServiceLifeControllerService
 {
     public static class ServiceLifeController
     {
         private static readonly Timer CycleTimer = new Timer();
-        private static SettingModel _setting = new SettingModel();
+        public static object SyncObj { get; } = new object();
+
+        public static SettingModel OldSetting { get; private set; } = new SettingModel();
+        public static SettingModel NewSetting { get; private set; } = new SettingModel();
+
 
         public delegate void ServiceStatusChangedEventHandler(ServiceNotifyEventArgs e);
-        public static event ServiceStatusChangedEventHandler ServiceStatusChanged;
+
+        public static event ServiceStatusChangedEventHandler ServiceStatusChanged = delegate { };
         public static void OnServiceStatusChanged(ServiceNotifyEventArgs e)
         {
             ServiceStatusChanged?.Invoke(e);
+            WindowsEventLog.WriteWarningLog($"The {e.Service.Name} service is {e.NewStatus}!");
         }
-
 
 
         public static void StartLifeCycleController()
         {
-            WindowsEventLog.WriteInfoLog($"Services Life Cycle Controller Begin.");
+            try
+            {
+                WindowsEventLog.WriteInfoLog($"Services Life Cycle Controller Begin.");
 
-            LoadSettingData();
+                LoadSettingData();
 
-            ExertSetting();
-            
-            CycleTimer.Elapsed += _cycleTimer_Elapsed;
+                ExertSetting();
 
-            WindowsEventLog.WriteInfoLog($"Services Life Cycle Controller Started.");
+                CycleTimer.Elapsed += cycleTimer_Elapsed;
+
+                CycleTimer.Start();
+
+                WindowsEventLog.WriteInfoLog($"Services Life Cycle Controller Started.");
+            }
+            catch (Exception exp)
+            {
+                WindowsEventLog.WriteErrorLog($"Exception in ServiceLifeController start: {exp.Message}");
+            }
         }
 
-        private static void _cycleTimer_Elapsed(object sender, ElapsedEventArgs e)
+        private static void cycleTimer_Elapsed(object sender, ElapsedEventArgs e)
         {
             LoadSettingData();
             ExertSetting();
 
-            ControllCoveredServices();
+            NotifyStoppedCoveredServices();
         }
 
         public static void WillBeTurnOff()
@@ -58,7 +75,8 @@ namespace ServiceLifeControllerService
 
                 if (settingJson == null) return;
 
-                _setting = JsonConvert.DeserializeObject<SettingModel>(settingJson);
+                // exchange new by old setting
+                NewSetting = JsonConvert.DeserializeObject<SettingModel>(settingJson);
             }
             catch (Exception exp)
             {
@@ -68,13 +86,58 @@ namespace ServiceLifeControllerService
 
         private static void ExertSetting()
         {
-            CycleTimer.Interval = _setting.TimerIntervalMilliseconds;
+            CycleTimer.Interval = NewSetting.TimerIntervalMilliseconds;
             CycleTimer.AutoReset = true;
         }
 
-        public static void ControllCoveredServices()
+        public static void NotifyStoppedCoveredServices()
         {
-            
+            lock (SyncObj)
+            {
+                var allServices = ServicesHelper.GetAllServices(); // all services
+                try
+                {
+                    foreach (ServiceInfo service in NewSetting.CoveredServices)
+                    {
+                        // find any new state of covered services
+                        var serviceNewStatus =
+                            allServices.FirstOrDefault(x => x.Name.Equals(service.Name, StringComparison.CurrentCultureIgnoreCase))?.Status;
+
+                        // find any old state of covered services
+                        var serviceOldStatus =
+                            OldSetting.CoveredServices.FirstOrDefault(s => s.Name.Equals(service.Name, StringComparison.CurrentCultureIgnoreCase))?.Status;
+
+                        // set new state to new setting service
+                        service.Status = serviceNewStatus ?? ServiceControllerStatus.Stopped;
+
+                        // the service stopped just now!!!
+                        //if (serviceOldStatus == null || (serviceNewStatus != ServiceControllerStatus.Running && serviceOldStatus == ServiceControllerStatus.Running)) // identify just stopped status
+
+                        ServiceControllerStatusChanging newStatus;//= Enum.Parse(typeof(ServiceControllerStatusChanging), serviceNewStatus.ToString(), true);
+                        Enum.TryParse(serviceNewStatus.ToString(), true, out newStatus);
+
+                        // if status changed and identify status changing...
+                        if (serviceNewStatus != serviceOldStatus)
+                        {
+                            if (NewSetting.NotifyJustStatusChangingTo.HasFlag(newStatus))
+                            {
+                                OnServiceStatusChanged(new ServiceNotifyEventArgs(service, ServiceControllerStatus.Stopped));
+                            }
+                        }
+                    }
+                }
+                catch (Exception exp)
+                {
+                    WindowsEventLog.WriteErrorLog($"Exception in ServiceLifeControllerService: {exp.Message}");
+                }
+                finally
+                {
+                    if (allServices != null)
+                        GC.SuppressFinalize(allServices);
+
+                    OldSetting = NewSetting;
+                }
+            }
         }
     }
 }

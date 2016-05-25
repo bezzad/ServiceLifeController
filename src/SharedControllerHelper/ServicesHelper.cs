@@ -18,7 +18,7 @@ namespace SharedControllerHelper
             return services.Any(service => string.Equals(service.ServiceName, serviceName, StringComparison.CurrentCultureIgnoreCase));
         }
 
-        public static IList<ServiceInfo> GetRuningServices()
+        public static IList<ServiceInfo> GetRunningServices()
         {
             var scServices = ServiceController.GetServices();
             var result = scServices.GetServicesInfo(ServiceControllerStatus.Running);

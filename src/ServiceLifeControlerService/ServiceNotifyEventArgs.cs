@@ -17,7 +17,6 @@ namespace ServiceLifeControllerService
             Service = service;
             NewStatus = newStatus;
             OldStatus = Service.Status;
-            Service.Status = newStatus;
         }
     }
 
