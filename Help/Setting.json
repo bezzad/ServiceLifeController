@@ -1,0 +1,45 @@
+﻿{
+  "TimerIntervalMilliseconds": 60000.0,
+  "NotifyMessageTitle": "test",
+  "NotifyMessageContent": "test content",
+  "SenderMobileNo": "+989149149202",
+  "SenderEmailAddress": "behzad.khosravifar@gmail.com",
+  "SenderEmailPassword": "e1oq0k4rFeuLli/yjYG8Eg==",
+  "CoveredServices": [
+    {
+      "Name": "Application Layer Gateway Service",
+      "ServiceName": "ALG",
+      "Description": "Provides support for 3rd party protocol plug-ins for Internet Connection Sharing",
+      "Status": 1,
+      "StartupType": 16,
+      "LogInAs": "NT AUTHORITY\\LocalService"
+    },
+    {
+      "Name": "Application Identity",
+      "ServiceName": "AppIDSvc",
+      "Description": "Determines and verifies the identity of an application. Disabling this service will prevent AppLocker from being enforced.",
+      "Status": 1,
+      "StartupType": 32,
+      "LogInAs": "NT Authority\\LocalService"
+    },
+    {
+      "Name": "AppX Deployment Service (AppXSVC)",
+      "ServiceName": "AppXSvc",
+      "Description": "Provides infrastructure support for deploying Store applications. This service is started on demand and if disabled Store applications will not be deployed to the system, and may not function properly.",
+      "Status": 1,
+      "StartupType": 32,
+      "LogInAs": "LocalSystem"
+    }
+  ],
+  "ReceiverMobilesNo": [
+    "09149149202",
+    "09149202626",
+    "09876543210"
+  ],
+  "ReceiverEmails": [
+    "behzad.khosravifar@gmail.com",
+    "ahmad",
+    "aghazadeh.ahmad@gmail.com",
+    "\r\npourakbar@gmail.com"
+  ]
+}

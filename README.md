@@ -1,58 +1,50 @@
 # Service Life Controller 
-[![Build status](https://ci.appveyor.com/api/projects/status/qs8hglln9b55nyk4?svg=true)](https://ci.appveyor.com/project/Behzadkhosravifar/signalr)
-[![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/Behzadkhosravifar/SignalR/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/Behzadkhosravifar/ServiceLifeController/blob/master/LICENSE)
 [![GitHub license](https://img.shields.io/badge/first--timers--only-friendly-blue.svg)](http://www.firsttimersonly.com/)
 
-A reusable win32 API  for connect any client to server or each other clients. Send data or code from one client to other clients included.
+Controll windows services life for stopping time alert an notify from email and sms
 
 ---------------------------
 ### Service Life Controller Server
-If you want to install or unistall a service for signalR server or just run the server without installing, do following commands:
+If you want to install or unistall a service for Service Life Controller service or just run the server without installing, do following commands:
 
-* Install signalR service: <br/>
-	`$ SignalR\Out\SignalR\Core.Server\SignalRServer.exe /i` <br/>
+* Install Service Life Controller Service: <br/>
+	`$ ServiceLifeController\Output\ServiceLifeControllerService\ServiceLifeControllerService.exe /i` <br/>
 	or <br/>
-	`$ SignalR\Solution Items\InstallSignalRService.bat`
+	`$ ServiceLifeController\Solution Items\InstallService.bat`
 
 
-* Uninstall signalR service: <br/>
-	`$ SignalR\Out\SignalR\Core.Server\SignalRServer.exe /u` <br/>
+* Uninstall Service Life Controller Service: <br/>
+	`$ ServiceLifeController\Output\ServiceLifeControllerService\ServiceLifeControllerService.exe /u` <br/>
 	or <br/>
-	`$ SignalR\Solution Items\UninstallSignalRService.bat`
+	`$ ServiceLifeController\Solution Items\UninstallSignalRService.bat`
 
 
-* Delete signalR service: <br/>
-	`$ SignalR\Solution Items\DeleteSignalRService.bat`
+* Delete Service Life Controller Service: <br/>
+	`$ ServiceLifeController\Solution Items\DeleteSignalRService.bat`
 
 
-* Execute signalR server (without install service): <br/>
-	`$ SignalR\Out\SignalR\Core.Server\SignalRServer.exe /d` <br/>
+* Execute Service Life Controller Service (without install service): <br/>
+	`$ ServiceLifeController\Output\ServiceLifeControllerService\ServiceLifeControllerService.exe /d` <br/>
 	or <br/>
-	`$ SignalR\Solution Items\RunServiceOnWPF.bat`
+	`$ ServiceLifeController\Solution Items\RunServiceOnWPF.bat`
 
 	![wpfServer](https://raw.githubusercontent.com/Behzadkhosravifar/SignalR/master/img/wpfServer.PNG)
 
 --------------------------
 ### Service Life Controller Clients
-A sample project in win32 for present signalR client
+A sample project in win32 for present and controll Service Life Controller service
 
 ![clients](https://raw.githubusercontent.com/Behzadkhosravifar/SignalR/master/img/clients.PNG)
 
+### Default Setting for Service Life Controller Service
 
-### Service Life Controller Clients Controller
-The clients controller in fact is a signalR client, but this project can be controll all signalR clients in network.
+Go to OS drive like `C:\` and go to `ProgramData`
 
-For e.x:
-![clientsController](https://raw.githubusercontent.com/Behzadkhosravifar/SignalR/master/img/clientsController.png)
+Create a directory by name `ServicesLifeController` and then copy setting.json file from 
 
-In this application you can fetch any events of server from server windows logs by clicking on `Show Server Event Logs`
-![logViewer](https://raw.githubusercontent.com/Behzadkhosravifar/SignalR/master/img/logViewer.png)
+`$(ProjectDirectory)\ServiceLifeController\Help\Setting.json`
 
-And by selecting one client in from list you can to control that by this form:
-![ControlUser](https://raw.githubusercontent.com/Behzadkhosravifar/SignalR/master/img/selectedUserController.png)
+to
 
-In `Control User` form you can to send a message to selected users or execute an stored procedure on that clients. <br/>
-By click on `Custom Procedure` you should see this form:
-![dynamicCodeExec](https://raw.githubusercontent.com/Behzadkhosravifar/SignalR/master/img/dynamicCodeExec.PNG)
-
-In `Runtime Dynamic Compiler` form you can type your c# codes to executed on selected users system.
+`$(OperationSystemDrive)C:\ProgramData\ServicesLifeController\Setting.json`

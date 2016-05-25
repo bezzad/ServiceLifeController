@@ -4,7 +4,7 @@ namespace Models
 {
     public class SettingModel
     {
-        public double TimerIntervalMilliseconds { get; set; }
+        public double TimerIntervalMilliseconds { get; set; } = 60000;
         public string NotifyMessageTitle { get; set; }
         public string NotifyMessageContent { get; set; }
         public string SenderMobileNo { get; set; }

@@ -15,6 +15,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\ServiceInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\SettingModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RegistryHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ServicesHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedLinks.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WindowsEventLog.cs" />
   </ItemGroup>

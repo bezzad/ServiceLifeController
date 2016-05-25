@@ -24,6 +24,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Windows.Forms.HintTextBox",
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SharedControllerHelper", "SharedControllerHelper\SharedControllerHelper.shproj", "{BBF9408D-B615-4294-A15C-57D896B48721}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Help", "Help", "{CDCE030B-6907-439C-A6A5-5C0682480F20}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		SharedControllerHelper\SharedControllerHelper.projitems*{8d484152-ae38-4327-bd1c-e64b9506f79b}*SharedItemsImports = 4

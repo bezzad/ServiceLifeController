@@ -5,7 +5,7 @@ using System.Management;
 using System.ServiceProcess;
 using Models;
 
-namespace ServiceLifeController.Core
+namespace SharedControllerHelper
 {
     public static class ServicesHelper
     {
@@ -21,7 +21,7 @@ namespace ServiceLifeController.Core
         public static IList<ServiceInfo> GetRuningServices()
         {
             var scServices = ServiceController.GetServices();
-            var result = scServices.GetServicesInfo(ServiceControllerStatus.Running.ToString());
+            var result = scServices.GetServicesInfo(ServiceControllerStatus.Running);
 
             return result;
         }
@@ -41,7 +41,7 @@ namespace ServiceLifeController.Core
                 ServiceName = sc.ServiceName,
                 Name = sc.DisplayName,
                 StartupType = sc.ServiceType,
-                Status = sc.Status.ToString()
+                Status = sc.Status
             };
 
             // Query WMI for additional information about this service.
@@ -50,29 +50,26 @@ namespace ServiceLifeController.Core
             var wmiService = new ManagementObject("Win32_Service.Name='" + sc.ServiceName + "'");
             wmiService.Get();
 
-            service.LogInAs +=  wmiService["StartName"] ;
+            service.LogInAs += wmiService["StartName"];
             service.Description += wmiService["Description"];
 
             return service;
         }
 
-        public static List<ServiceInfo> GetServicesInfo(this ServiceController[] services, string status = null)
+        public static List<ServiceInfo> GetServicesInfo(this ServiceController[] services, ServiceControllerStatus status)
         {
-            List<ServiceInfo> serviceInfos;
-
-            if (status == null)
-            {
-                serviceInfos = services.Select(s => s.GetServiceInfo()).ToList();
-            }
-            else
-            {
-                // Create list of services currently running on this computer.
-                serviceInfos = services
-                    .Where(sc => string.Equals(sc.Status.ToString(), status, StringComparison.CurrentCultureIgnoreCase))
-                    .Select(sc => sc.GetServiceInfo()).ToList();
-            }
+            // Create list of services currently running on this computer.
+            var serviceInfos = services
+                .Where(sc => sc.Status == status)
+                .Select(sc => sc.GetServiceInfo()).ToList();
 
             return serviceInfos;
+        }
+
+        public static List<ServiceInfo> GetServicesInfo(this ServiceController[] services)
+        {
+            // Create list of services currently running on this computer.
+            return services.Select(sc => sc.GetServiceInfo()).ToList();
         }
     }
 }

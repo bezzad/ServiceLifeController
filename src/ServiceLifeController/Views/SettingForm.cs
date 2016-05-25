@@ -12,7 +12,9 @@ namespace ServiceLifeController.Views
 {
     public partial class SettingForm : BaseForm
     {
-        public static string Splitter = ", ";
+        public static string Splitter = ",";
+
+        public static char[] TrimChars = { '\n', '\r', ' ', '!', '#', '$', '%', '^', '&', '*', '(', ')', '-', '+', '=', '~' };
         public SettingModel SettingObject;
 
         public SettingForm(SettingModel setting)
@@ -71,8 +73,8 @@ namespace ServiceLifeController.Views
                 : double.Parse(txtTimerInterval.Value);
 
             SettingObject.TimerIntervalMilliseconds =
-            SettingObject.TimerIntervalMilliseconds < 10000 
-                ? 60000 
+            SettingObject.TimerIntervalMilliseconds < 10000
+                ? 60000
                 : SettingObject.TimerIntervalMilliseconds;
 
             SettingObject.SenderMobileNo = txtSenderMobileNo.Value;
@@ -80,8 +82,8 @@ namespace ServiceLifeController.Views
             SettingObject.SenderEmailPassword = txtSenderEmailPassword.Value?.Encrypt();
             SettingObject.NotifyMessageTitle = txtNotifyMsgTitle.Value;
             SettingObject.NotifyMessageContent = txtNotifyMessageContent.Value;
-            SettingObject.ReceiverMobilesNo = txtReceiverMobiles.Value.Split(Splitter.ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
-            SettingObject.ReceiverEmails = txtReceiverEmails.Value.Split(Splitter.ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
+            SettingObject.ReceiverMobilesNo = txtReceiverMobiles.Value.Split(Splitter.ToCharArray(), StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim(TrimChars)).ToList();
+            SettingObject.ReceiverEmails = txtReceiverEmails.Value.Split(Splitter.ToCharArray(), StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim(TrimChars)).ToList();
         }
     }
 }

@@ -68,7 +68,6 @@
     <Compile Include="Views\BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Core\ServicesHelper.cs" />
     <Compile Include="Views\ServiceLogViewerForm.cs">
       <SubType>Form</SubType>
     </Compile>
