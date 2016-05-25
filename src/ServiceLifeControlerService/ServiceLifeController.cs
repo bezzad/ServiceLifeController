@@ -111,9 +111,7 @@ namespace ServiceLifeControllerService
                         service.Status = serviceNewStatus ?? ServiceControllerStatus.Stopped;
 
                         // the service stopped just now!!!
-                        //if (serviceOldStatus == null || (serviceNewStatus != ServiceControllerStatus.Running && serviceOldStatus == ServiceControllerStatus.Running)) // identify just stopped status
-
-                        ServiceControllerStatusChanging newStatus;//= Enum.Parse(typeof(ServiceControllerStatusChanging), serviceNewStatus.ToString(), true);
+                        ServiceControllerStatusChanging newStatus;
                         Enum.TryParse(serviceNewStatus.ToString(), true, out newStatus);
 
                         // if status changed and identify status changing...
