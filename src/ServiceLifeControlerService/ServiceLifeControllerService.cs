@@ -1,6 +1,6 @@
-﻿using Helper;
-using System;
+﻿using System;
 using System.ServiceProcess;
+using SharedControllerHelper;
 
 namespace ServiceLifeControllerService
 {

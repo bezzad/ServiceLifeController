@@ -51,11 +51,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Helper\RegistryHelper.cs" />
-    <Compile Include="Model\ILog.cs" />
-    <Compile Include="Model\Log.cs" />
-    <Compile Include="Model\ServiceInfo.cs" />
-    <Compile Include="Model\SettingModel.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -74,7 +69,6 @@
     <Compile Include="ServiceLifeControllerService.Designer.cs">
       <DependentUpon>ServiceLifeControllerService.cs</DependentUpon>
     </Compile>
-    <Compile Include="Helper\WindowsEventLog.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -90,6 +84,7 @@
       <Name>ServiceProcess.Helpers</Name>
     </ProjectReference>
   </ItemGroup>
+  <Import Project="..\SharedControllerHelper\SharedControllerHelper.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

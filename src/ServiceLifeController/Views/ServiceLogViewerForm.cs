@@ -1,14 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using Models;
 using ServiceLifeController.Core;
+using SharedControllerHelper;
 
 namespace ServiceLifeController.Views
 {
@@ -24,7 +18,7 @@ namespace ServiceLifeController.Views
 
         private void btnClearLogs_Click(object sender, EventArgs e)
         {
-            Helper.WindowsEventLog.DeleteCurrentSource();
+            WindowsEventLog.DeleteCurrentSource();
         }
 
         private void btnFetchLogs_Click(object sender, EventArgs e)
@@ -33,17 +27,17 @@ namespace ServiceLifeController.Views
 
             if (dtpFrom.Checked)
             {
-                logs = Helper.WindowsEventLog.GetEntryCollection(dtpFrom.Value, dtpTo.Checked ? dtpTo.Value : DateTime.Now, chkErrors.Checked, chkWarnings.Checked,
+                logs = WindowsEventLog.GetEntryCollection(dtpFrom.Value, dtpTo.Checked ? dtpTo.Value : DateTime.Now, chkErrors.Checked, chkWarnings.Checked,
                     chkInformations.Checked, chkAuditSuccess.Checked, chkAuditFailure.Checked);
             }
             else if (dtpTo.Checked)
             {
-                logs = Helper.WindowsEventLog.GetEntryCollection(dtpTo.Value.AddDays(-30), dtpTo.Value, chkErrors.Checked, chkWarnings.Checked,
+                logs = WindowsEventLog.GetEntryCollection(dtpTo.Value.AddDays(-30), dtpTo.Value, chkErrors.Checked, chkWarnings.Checked,
                     chkInformations.Checked, chkAuditSuccess.Checked, chkAuditFailure.Checked);
             }
             else
             {
-                logs = Helper.WindowsEventLog.GetEntryCollection(chkErrors.Checked, chkWarnings.Checked,
+                logs = WindowsEventLog.GetEntryCollection(chkErrors.Checked, chkWarnings.Checked,
                     chkInformations.Checked, chkAuditSuccess.Checked, chkAuditFailure.Checked);
             }
 

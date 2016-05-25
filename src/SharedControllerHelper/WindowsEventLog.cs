@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using Models;
 
-namespace Helper
+namespace SharedControllerHelper
 {
     public static class WindowsEventLog
     {

@@ -63,25 +63,6 @@
     <Compile Include="..\GlobalAssemblyInfo.cs">
       <Link>Properties\GlobalAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="..\ServiceLifeControlerService\Helper\RegistryHelper.cs">
-      <Link>Helper\RegistryHelper.cs</Link>
-    </Compile>
-    <Compile Include="..\ServiceLifeControlerService\Helper\WindowsEventLog.cs">
-      <Link>Helper\WindowsEventLog.cs</Link>
-    </Compile>
-    <Compile Include="..\ServiceLifeControlerService\Model\ILog.cs">
-      <Link>Models\ILog.cs</Link>
-    </Compile>
-    <Compile Include="..\ServiceLifeControlerService\Model\Log.cs">
-      <Link>Models\Log.cs</Link>
-    </Compile>
-    <Compile Include="..\ServiceLifeControlerService\Model\ServiceInfo.cs">
-      <Link>Models\ServiceInfo.cs</Link>
-    </Compile>
-    <Compile Include="..\ServiceLifeControlerService\Model\SettingModel.cs">
-      <Link>Models\SettingModel.cs</Link>
-    </Compile>
-    <Compile Include="Helper\FileManager.cs" />
     <Compile Include="Core\PropertyComparer.cs" />
     <Compile Include="Core\SortableBindingList.cs" />
     <Compile Include="Views\BaseForm.cs">
@@ -128,15 +109,6 @@
       <DependentUpon>SettingForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -147,6 +119,7 @@
       <Name>Windows.Forms.HintTextBox</Name>
     </ProjectReference>
   </ItemGroup>
+  <Import Project="..\SharedControllerHelper\SharedControllerHelper.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

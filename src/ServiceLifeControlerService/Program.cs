@@ -1,5 +1,5 @@
 ﻿using System.ServiceProcess;
-using Helper;
+using SharedControllerHelper;
 
 namespace ServiceLifeControllerService
 {

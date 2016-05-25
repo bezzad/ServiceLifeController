@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Win32;
 
-namespace ServiceLifeControllerService.Helper
+namespace SharedControllerHelper
 {
     /// <summary>
     /// All Registry Entry store in Local Machine Type

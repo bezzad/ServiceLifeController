@@ -6,8 +6,8 @@ using System.Linq;
 using System.Reflection;
 using System.Security.Principal;
 using System.ServiceProcess;
-using Helper;
 using ServiceProcess.Helpers;
+using SharedControllerHelper;
 
 namespace ServiceLifeControllerService
 {

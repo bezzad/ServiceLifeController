@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
-using Helper;
 using ServiceLifeController.Views;
+using SharedControllerHelper;
 
 namespace ServiceLifeController
 {
@@ -13,8 +13,8 @@ namespace ServiceLifeController
         [STAThread]
         static void Main()
         {
-            WindowsEventLog.EventLogName = Properties.Settings.Default.EventLogName;
-            WindowsEventLog.EventLogSourceName = Properties.Settings.Default.EventLogSource;
+            WindowsEventLog.EventLogName = SharedControllerHelper.SharedLinks.EventLogName;
+            WindowsEventLog.EventLogSourceName = SharedControllerHelper.SharedLinks.EventLogSource;
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

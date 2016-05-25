@@ -2,15 +2,14 @@
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
-namespace Helper
+namespace SharedControllerHelper
 {
     public static class FileManager
     {
         public static string DefaultApplicationDataPath => Path.Combine(
             Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
-            ServiceLifeController.Properties.Settings.Default.SettingFileName);
+            SharedControllerHelper.SharedLinks.SettingFileName);
 
 
         public static async Task<bool> WriteFileSafelyAsync(string path, string data)
@@ -23,19 +22,19 @@ namespace Helper
                     Directory.CreateDirectory(pathDir);
 
                 //Open the File
-    using (StreamWriter sw = new StreamWriter(path, false, Encoding.UTF8))
-    {
-        await sw.WriteAsync(data);
+                using (StreamWriter sw = new StreamWriter(path, false, Encoding.UTF8))
+                {
+                    await sw.WriteAsync(data);
 
-        //close the file
-        sw.Close();
-    }
+                    //close the file
+                    sw.Close();
+                }
 
                 return true;
             }
             catch (Exception e)
             {
-                MessageBox.Show("Exception: " + e.Message);
+                WindowsEventLog.WriteErrorLog("Exception in FileManager: " + e.Message);
             }
 
             return false;
@@ -52,7 +51,7 @@ namespace Helper
             }
             catch (Exception e)
             {
-                MessageBox.Show("Exception: " + e.Message);
+                WindowsEventLog.WriteErrorLog("Exception in FileManager: " + e.Message);
             }
 
             return null;

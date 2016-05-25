@@ -22,7 +22,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Components", "Components", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Windows.Forms.HintTextBox", "Components\Windows.Forms.HintTextBox\Windows.Forms.HintTextBox.csproj", "{CD5DA55B-C69B-45C7-AEFE-C9F4990CD873}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SharedControllerHelper", "SharedControllerHelper\SharedControllerHelper.shproj", "{BBF9408D-B615-4294-A15C-57D896B48721}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		SharedControllerHelper\SharedControllerHelper.projitems*{8d484152-ae38-4327-bd1c-e64b9506f79b}*SharedItemsImports = 4
+		SharedControllerHelper\SharedControllerHelper.projitems*{10961ea4-b3b6-455c-8347-88990a4a8fee}*SharedItemsImports = 4
+		SharedControllerHelper\SharedControllerHelper.projitems*{bbf9408d-b615-4294-a15c-57d896b48721}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU

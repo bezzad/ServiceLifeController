@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>bbf9408d-b615-4294-a15c-57d896b48721</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>SharedControllerHelper</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)FileManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ILog.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Log.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ServiceInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\SettingModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RegistryHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SharedLinks.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WindowsEventLog.cs" />
+  </ItemGroup>
+</Project>

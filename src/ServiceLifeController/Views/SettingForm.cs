@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using AdoManager;
-using Helper;
 using Models;
 using Newtonsoft.Json;
 using ServiceLifeController.Properties;
+using SharedControllerHelper;
 
 namespace ServiceLifeController.Views
 {
