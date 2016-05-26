@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ServiceProcess;
 using SharedControllerHelper;
+using SharedControllerHelper.Models;
 
 namespace ServiceLifeControllerService
 {
@@ -18,8 +19,40 @@ namespace ServiceLifeControllerService
 
         protected override void OnStart(string[] args)
         {
+            ServiceLifeController.ServiceStatusChanged += ServiceLifeController_ServiceStatusChanged;
             ServiceLifeController.StartLifeCycleController();
             WindowsEventLog.WriteInfoLog($"{ServiceName} Starting...");
+        }
+
+        private void ServiceLifeController_ServiceStatusChanged(ServiceNotifyEventArgs e)
+        {
+            try
+            {
+                #region Send email to receivers
+
+                //========================= Send Email to all of receivers ===================================
+                var email = new EmailModel();
+
+                email.Message = $"<h2>{ServiceLifeController.NewSetting.NotifyMessageContent}</h2><br/>" +
+                                $"<p>The <strong>{e.Service.Name}</strong> service is <strong>{e.NewStatus}</strong>!</p>";
+                email.From = ServiceLifeController.NewSetting.SenderEmailAddress;
+                email.SenderPassword = ServiceLifeController.NewSetting.SenderEmailPassword?.Decrypt();
+                email.Subject = string.IsNullOrEmpty(ServiceLifeController.NewSetting.NotifyMessageTitle)
+                    ? $"A Service is {e.NewStatus}!"
+                    : ServiceLifeController.NewSetting.NotifyMessageTitle;
+                email.To = ServiceLifeController.NewSetting.ReceiverEmails;
+
+
+
+                email.SendEmail();
+                //============================================================================================
+
+                #endregion
+            }
+            catch (Exception exp)
+            {
+                WindowsEventLog.WriteErrorLog($"Exception in ServiceLifeController_ServiceStatusChanged event: {exp.Message}");
+            }
         }
 
         protected override void OnStop()

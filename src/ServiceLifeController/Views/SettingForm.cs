@@ -27,7 +27,7 @@ namespace ServiceLifeController.Views
 
 
 
-        private async void btnSaveSetting_Click(object sender, EventArgs e)
+        private void btnSaveSetting_Click(object sender, EventArgs e)
         {
             try
             {
@@ -37,7 +37,7 @@ namespace ServiceLifeController.Views
 
                 var data = JsonConvert.SerializeObject(SettingObject, Formatting.Indented);
 
-                await FileManager.WriteFileSafelyAsync(path, data);
+                FileManager.WriteFileSafely(path, data);
 
                 MessageBox.Show(Resources.SaveSettingSuccessfull);
                 this.Close();

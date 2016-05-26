@@ -12,6 +12,6 @@
 [assembly: System.Reflection.AssemblyCopyright("Copyright © Behzad Khosravifar 2016")]
 [assembly: System.Reflection.AssemblyTrademark("SLC")]
 [assembly: System.Reflection.AssemblyConfiguration("Release")]
-[assembly: System.Reflection.AssemblyVersion("1.1.*")]
-[assembly: System.Reflection.AssemblyFileVersion("1.1.1")]
+[assembly: System.Reflection.AssemblyVersion("1.5.*")]
+[assembly: System.Reflection.AssemblyFileVersion("1.5.1")]
 [assembly: System.Reflection.AssemblyInformationalVersion("Compiled By Behzad")]

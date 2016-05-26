@@ -9,7 +9,9 @@
     <Import_RootNamespace>SharedControllerHelper</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)EmailHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)FileManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\EmailModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\ILog.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Log.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\ServiceControllerStatusChanging.cs" />

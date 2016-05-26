@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,7 +13,7 @@ namespace SharedControllerHelper
             SharedControllerHelper.SharedLinks.SettingFileName);
 
 
-        public static async Task<bool> WriteFileSafelyAsync(string path, string data)
+        public static bool WriteFileSafely(string path, string data)
         {
             try
             {
@@ -22,13 +23,7 @@ namespace SharedControllerHelper
                     Directory.CreateDirectory(pathDir);
 
                 //Open the File
-                using (StreamWriter sw = new StreamWriter(path, false, Encoding.UTF8))
-                {
-                    await sw.WriteAsync(data);
-
-                    //close the file
-                    sw.Close();
-                }
+                File.WriteAllText(path, data, Encoding.UTF8);
 
                 return true;
             }
@@ -55,6 +50,21 @@ namespace SharedControllerHelper
             }
 
             return null;
+        }
+
+        public static string ReadResourceFile(string path)
+        {
+            var assembly = Assembly.GetExecutingAssembly();
+            var resourceName = $"{assembly.GetName().Name}.{path}";
+
+            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            {
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    string result = reader.ReadToEnd();
+                    return result;
+                }
+            }
         }
     }
 }

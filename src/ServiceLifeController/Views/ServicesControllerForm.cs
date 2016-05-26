@@ -104,7 +104,6 @@ namespace ServiceLifeController.Views
                 HeaderText = "Selected"
             };
 
-
             dgvServices.Columns.Insert(0, colSelected);
         }
 

@@ -1,10 +1,10 @@
 ﻿{
   "TimerIntervalMilliseconds": 10000.0,
-  "NotifyMessageTitle": "test",
-  "NotifyMessageContent": "test content",
+  "NotifyMessageTitle": "هشدار خطای سرویس",
+  "NotifyMessageContent": "هشدار:\r\n",
   "SenderMobileNo": "+989149149202",
-  "SenderEmailAddress": "behzad.khosravifar@gmail.com",
-  "SenderEmailPassword": "e1oq0k4rFeuLli/yjYG8Eg==",
+  "SenderEmailAddress": "pourakbar@shoniz.com",
+  "SenderEmailPassword": "Zpuo5cE4I1U6vFPC4WpI3Q==",
   "CoveredServices": [
     {
       "Name": "SignalRService",
@@ -12,6 +12,14 @@
       "Description": "",
       "Status": 4,
       "StartupType": 16,
+      "LogInAs": "LocalSystem"
+    },
+    {
+      "Name": "Smart Card Device Enumeration Service",
+      "ServiceName": "ScDeviceEnum",
+      "Description": "Creates software device nodes for all smart card readers accessible to a given session. If this service is disabled, WinRT APIs will not be able to enumerate smart card readers.",
+      "Status": 1,
+      "StartupType": 32,
       "LogInAs": "LocalSystem"
     }
   ],
@@ -21,9 +29,13 @@
     "09876543210"
   ],
   "ReceiverEmails": [
+    "pourakbar@shoniz.com",
     "behzad.khosravifar@gmail.com",
-    "aghazadeh.ahmad@gmail.com",
-    "pourakbar@gmail.com"
+    "husein.msc@gmail.com",
+    "mirabi.reza@gmail.com",
+    "rrahim2@live.utm.my",
+    "yasharvc@yahoo.com",
+    "info@tablighsho.com"
   ],
   "NotifyJustStatusChangingTo": 127
 }

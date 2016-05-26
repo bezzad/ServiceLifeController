@@ -119,7 +119,7 @@ namespace ServiceLifeControllerService
                         {
                             if (NewSetting.NotifyJustStatusChangingTo.HasFlag(newStatus))
                             {
-                                OnServiceStatusChanged(new ServiceNotifyEventArgs(service, ServiceControllerStatus.Stopped));
+                                OnServiceStatusChanged(new ServiceNotifyEventArgs(service, serviceNewStatus ?? ServiceControllerStatus.Stopped));
                             }
                         }
                     }
