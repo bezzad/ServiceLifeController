@@ -4,6 +4,36 @@
         <name>System.Reactive</name>
     </assembly>
     <members>
+        <member name="T:System.IObservable`1">
+            <summary>
+            Represents a push-style collection.
+            </summary>
+        </member>
+        <member name="M:System.IObservable`1.Subscribe(System.IObserver{`0})">
+            <summary>
+            Subscribes an observer to the observable sequence.
+            </summary>
+        </member>
+        <member name="T:System.IObserver`1">
+            <summary>
+            Supports push-style iteration over an observable sequence.
+            </summary>
+        </member>
+        <member name="M:System.IObserver`1.OnNext(`0)">
+            <summary>
+            Notifies the observer of a new value in the sequence.
+            </summary>
+        </member>
+        <member name="M:System.IObserver`1.OnError(System.Exception)">
+            <summary>
+            Notifies the observer that an exception has occurred.
+            </summary>
+        </member>
+        <member name="M:System.IObserver`1.OnCompleted">
+            <summary>
+            Notifies the observer of the end of the sequence.
+            </summary>
+        </member>
         <member name="T:System.Reactive.EventPatternSourceBase`2">
             <summary>
             Base class for classes that expose an observable sequence as a well-known event pattern (sender, event arguments).
@@ -225,66 +255,6 @@
             Converts a Begin/End invoke function pair into an asynchronous function.
             </summary>
         </member>
-        <member name="M:System.Reactive.Linq.Observable.FromAsyncPattern``4(System.Func{``0,``1,``2,System.AsyncCallback,System.Object,System.IAsyncResult},System.Func{System.IAsyncResult,``3})">
-            <summary>
-            Converts a Begin/End invoke function pair into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.FromAsyncPattern``5(System.Func{``0,``1,``2,``3,System.AsyncCallback,System.Object,System.IAsyncResult},System.Func{System.IAsyncResult,``4})">
-            <summary>
-            Converts a Begin/End invoke function pair into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.FromAsyncPattern``6(System.Func{``0,``1,``2,``3,``4,System.AsyncCallback,System.Object,System.IAsyncResult},System.Func{System.IAsyncResult,``5})">
-            <summary>
-            Converts a Begin/End invoke function pair into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.FromAsyncPattern``7(System.Func{``0,``1,``2,``3,``4,``5,System.AsyncCallback,System.Object,System.IAsyncResult},System.Func{System.IAsyncResult,``6})">
-            <summary>
-            Converts a Begin/End invoke function pair into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.FromAsyncPattern``8(System.Func{``0,``1,``2,``3,``4,``5,``6,System.AsyncCallback,System.Object,System.IAsyncResult},System.Func{System.IAsyncResult,``7})">
-            <summary>
-            Converts a Begin/End invoke function pair into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.FromAsyncPattern``9(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,System.AsyncCallback,System.Object,System.IAsyncResult},System.Func{System.IAsyncResult,``8})">
-            <summary>
-            Converts a Begin/End invoke function pair into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.FromAsyncPattern``10(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,System.AsyncCallback,System.Object,System.IAsyncResult},System.Func{System.IAsyncResult,``9})">
-            <summary>
-            Converts a Begin/End invoke function pair into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.FromAsyncPattern``11(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,System.AsyncCallback,System.Object,System.IAsyncResult},System.Func{System.IAsyncResult,``10})">
-            <summary>
-            Converts a Begin/End invoke function pair into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.FromAsyncPattern``12(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,System.AsyncCallback,System.Object,System.IAsyncResult},System.Func{System.IAsyncResult,``11})">
-            <summary>
-            Converts a Begin/End invoke function pair into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.FromAsyncPattern``13(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,System.AsyncCallback,System.Object,System.IAsyncResult},System.Func{System.IAsyncResult,``12})">
-            <summary>
-            Converts a Begin/End invoke function pair into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.FromAsyncPattern``14(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,System.AsyncCallback,System.Object,System.IAsyncResult},System.Func{System.IAsyncResult,``13})">
-            <summary>
-            Converts a Begin/End invoke function pair into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.FromAsyncPattern``15(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,System.AsyncCallback,System.Object,System.IAsyncResult},System.Func{System.IAsyncResult,``14})">
-            <summary>
-            Converts a Begin/End invoke function pair into an asynchronous function.
-            </summary>
-        </member>
         <member name="M:System.Reactive.Linq.Observable.ToAsync``1(System.Func{``0})">
             <summary>
             Converts the function into an asynchronous function.
@@ -331,126 +301,6 @@
             </summary>
         </member>
         <member name="M:System.Reactive.Linq.Observable.ToAsync``5(System.Func{``0,``1,``2,``3,``4},System.Reactive.Concurrency.IScheduler)">
-            <summary>
-            Converts the function into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``6(System.Func{``0,``1,``2,``3,``4,``5})">
-            <summary>
-            Converts the function into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``6(System.Func{``0,``1,``2,``3,``4,``5},System.Reactive.Concurrency.IScheduler)">
-            <summary>
-            Converts the function into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``7(System.Func{``0,``1,``2,``3,``4,``5,``6})">
-            <summary>
-            Converts the function into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``7(System.Func{``0,``1,``2,``3,``4,``5,``6},System.Reactive.Concurrency.IScheduler)">
-            <summary>
-            Converts the function into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``8(System.Func{``0,``1,``2,``3,``4,``5,``6,``7})">
-            <summary>
-            Converts the function into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``8(System.Func{``0,``1,``2,``3,``4,``5,``6,``7},System.Reactive.Concurrency.IScheduler)">
-            <summary>
-            Converts the function into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``9(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8})">
-            <summary>
-            Converts the function into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``9(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8},System.Reactive.Concurrency.IScheduler)">
-            <summary>
-            Converts the function into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``10(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9})">
-            <summary>
-            Converts the function into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``10(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9},System.Reactive.Concurrency.IScheduler)">
-            <summary>
-            Converts the function into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``11(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10})">
-            <summary>
-            Converts the function into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``11(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10},System.Reactive.Concurrency.IScheduler)">
-            <summary>
-            Converts the function into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``12(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11})">
-            <summary>
-            Converts the function into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``12(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11},System.Reactive.Concurrency.IScheduler)">
-            <summary>
-            Converts the function into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``13(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12})">
-            <summary>
-            Converts the function into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``13(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12},System.Reactive.Concurrency.IScheduler)">
-            <summary>
-            Converts the function into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``14(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13})">
-            <summary>
-            Converts the function into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``14(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13},System.Reactive.Concurrency.IScheduler)">
-            <summary>
-            Converts the function into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``15(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14})">
-            <summary>
-            Converts the function into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``15(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14},System.Reactive.Concurrency.IScheduler)">
-            <summary>
-            Converts the function into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``16(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14,``15})">
-            <summary>
-            Converts the function into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``16(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14,``15},System.Reactive.Concurrency.IScheduler)">
-            <summary>
-            Converts the function into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``17(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14,``15,``16})">
-            <summary>
-            Converts the function into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``17(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14,``15,``16},System.Reactive.Concurrency.IScheduler)">
             <summary>
             Converts the function into an asynchronous function.
             </summary>
@@ -505,126 +355,6 @@
             Converts the action into an asynchronous function.
             </summary>
         </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``5(System.Action{``0,``1,``2,``3,``4})">
-            <summary>
-            Converts the action into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``5(System.Action{``0,``1,``2,``3,``4},System.Reactive.Concurrency.IScheduler)">
-            <summary>
-            Converts the action into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``6(System.Action{``0,``1,``2,``3,``4,``5})">
-            <summary>
-            Converts the action into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``6(System.Action{``0,``1,``2,``3,``4,``5},System.Reactive.Concurrency.IScheduler)">
-            <summary>
-            Converts the action into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``7(System.Action{``0,``1,``2,``3,``4,``5,``6})">
-            <summary>
-            Converts the action into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``7(System.Action{``0,``1,``2,``3,``4,``5,``6},System.Reactive.Concurrency.IScheduler)">
-            <summary>
-            Converts the action into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``8(System.Action{``0,``1,``2,``3,``4,``5,``6,``7})">
-            <summary>
-            Converts the action into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``8(System.Action{``0,``1,``2,``3,``4,``5,``6,``7},System.Reactive.Concurrency.IScheduler)">
-            <summary>
-            Converts the action into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``9(System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8})">
-            <summary>
-            Converts the action into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``9(System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8},System.Reactive.Concurrency.IScheduler)">
-            <summary>
-            Converts the action into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``10(System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9})">
-            <summary>
-            Converts the action into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``10(System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9},System.Reactive.Concurrency.IScheduler)">
-            <summary>
-            Converts the action into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``11(System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10})">
-            <summary>
-            Converts the action into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``11(System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10},System.Reactive.Concurrency.IScheduler)">
-            <summary>
-            Converts the action into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``12(System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11})">
-            <summary>
-            Converts the action into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``12(System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11},System.Reactive.Concurrency.IScheduler)">
-            <summary>
-            Converts the action into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``13(System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12})">
-            <summary>
-            Converts the action into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``13(System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12},System.Reactive.Concurrency.IScheduler)">
-            <summary>
-            Converts the action into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``14(System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13})">
-            <summary>
-            Converts the action into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``14(System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13},System.Reactive.Concurrency.IScheduler)">
-            <summary>
-            Converts the action into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``15(System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14})">
-            <summary>
-            Converts the action into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``15(System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14},System.Reactive.Concurrency.IScheduler)">
-            <summary>
-            Converts the action into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``16(System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14,``15})">
-            <summary>
-            Converts the action into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ToAsync``16(System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14,``15},System.Reactive.Concurrency.IScheduler)">
-            <summary>
-            Converts the action into an asynchronous function.
-            </summary>
-        </member>
         <member name="M:System.Reactive.Linq.Observable.Start``1(System.Func{``0})">
             <summary>
             Invokes the function asynchronously.
@@ -656,66 +386,6 @@
             </summary>
         </member>
         <member name="M:System.Reactive.Linq.Observable.FromAsyncPattern``2(System.Func{``0,``1,System.AsyncCallback,System.Object,System.IAsyncResult},System.Action{System.IAsyncResult})">
-            <summary>
-            Converts a Begin/End invoke function pair into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.FromAsyncPattern``3(System.Func{``0,``1,``2,System.AsyncCallback,System.Object,System.IAsyncResult},System.Action{System.IAsyncResult})">
-            <summary>
-            Converts a Begin/End invoke function pair into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.FromAsyncPattern``4(System.Func{``0,``1,``2,``3,System.AsyncCallback,System.Object,System.IAsyncResult},System.Action{System.IAsyncResult})">
-            <summary>
-            Converts a Begin/End invoke function pair into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.FromAsyncPattern``5(System.Func{``0,``1,``2,``3,``4,System.AsyncCallback,System.Object,System.IAsyncResult},System.Action{System.IAsyncResult})">
-            <summary>
-            Converts a Begin/End invoke function pair into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.FromAsyncPattern``6(System.Func{``0,``1,``2,``3,``4,``5,System.AsyncCallback,System.Object,System.IAsyncResult},System.Action{System.IAsyncResult})">
-            <summary>
-            Converts a Begin/End invoke function pair into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.FromAsyncPattern``7(System.Func{``0,``1,``2,``3,``4,``5,``6,System.AsyncCallback,System.Object,System.IAsyncResult},System.Action{System.IAsyncResult})">
-            <summary>
-            Converts a Begin/End invoke function pair into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.FromAsyncPattern``8(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,System.AsyncCallback,System.Object,System.IAsyncResult},System.Action{System.IAsyncResult})">
-            <summary>
-            Converts a Begin/End invoke function pair into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.FromAsyncPattern``9(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,System.AsyncCallback,System.Object,System.IAsyncResult},System.Action{System.IAsyncResult})">
-            <summary>
-            Converts a Begin/End invoke function pair into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.FromAsyncPattern``10(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,System.AsyncCallback,System.Object,System.IAsyncResult},System.Action{System.IAsyncResult})">
-            <summary>
-            Converts a Begin/End invoke function pair into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.FromAsyncPattern``11(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,System.AsyncCallback,System.Object,System.IAsyncResult},System.Action{System.IAsyncResult})">
-            <summary>
-            Converts a Begin/End invoke function pair into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.FromAsyncPattern``12(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,System.AsyncCallback,System.Object,System.IAsyncResult},System.Action{System.IAsyncResult})">
-            <summary>
-            Converts a Begin/End invoke function pair into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.FromAsyncPattern``13(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,System.AsyncCallback,System.Object,System.IAsyncResult},System.Action{System.IAsyncResult})">
-            <summary>
-            Converts a Begin/End invoke function pair into an asynchronous function.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.FromAsyncPattern``14(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,System.AsyncCallback,System.Object,System.IAsyncResult},System.Action{System.IAsyncResult})">
             <summary>
             Converts a Begin/End invoke function pair into an asynchronous function.
             </summary>
@@ -1458,27 +1128,11 @@
             <param name="source">Source sequence to await.</param>
             <returns>Object that can be awaited.</returns>
         </member>
-        <member name="M:System.Reactive.Linq.Observable.StartAsync``1(System.IObservable{``0},System.Threading.CancellationToken)">
-            <summary>
-            Gets an awaiter that returns the last value of the observable sequence or throws an exception if the sequence is empty.
-            </summary>
-            <param name="source">Source sequence to await.</param>
-            <param name="cancellationToken">Cancellation token.</param>
-            <returns>Object that can be awaited.</returns>
-        </member>
         <member name="M:System.Reactive.Linq.Observable.GetAwaiter``1(System.Reactive.Subjects.IConnectableObservable{``0})">
             <summary>
             Gets an awaiter that returns the last value of the observable sequence or throws an exception if the sequence is empty.
             </summary>
             <param name="source">Source sequence to await.</param>
-            <returns>Object that can be awaited.</returns>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.StartAsync``1(System.Reactive.Subjects.IConnectableObservable{``0},System.Threading.CancellationToken)">
-            <summary>
-            Gets an awaiter that returns the last value of the observable sequence or throws an exception if the sequence is empty.
-            </summary>
-            <param name="source">Source sequence to await.</param>
-            <param name="cancellationToken">Cancellation token.</param>
             <returns>Object that can be awaited.</returns>
         </member>
         <member name="M:System.Reactive.Linq.Observable.Let``2(System.IObservable{``0},System.Func{System.IObservable{``0},System.IObservable{``1}})">
@@ -1993,44 +1647,6 @@
             <param name="onNext">Action to invoke for each element in the observable sequence.</param>
             <remarks>Because of its blocking nature, this operator is mainly used for testing.</remarks>
         </member>
-        <member name="M:System.Reactive.Linq.Observable.ForEachAsync``1(System.IObservable{``0},System.Action{``0})">
-            <summary>
-            Invokes an action for each element in the observable sequence, and returns a Task object one can await on until the sequence terminates.
-            </summary>
-            <param name="source">Source sequence.</param>
-            <param name="onNext">Action to invoke for each element in the observable sequence.</param>
-            <returns>Task that signals the termination of the sequence.</returns>
-            <remarks>This operator is especially useful in conjunction with the await features in the next versions of C# and Visual Basic.</remarks>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ForEachAsync``1(System.IObservable{``0},System.Action{``0},System.Threading.CancellationToken)">
-            <summary>
-            Invokes an action for each element in the observable sequence, and returns a Task object one can await on until the sequence terminates.
-            </summary>
-            <param name="source">Source sequence.</param>
-            <param name="onNext">Action to invoke for each element in the observable sequence.</param>
-            <param name="cancellationToken">Cancellation token used to stop the loop.</param>
-            <returns>Task that signals the termination of the sequence.</returns>
-            <remarks>This operator is especially useful in conjunction with the await features in the next versions of C# and Visual Basic.</remarks>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ForEachAsync``1(System.IObservable{``0},System.Action{``0,System.Int32})">
-            <summary>
-            Invokes an action for each element in the observable sequence, and returns a Task object one can await on until the sequence terminates.
-            </summary>
-            <param name="source">Source sequence.</param>
-            <param name="onNext">Action to invoke for each element in the observable sequence.</param>
-            <returns>Task that signals the termination of the sequence.</returns>
-            <remarks>This operator is especially useful in conjunction with the await features in the next versions of C# and Visual Basic.</remarks>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.ForEachAsync``1(System.IObservable{``0},System.Action{``0,System.Int32},System.Threading.CancellationToken)">
-            <summary>
-            Invokes an action for each element in the observable sequence, and returns a Task object one can await on until the sequence terminates.
-            </summary>
-            <param name="source">Source sequence.</param>
-            <param name="onNext">Action to invoke for each element in the observable sequence.</param>
-            <param name="cancellationToken">Cancellation token used to stop the loop.</param>
-            <returns>Task that signals the termination of the sequence.</returns>
-            <remarks>This operator is especially useful in conjunction with the await features in the next versions of C# and Visual Basic.</remarks>
-        </member>
         <member name="M:System.Reactive.Linq.Observable.ObserveOn``1(System.IObservable{``0},System.Reactive.Concurrency.IScheduler)">
             <summary>
             Asynchronously notify observers on the specified scheduler.
@@ -2241,50 +1857,6 @@
             <summary>
             Subscribes to each observable sequence returned by the iteratorMethod in sequence and returns the observable sequence of values sent to the observer given to the iteratorMethod.
             </summary>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.Create``1(System.Func{System.IObserver{``0},System.Threading.CancellationToken,System.Threading.Tasks.Task})">
-            <summary>
-            Creates an observable sequence by invoking the asynchronous method which can use the given observer to produce elements.
-            </summary>
-            <param name="subscribeAsync">Asynchronous method used to produce elements.</param>
-            <returns>The observable sequence surfacing the elements produced by the asynchronous method.</returns>
-            <remarks>This operator is especially useful in conjunction with the await features in the next versions of C# and Visual Basic.</remarks>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.Create``1(System.Func{System.IObserver{``0},System.Threading.Tasks.Task})">
-            <summary>
-            Creates an observable sequence by invoking the asynchronous method which can use the given observer to produce elements.
-            </summary>
-            <param name="subscribeAsync">Asynchronous method used to produce elements.</param>
-            <returns>The observable sequence surfacing the elements produced by the asynchronous method.</returns>
-            <remarks>This operator is especially useful in conjunction with the await features in the next versions of C# and Visual Basic.</remarks>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.Create``1(System.Func{System.IObserver{``0},System.Threading.CancellationToken,System.Threading.Tasks.Task{System.IDisposable}})">
-            <summary>
-            Creates an observable sequence from a specified asynchronous Subscribe method.
-            </summary>
-            <param name="subscribeAsync">Asynchronous method used to implemented the resulting sequence's Subscribe method.</param>
-            <returns>The observable sequence with the specified implementation for the Subscribe method.</returns>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.Create``1(System.Func{System.IObserver{``0},System.Threading.Tasks.Task{System.IDisposable}})">
-            <summary>
-            Creates an observable sequence from a specified asynchronous Subscribe method.
-            </summary>
-            <param name="subscribeAsync">Asynchronous method used to implemented the resulting sequence's Subscribe method.</param>
-            <returns>The observable sequence with the specified implementation for the Subscribe method.</returns>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.Create``1(System.Func{System.IObserver{``0},System.Threading.CancellationToken,System.Threading.Tasks.Task{System.Action}})">
-            <summary>
-            Creates an observable sequence from a specified asynchronous Subscribe method.
-            </summary>
-            <param name="subscribeAsync">Asynchronous method used to implemented the resulting sequence's Subscribe method, returning an Action delegate that will be wrapped in an IDisposable.</param>
-            <returns>The observable sequence with the specified implementation for the Subscribe method.</returns>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.Create``1(System.Func{System.IObserver{``0},System.Threading.Tasks.Task{System.Action}})">
-            <summary>
-            Creates an observable sequence from a specified asynchronous Subscribe method.
-            </summary>
-            <param name="subscribeAsync">Asynchronous method used to implemented the resulting sequence's Subscribe method, returning an Action delegate that will be wrapped in an IDisposable.</param>
-            <returns>The observable sequence with the specified implementation for the Subscribe method.</returns>
         </member>
         <member name="M:System.Reactive.Linq.Observable.Range(System.Int32,System.Int32)">
             <summary>
@@ -2557,216 +2129,6 @@
             <param name="resultSelector">Function to invoke for each series of elements at corresponding indexes in the sources.</param>
             <returns>An observable sequence containing the result of combining elements of the sources using the specified result selector function.</returns>
         </member>
-        <member name="M:System.Reactive.Linq.Observable.Zip``6(System.IObservable{``0},System.IObservable{``1},System.IObservable{``2},System.IObservable{``3},System.IObservable{``4},System.Func{``0,``1,``2,``3,``4,``5})">
-            <summary>
-            Merges the specified observable sequences into one observable sequence by using the selector function whenever all of the observable sequences have produced an element at a corresponding index.
-            </summary>
-            <param name="source1">First observable source.</param>
-            <param name="source2">Second observable source.</param>
-            <param name="source3">Third observable source.</param>
-            <param name="source4">Fourth observable source.</param>
-            <param name="source5">Fifth observable source.</param>
-            <param name="resultSelector">Function to invoke for each series of elements at corresponding indexes in the sources.</param>
-            <returns>An observable sequence containing the result of combining elements of the sources using the specified result selector function.</returns>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.Zip``7(System.IObservable{``0},System.IObservable{``1},System.IObservable{``2},System.IObservable{``3},System.IObservable{``4},System.IObservable{``5},System.Func{``0,``1,``2,``3,``4,``5,``6})">
-            <summary>
-            Merges the specified observable sequences into one observable sequence by using the selector function whenever all of the observable sequences have produced an element at a corresponding index.
-            </summary>
-            <param name="source1">First observable source.</param>
-            <param name="source2">Second observable source.</param>
-            <param name="source3">Third observable source.</param>
-            <param name="source4">Fourth observable source.</param>
-            <param name="source5">Fifth observable source.</param>
-            <param name="source6">Sixth observable source.</param>
-            <param name="resultSelector">Function to invoke for each series of elements at corresponding indexes in the sources.</param>
-            <returns>An observable sequence containing the result of combining elements of the sources using the specified result selector function.</returns>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.Zip``8(System.IObservable{``0},System.IObservable{``1},System.IObservable{``2},System.IObservable{``3},System.IObservable{``4},System.IObservable{``5},System.IObservable{``6},System.Func{``0,``1,``2,``3,``4,``5,``6,``7})">
-            <summary>
-            Merges the specified observable sequences into one observable sequence by using the selector function whenever all of the observable sequences have produced an element at a corresponding index.
-            </summary>
-            <param name="source1">First observable source.</param>
-            <param name="source2">Second observable source.</param>
-            <param name="source3">Third observable source.</param>
-            <param name="source4">Fourth observable source.</param>
-            <param name="source5">Fifth observable source.</param>
-            <param name="source6">Sixth observable source.</param>
-            <param name="source7">Seventh observable source.</param>
-            <param name="resultSelector">Function to invoke for each series of elements at corresponding indexes in the sources.</param>
-            <returns>An observable sequence containing the result of combining elements of the sources using the specified result selector function.</returns>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.Zip``9(System.IObservable{``0},System.IObservable{``1},System.IObservable{``2},System.IObservable{``3},System.IObservable{``4},System.IObservable{``5},System.IObservable{``6},System.IObservable{``7},System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8})">
-            <summary>
-            Merges the specified observable sequences into one observable sequence by using the selector function whenever all of the observable sequences have produced an element at a corresponding index.
-            </summary>
-            <param name="source1">First observable source.</param>
-            <param name="source2">Second observable source.</param>
-            <param name="source3">Third observable source.</param>
-            <param name="source4">Fourth observable source.</param>
-            <param name="source5">Fifth observable source.</param>
-            <param name="source6">Sixth observable source.</param>
-            <param name="source7">Seventh observable source.</param>
-            <param name="source8">Eighth observable source.</param>
-            <param name="resultSelector">Function to invoke for each series of elements at corresponding indexes in the sources.</param>
-            <returns>An observable sequence containing the result of combining elements of the sources using the specified result selector function.</returns>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.Zip``10(System.IObservable{``0},System.IObservable{``1},System.IObservable{``2},System.IObservable{``3},System.IObservable{``4},System.IObservable{``5},System.IObservable{``6},System.IObservable{``7},System.IObservable{``8},System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9})">
-            <summary>
-            Merges the specified observable sequences into one observable sequence by using the selector function whenever all of the observable sequences have produced an element at a corresponding index.
-            </summary>
-            <param name="source1">First observable source.</param>
-            <param name="source2">Second observable source.</param>
-            <param name="source3">Third observable source.</param>
-            <param name="source4">Fourth observable source.</param>
-            <param name="source5">Fifth observable source.</param>
-            <param name="source6">Sixth observable source.</param>
-            <param name="source7">Seventh observable source.</param>
-            <param name="source8">Eighth observable source.</param>
-            <param name="source9">Ninth observable source.</param>
-            <param name="resultSelector">Function to invoke for each series of elements at corresponding indexes in the sources.</param>
-            <returns>An observable sequence containing the result of combining elements of the sources using the specified result selector function.</returns>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.Zip``11(System.IObservable{``0},System.IObservable{``1},System.IObservable{``2},System.IObservable{``3},System.IObservable{``4},System.IObservable{``5},System.IObservable{``6},System.IObservable{``7},System.IObservable{``8},System.IObservable{``9},System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10})">
-            <summary>
-            Merges the specified observable sequences into one observable sequence by using the selector function whenever all of the observable sequences have produced an element at a corresponding index.
-            </summary>
-            <param name="source1">First observable source.</param>
-            <param name="source2">Second observable source.</param>
-            <param name="source3">Third observable source.</param>
-            <param name="source4">Fourth observable source.</param>
-            <param name="source5">Fifth observable source.</param>
-            <param name="source6">Sixth observable source.</param>
-            <param name="source7">Seventh observable source.</param>
-            <param name="source8">Eighth observable source.</param>
-            <param name="source9">Ninth observable source.</param>
-            <param name="source10">Tenth observable source.</param>
-            <param name="resultSelector">Function to invoke for each series of elements at corresponding indexes in the sources.</param>
-            <returns>An observable sequence containing the result of combining elements of the sources using the specified result selector function.</returns>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.Zip``12(System.IObservable{``0},System.IObservable{``1},System.IObservable{``2},System.IObservable{``3},System.IObservable{``4},System.IObservable{``5},System.IObservable{``6},System.IObservable{``7},System.IObservable{``8},System.IObservable{``9},System.IObservable{``10},System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11})">
-            <summary>
-            Merges the specified observable sequences into one observable sequence by using the selector function whenever all of the observable sequences have produced an element at a corresponding index.
-            </summary>
-            <param name="source1">First observable source.</param>
-            <param name="source2">Second observable source.</param>
-            <param name="source3">Third observable source.</param>
-            <param name="source4">Fourth observable source.</param>
-            <param name="source5">Fifth observable source.</param>
-            <param name="source6">Sixth observable source.</param>
-            <param name="source7">Seventh observable source.</param>
-            <param name="source8">Eighth observable source.</param>
-            <param name="source9">Ninth observable source.</param>
-            <param name="source10">Tenth observable source.</param>
-            <param name="source11">Eleventh observable source.</param>
-            <param name="resultSelector">Function to invoke for each series of elements at corresponding indexes in the sources.</param>
-            <returns>An observable sequence containing the result of combining elements of the sources using the specified result selector function.</returns>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.Zip``13(System.IObservable{``0},System.IObservable{``1},System.IObservable{``2},System.IObservable{``3},System.IObservable{``4},System.IObservable{``5},System.IObservable{``6},System.IObservable{``7},System.IObservable{``8},System.IObservable{``9},System.IObservable{``10},System.IObservable{``11},System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12})">
-            <summary>
-            Merges the specified observable sequences into one observable sequence by using the selector function whenever all of the observable sequences have produced an element at a corresponding index.
-            </summary>
-            <param name="source1">First observable source.</param>
-            <param name="source2">Second observable source.</param>
-            <param name="source3">Third observable source.</param>
-            <param name="source4">Fourth observable source.</param>
-            <param name="source5">Fifth observable source.</param>
-            <param name="source6">Sixth observable source.</param>
-            <param name="source7">Seventh observable source.</param>
-            <param name="source8">Eighth observable source.</param>
-            <param name="source9">Ninth observable source.</param>
-            <param name="source10">Tenth observable source.</param>
-            <param name="source11">Eleventh observable source.</param>
-            <param name="source12">Twelfth observable source.</param>
-            <param name="resultSelector">Function to invoke for each series of elements at corresponding indexes in the sources.</param>
-            <returns>An observable sequence containing the result of combining elements of the sources using the specified result selector function.</returns>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.Zip``14(System.IObservable{``0},System.IObservable{``1},System.IObservable{``2},System.IObservable{``3},System.IObservable{``4},System.IObservable{``5},System.IObservable{``6},System.IObservable{``7},System.IObservable{``8},System.IObservable{``9},System.IObservable{``10},System.IObservable{``11},System.IObservable{``12},System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13})">
-            <summary>
-            Merges the specified observable sequences into one observable sequence by using the selector function whenever all of the observable sequences have produced an element at a corresponding index.
-            </summary>
-            <param name="source1">First observable source.</param>
-            <param name="source2">Second observable source.</param>
-            <param name="source3">Third observable source.</param>
-            <param name="source4">Fourth observable source.</param>
-            <param name="source5">Fifth observable source.</param>
-            <param name="source6">Sixth observable source.</param>
-            <param name="source7">Seventh observable source.</param>
-            <param name="source8">Eighth observable source.</param>
-            <param name="source9">Ninth observable source.</param>
-            <param name="source10">Tenth observable source.</param>
-            <param name="source11">Eleventh observable source.</param>
-            <param name="source12">Twelfth observable source.</param>
-            <param name="source13">Thirteenth observable source.</param>
-            <param name="resultSelector">Function to invoke for each series of elements at corresponding indexes in the sources.</param>
-            <returns>An observable sequence containing the result of combining elements of the sources using the specified result selector function.</returns>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.Zip``15(System.IObservable{``0},System.IObservable{``1},System.IObservable{``2},System.IObservable{``3},System.IObservable{``4},System.IObservable{``5},System.IObservable{``6},System.IObservable{``7},System.IObservable{``8},System.IObservable{``9},System.IObservable{``10},System.IObservable{``11},System.IObservable{``12},System.IObservable{``13},System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14})">
-            <summary>
-            Merges the specified observable sequences into one observable sequence by using the selector function whenever all of the observable sequences have produced an element at a corresponding index.
-            </summary>
-            <param name="source1">First observable source.</param>
-            <param name="source2">Second observable source.</param>
-            <param name="source3">Third observable source.</param>
-            <param name="source4">Fourth observable source.</param>
-            <param name="source5">Fifth observable source.</param>
-            <param name="source6">Sixth observable source.</param>
-            <param name="source7">Seventh observable source.</param>
-            <param name="source8">Eighth observable source.</param>
-            <param name="source9">Ninth observable source.</param>
-            <param name="source10">Tenth observable source.</param>
-            <param name="source11">Eleventh observable source.</param>
-            <param name="source12">Twelfth observable source.</param>
-            <param name="source13">Thirteenth observable source.</param>
-            <param name="source14">Fourteenth observable source.</param>
-            <param name="resultSelector">Function to invoke for each series of elements at corresponding indexes in the sources.</param>
-            <returns>An observable sequence containing the result of combining elements of the sources using the specified result selector function.</returns>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.Zip``16(System.IObservable{``0},System.IObservable{``1},System.IObservable{``2},System.IObservable{``3},System.IObservable{``4},System.IObservable{``5},System.IObservable{``6},System.IObservable{``7},System.IObservable{``8},System.IObservable{``9},System.IObservable{``10},System.IObservable{``11},System.IObservable{``12},System.IObservable{``13},System.IObservable{``14},System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14,``15})">
-            <summary>
-            Merges the specified observable sequences into one observable sequence by using the selector function whenever all of the observable sequences have produced an element at a corresponding index.
-            </summary>
-            <param name="source1">First observable source.</param>
-            <param name="source2">Second observable source.</param>
-            <param name="source3">Third observable source.</param>
-            <param name="source4">Fourth observable source.</param>
-            <param name="source5">Fifth observable source.</param>
-            <param name="source6">Sixth observable source.</param>
-            <param name="source7">Seventh observable source.</param>
-            <param name="source8">Eighth observable source.</param>
-            <param name="source9">Ninth observable source.</param>
-            <param name="source10">Tenth observable source.</param>
-            <param name="source11">Eleventh observable source.</param>
-            <param name="source12">Twelfth observable source.</param>
-            <param name="source13">Thirteenth observable source.</param>
-            <param name="source14">Fourteenth observable source.</param>
-            <param name="source15">Fifteenth observable source.</param>
-            <param name="resultSelector">Function to invoke for each series of elements at corresponding indexes in the sources.</param>
-            <returns>An observable sequence containing the result of combining elements of the sources using the specified result selector function.</returns>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.Zip``17(System.IObservable{``0},System.IObservable{``1},System.IObservable{``2},System.IObservable{``3},System.IObservable{``4},System.IObservable{``5},System.IObservable{``6},System.IObservable{``7},System.IObservable{``8},System.IObservable{``9},System.IObservable{``10},System.IObservable{``11},System.IObservable{``12},System.IObservable{``13},System.IObservable{``14},System.IObservable{``15},System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14,``15,``16})">
-            <summary>
-            Merges the specified observable sequences into one observable sequence by using the selector function whenever all of the observable sequences have produced an element at a corresponding index.
-            </summary>
-            <param name="source1">First observable source.</param>
-            <param name="source2">Second observable source.</param>
-            <param name="source3">Third observable source.</param>
-            <param name="source4">Fourth observable source.</param>
-            <param name="source5">Fifth observable source.</param>
-            <param name="source6">Sixth observable source.</param>
-            <param name="source7">Seventh observable source.</param>
-            <param name="source8">Eighth observable source.</param>
-            <param name="source9">Ninth observable source.</param>
-            <param name="source10">Tenth observable source.</param>
-            <param name="source11">Eleventh observable source.</param>
-            <param name="source12">Twelfth observable source.</param>
-            <param name="source13">Thirteenth observable source.</param>
-            <param name="source14">Fourteenth observable source.</param>
-            <param name="source15">Fifteenth observable source.</param>
-            <param name="source16">Sixteenth observable source.</param>
-            <param name="resultSelector">Function to invoke for each series of elements at corresponding indexes in the sources.</param>
-            <returns>An observable sequence containing the result of combining elements of the sources using the specified result selector function.</returns>
-        </member>
         <member name="M:System.Reactive.Linq.Observable.Zip``3(System.IObservable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``1,``2})">
             <summary>
             Merges an observable sequence and an enumerable sequence into one observable sequence by using the selector function.
@@ -2803,216 +2165,6 @@
             <param name="source2">Second observable source.</param>
             <param name="source3">Third observable source.</param>
             <param name="source4">Fourth observable source.</param>
-            <param name="resultSelector">Function to invoke whenever any of the sources produces an element.</param>
-            <returns>An observable sequence containing the result of combining elements of the sources using the specified result selector function.</returns>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.CombineLatest``6(System.IObservable{``0},System.IObservable{``1},System.IObservable{``2},System.IObservable{``3},System.IObservable{``4},System.Func{``0,``1,``2,``3,``4,``5})">
-            <summary>
-            Merges the specified observable sequences into one observable sequence by using the selector function whenever any of the observable sequences produces an element.
-            </summary>
-            <param name="source1">First observable source.</param>
-            <param name="source2">Second observable source.</param>
-            <param name="source3">Third observable source.</param>
-            <param name="source4">Fourth observable source.</param>
-            <param name="source5">Fifth observable source.</param>
-            <param name="resultSelector">Function to invoke whenever any of the sources produces an element.</param>
-            <returns>An observable sequence containing the result of combining elements of the sources using the specified result selector function.</returns>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.CombineLatest``7(System.IObservable{``0},System.IObservable{``1},System.IObservable{``2},System.IObservable{``3},System.IObservable{``4},System.IObservable{``5},System.Func{``0,``1,``2,``3,``4,``5,``6})">
-            <summary>
-            Merges the specified observable sequences into one observable sequence by using the selector function whenever any of the observable sequences produces an element.
-            </summary>
-            <param name="source1">First observable source.</param>
-            <param name="source2">Second observable source.</param>
-            <param name="source3">Third observable source.</param>
-            <param name="source4">Fourth observable source.</param>
-            <param name="source5">Fifth observable source.</param>
-            <param name="source6">Sixth observable source.</param>
-            <param name="resultSelector">Function to invoke whenever any of the sources produces an element.</param>
-            <returns>An observable sequence containing the result of combining elements of the sources using the specified result selector function.</returns>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.CombineLatest``8(System.IObservable{``0},System.IObservable{``1},System.IObservable{``2},System.IObservable{``3},System.IObservable{``4},System.IObservable{``5},System.IObservable{``6},System.Func{``0,``1,``2,``3,``4,``5,``6,``7})">
-            <summary>
-            Merges the specified observable sequences into one observable sequence by using the selector function whenever any of the observable sequences produces an element.
-            </summary>
-            <param name="source1">First observable source.</param>
-            <param name="source2">Second observable source.</param>
-            <param name="source3">Third observable source.</param>
-            <param name="source4">Fourth observable source.</param>
-            <param name="source5">Fifth observable source.</param>
-            <param name="source6">Sixth observable source.</param>
-            <param name="source7">Seventh observable source.</param>
-            <param name="resultSelector">Function to invoke whenever any of the sources produces an element.</param>
-            <returns>An observable sequence containing the result of combining elements of the sources using the specified result selector function.</returns>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.CombineLatest``9(System.IObservable{``0},System.IObservable{``1},System.IObservable{``2},System.IObservable{``3},System.IObservable{``4},System.IObservable{``5},System.IObservable{``6},System.IObservable{``7},System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8})">
-            <summary>
-            Merges the specified observable sequences into one observable sequence by using the selector function whenever any of the observable sequences produces an element.
-            </summary>
-            <param name="source1">First observable source.</param>
-            <param name="source2">Second observable source.</param>
-            <param name="source3">Third observable source.</param>
-            <param name="source4">Fourth observable source.</param>
-            <param name="source5">Fifth observable source.</param>
-            <param name="source6">Sixth observable source.</param>
-            <param name="source7">Seventh observable source.</param>
-            <param name="source8">Eighth observable source.</param>
-            <param name="resultSelector">Function to invoke whenever any of the sources produces an element.</param>
-            <returns>An observable sequence containing the result of combining elements of the sources using the specified result selector function.</returns>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.CombineLatest``10(System.IObservable{``0},System.IObservable{``1},System.IObservable{``2},System.IObservable{``3},System.IObservable{``4},System.IObservable{``5},System.IObservable{``6},System.IObservable{``7},System.IObservable{``8},System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9})">
-            <summary>
-            Merges the specified observable sequences into one observable sequence by using the selector function whenever any of the observable sequences produces an element.
-            </summary>
-            <param name="source1">First observable source.</param>
-            <param name="source2">Second observable source.</param>
-            <param name="source3">Third observable source.</param>
-            <param name="source4">Fourth observable source.</param>
-            <param name="source5">Fifth observable source.</param>
-            <param name="source6">Sixth observable source.</param>
-            <param name="source7">Seventh observable source.</param>
-            <param name="source8">Eighth observable source.</param>
-            <param name="source9">Ninth observable source.</param>
-            <param name="resultSelector">Function to invoke whenever any of the sources produces an element.</param>
-            <returns>An observable sequence containing the result of combining elements of the sources using the specified result selector function.</returns>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.CombineLatest``11(System.IObservable{``0},System.IObservable{``1},System.IObservable{``2},System.IObservable{``3},System.IObservable{``4},System.IObservable{``5},System.IObservable{``6},System.IObservable{``7},System.IObservable{``8},System.IObservable{``9},System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10})">
-            <summary>
-            Merges the specified observable sequences into one observable sequence by using the selector function whenever any of the observable sequences produces an element.
-            </summary>
-            <param name="source1">First observable source.</param>
-            <param name="source2">Second observable source.</param>
-            <param name="source3">Third observable source.</param>
-            <param name="source4">Fourth observable source.</param>
-            <param name="source5">Fifth observable source.</param>
-            <param name="source6">Sixth observable source.</param>
-            <param name="source7">Seventh observable source.</param>
-            <param name="source8">Eighth observable source.</param>
-            <param name="source9">Ninth observable source.</param>
-            <param name="source10">Tenth observable source.</param>
-            <param name="resultSelector">Function to invoke whenever any of the sources produces an element.</param>
-            <returns>An observable sequence containing the result of combining elements of the sources using the specified result selector function.</returns>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.CombineLatest``12(System.IObservable{``0},System.IObservable{``1},System.IObservable{``2},System.IObservable{``3},System.IObservable{``4},System.IObservable{``5},System.IObservable{``6},System.IObservable{``7},System.IObservable{``8},System.IObservable{``9},System.IObservable{``10},System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11})">
-            <summary>
-            Merges the specified observable sequences into one observable sequence by using the selector function whenever any of the observable sequences produces an element.
-            </summary>
-            <param name="source1">First observable source.</param>
-            <param name="source2">Second observable source.</param>
-            <param name="source3">Third observable source.</param>
-            <param name="source4">Fourth observable source.</param>
-            <param name="source5">Fifth observable source.</param>
-            <param name="source6">Sixth observable source.</param>
-            <param name="source7">Seventh observable source.</param>
-            <param name="source8">Eighth observable source.</param>
-            <param name="source9">Ninth observable source.</param>
-            <param name="source10">Tenth observable source.</param>
-            <param name="source11">Eleventh observable source.</param>
-            <param name="resultSelector">Function to invoke whenever any of the sources produces an element.</param>
-            <returns>An observable sequence containing the result of combining elements of the sources using the specified result selector function.</returns>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.CombineLatest``13(System.IObservable{``0},System.IObservable{``1},System.IObservable{``2},System.IObservable{``3},System.IObservable{``4},System.IObservable{``5},System.IObservable{``6},System.IObservable{``7},System.IObservable{``8},System.IObservable{``9},System.IObservable{``10},System.IObservable{``11},System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12})">
-            <summary>
-            Merges the specified observable sequences into one observable sequence by using the selector function whenever any of the observable sequences produces an element.
-            </summary>
-            <param name="source1">First observable source.</param>
-            <param name="source2">Second observable source.</param>
-            <param name="source3">Third observable source.</param>
-            <param name="source4">Fourth observable source.</param>
-            <param name="source5">Fifth observable source.</param>
-            <param name="source6">Sixth observable source.</param>
-            <param name="source7">Seventh observable source.</param>
-            <param name="source8">Eighth observable source.</param>
-            <param name="source9">Ninth observable source.</param>
-            <param name="source10">Tenth observable source.</param>
-            <param name="source11">Eleventh observable source.</param>
-            <param name="source12">Twelfth observable source.</param>
-            <param name="resultSelector">Function to invoke whenever any of the sources produces an element.</param>
-            <returns>An observable sequence containing the result of combining elements of the sources using the specified result selector function.</returns>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.CombineLatest``14(System.IObservable{``0},System.IObservable{``1},System.IObservable{``2},System.IObservable{``3},System.IObservable{``4},System.IObservable{``5},System.IObservable{``6},System.IObservable{``7},System.IObservable{``8},System.IObservable{``9},System.IObservable{``10},System.IObservable{``11},System.IObservable{``12},System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13})">
-            <summary>
-            Merges the specified observable sequences into one observable sequence by using the selector function whenever any of the observable sequences produces an element.
-            </summary>
-            <param name="source1">First observable source.</param>
-            <param name="source2">Second observable source.</param>
-            <param name="source3">Third observable source.</param>
-            <param name="source4">Fourth observable source.</param>
-            <param name="source5">Fifth observable source.</param>
-            <param name="source6">Sixth observable source.</param>
-            <param name="source7">Seventh observable source.</param>
-            <param name="source8">Eighth observable source.</param>
-            <param name="source9">Ninth observable source.</param>
-            <param name="source10">Tenth observable source.</param>
-            <param name="source11">Eleventh observable source.</param>
-            <param name="source12">Twelfth observable source.</param>
-            <param name="source13">Thirteenth observable source.</param>
-            <param name="resultSelector">Function to invoke whenever any of the sources produces an element.</param>
-            <returns>An observable sequence containing the result of combining elements of the sources using the specified result selector function.</returns>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.CombineLatest``15(System.IObservable{``0},System.IObservable{``1},System.IObservable{``2},System.IObservable{``3},System.IObservable{``4},System.IObservable{``5},System.IObservable{``6},System.IObservable{``7},System.IObservable{``8},System.IObservable{``9},System.IObservable{``10},System.IObservable{``11},System.IObservable{``12},System.IObservable{``13},System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14})">
-            <summary>
-            Merges the specified observable sequences into one observable sequence by using the selector function whenever any of the observable sequences produces an element.
-            </summary>
-            <param name="source1">First observable source.</param>
-            <param name="source2">Second observable source.</param>
-            <param name="source3">Third observable source.</param>
-            <param name="source4">Fourth observable source.</param>
-            <param name="source5">Fifth observable source.</param>
-            <param name="source6">Sixth observable source.</param>
-            <param name="source7">Seventh observable source.</param>
-            <param name="source8">Eighth observable source.</param>
-            <param name="source9">Ninth observable source.</param>
-            <param name="source10">Tenth observable source.</param>
-            <param name="source11">Eleventh observable source.</param>
-            <param name="source12">Twelfth observable source.</param>
-            <param name="source13">Thirteenth observable source.</param>
-            <param name="source14">Fourteenth observable source.</param>
-            <param name="resultSelector">Function to invoke whenever any of the sources produces an element.</param>
-            <returns>An observable sequence containing the result of combining elements of the sources using the specified result selector function.</returns>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.CombineLatest``16(System.IObservable{``0},System.IObservable{``1},System.IObservable{``2},System.IObservable{``3},System.IObservable{``4},System.IObservable{``5},System.IObservable{``6},System.IObservable{``7},System.IObservable{``8},System.IObservable{``9},System.IObservable{``10},System.IObservable{``11},System.IObservable{``12},System.IObservable{``13},System.IObservable{``14},System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14,``15})">
-            <summary>
-            Merges the specified observable sequences into one observable sequence by using the selector function whenever any of the observable sequences produces an element.
-            </summary>
-            <param name="source1">First observable source.</param>
-            <param name="source2">Second observable source.</param>
-            <param name="source3">Third observable source.</param>
-            <param name="source4">Fourth observable source.</param>
-            <param name="source5">Fifth observable source.</param>
-            <param name="source6">Sixth observable source.</param>
-            <param name="source7">Seventh observable source.</param>
-            <param name="source8">Eighth observable source.</param>
-            <param name="source9">Ninth observable source.</param>
-            <param name="source10">Tenth observable source.</param>
-            <param name="source11">Eleventh observable source.</param>
-            <param name="source12">Twelfth observable source.</param>
-            <param name="source13">Thirteenth observable source.</param>
-            <param name="source14">Fourteenth observable source.</param>
-            <param name="source15">Fifteenth observable source.</param>
-            <param name="resultSelector">Function to invoke whenever any of the sources produces an element.</param>
-            <returns>An observable sequence containing the result of combining elements of the sources using the specified result selector function.</returns>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.CombineLatest``17(System.IObservable{``0},System.IObservable{``1},System.IObservable{``2},System.IObservable{``3},System.IObservable{``4},System.IObservable{``5},System.IObservable{``6},System.IObservable{``7},System.IObservable{``8},System.IObservable{``9},System.IObservable{``10},System.IObservable{``11},System.IObservable{``12},System.IObservable{``13},System.IObservable{``14},System.IObservable{``15},System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14,``15,``16})">
-            <summary>
-            Merges the specified observable sequences into one observable sequence by using the selector function whenever any of the observable sequences produces an element.
-            </summary>
-            <param name="source1">First observable source.</param>
-            <param name="source2">Second observable source.</param>
-            <param name="source3">Third observable source.</param>
-            <param name="source4">Fourth observable source.</param>
-            <param name="source5">Fifth observable source.</param>
-            <param name="source6">Sixth observable source.</param>
-            <param name="source7">Seventh observable source.</param>
-            <param name="source8">Eighth observable source.</param>
-            <param name="source9">Ninth observable source.</param>
-            <param name="source10">Tenth observable source.</param>
-            <param name="source11">Eleventh observable source.</param>
-            <param name="source12">Twelfth observable source.</param>
-            <param name="source13">Thirteenth observable source.</param>
-            <param name="source14">Fourteenth observable source.</param>
-            <param name="source15">Fifteenth observable source.</param>
-            <param name="source16">Sixteenth observable source.</param>
             <param name="resultSelector">Function to invoke whenever any of the sources produces an element.</param>
             <returns>An observable sequence containing the result of combining elements of the sources using the specified result selector function.</returns>
         </member>
@@ -3706,14 +2858,6 @@
             <param name="selector">A transform function to apply to each element.</param>
             <returns>An observable sequence whose elements are the result of invoking the one-to-many transform function on each element of the input sequence.</returns>
         </member>
-        <member name="M:System.Reactive.Linq.Observable.SelectMany``2(System.IObservable{``0},System.Func{``0,System.Threading.Tasks.Task{``1}})">
-            <summary>
-            Projects each element of an observable sequence to a task and flattens the resulting observable sequences into one observable sequence.
-            </summary>
-            <param name="source">An observable sequence of elements to project.</param>
-            <param name="selector">A transform function to apply to each element.</param>
-            <returns>An observable sequence whose elements are the result of invoking the one-to-many transform function on each element of the input sequence.</returns>
-        </member>
         <member name="M:System.Reactive.Linq.Observable.SelectMany``2(System.IObservable{``0},System.Func{``0,System.IObservable{``1}},System.Func{System.Exception,System.IObservable{``1}},System.Func{System.IObservable{``1}})">
             <summary>
             Projects each element of an observable sequence to an observable sequence and flattens the resulting observable sequences into one observable sequence.
@@ -3744,15 +2888,6 @@
         <member name="M:System.Reactive.Linq.Observable.SelectMany``3(System.IObservable{``0},System.Func{``0,System.IObservable{``1}},System.Func{``0,``1,``2})">
             <summary>
             Projects each element of an observable sequence to an observable sequence and flattens the resulting observable sequences into one observable sequence.
-            </summary>
-            <param name="source">An observable sequence of elements to project.</param>
-            <param name="collectionSelector">A transform function to apply to each element.</param>
-            <param name="resultSelector">A transform function to apply to each element of the intermediate sequence.</param>
-            <returns>An observable sequence whose elements are the result of invoking the one-to-many transform function collectionSelector on each element of the input sequence and then mapping each of those sequence elements and their corresponding source element to a result element.</returns>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.SelectMany``3(System.IObservable{``0},System.Func{``0,System.Threading.Tasks.Task{``1}},System.Func{``0,``1,``2})">
-            <summary>
-            Projects each element of an observable sequence to a task and flattens the resulting observable sequences into one observable sequence.
             </summary>
             <param name="source">An observable sequence of elements to project.</param>
             <param name="collectionSelector">A transform function to apply to each element.</param>
@@ -5181,11 +4316,6 @@
             Gets the scheduler that schedules work on a new thread.
             </summary>
         </member>
-        <member name="P:System.Reactive.Concurrency.Scheduler.TaskPool">
-            <summary>
-            Gets the scheduler that schedules work on the default Task Factory.
-            </summary>
-        </member>
         <member name="T:System.Reactive.Concurrency.SynchronizationContextScheduler">
             <summary>
             Represents an object that schedules units of work on a provided SynchronizationContext.
@@ -5224,49 +4354,6 @@
             <returns>The disposable object used to cancel the scheduled action (best effort).</returns>
         </member>
         <member name="P:System.Reactive.Concurrency.SynchronizationContextScheduler.Now">
-            <summary>
-            Gets the scheduler's notion of current time.
-            </summary>
-        </member>
-        <member name="T:System.Reactive.Concurrency.TaskPoolScheduler">
-            <summary>
-            Represents an object that schedules units of work using a provided TaskFactory.
-            </summary>
-            <seealso cref="P:System.Reactive.Concurrency.Scheduler.TaskPool">An instance of this type, using the default TaskFactory, is exposed through this static property.</seealso>
-        </member>
-        <member name="M:System.Reactive.Concurrency.TaskPoolScheduler.#ctor(System.Threading.Tasks.TaskFactory)">
-            <summary>
-            Creates an object that schedules units of work using the provided TaskFactory.
-            </summary>
-            <param name="taskFactory">Task factory used to create tasks to run units of work.</param>
-        </member>
-        <member name="M:System.Reactive.Concurrency.TaskPoolScheduler.Schedule``1(``0,System.Func{System.Reactive.Concurrency.IScheduler,``0,System.IDisposable})">
-            <summary>
-            Schedules an action to be executed.
-            </summary>
-            <param name="state">State passed to the action to be executed.</param>
-            <param name="action">Action to be executed.</param>
-            <returns>The disposable object used to cancel the scheduled action (best effort).</returns>
-        </member>
-        <member name="M:System.Reactive.Concurrency.TaskPoolScheduler.Schedule``1(``0,System.TimeSpan,System.Func{System.Reactive.Concurrency.IScheduler,``0,System.IDisposable})">
-            <summary>
-            Schedules an action to be executed after dueTime, using a System.Threading.Timer object.
-            </summary>
-            <param name="state">State passed to the action to be executed.</param>
-            <param name="action">Action to be executed.</param>
-            <param name="dueTime">Relative time after which to execute the action.</param>
-            <returns>The disposable object used to cancel the scheduled action (best effort).</returns>
-        </member>
-        <member name="M:System.Reactive.Concurrency.TaskPoolScheduler.Schedule``1(``0,System.DateTimeOffset,System.Func{System.Reactive.Concurrency.IScheduler,``0,System.IDisposable})">
-            <summary>
-            Schedules an action to be executed at dueTime, using a System.Threading.Timer object.
-            </summary>
-            <param name="state">State passed to the action to be executed.</param>
-            <param name="action">Action to be executed.</param>
-            <param name="dueTime">Absolute time at which to execute the action.</param>
-            <returns>The disposable object used to cancel the scheduled action (best effort).</returns>
-        </member>
-        <member name="P:System.Reactive.Concurrency.TaskPoolScheduler.Now">
             <summary>
             Gets the scheduler's notion of current time.
             </summary>
@@ -5372,37 +4459,6 @@
             </summary>
         </member>
         <member name="P:System.Reactive.Disposables.BooleanDisposable.IsDisposed">
-            <summary>
-            Gets a value that indicates whether the object is disposed.
-            </summary>
-        </member>
-        <member name="T:System.Reactive.Disposables.CancellationDisposable">
-            <summary>
-            Represents an IDisposable that can be checked for cancellation status.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Disposables.CancellationDisposable.#ctor(System.Threading.CancellationTokenSource)">
-            <summary>
-            Initializes a new instance of the <see cref="T:System.Reactive.Disposables.CancellationDisposable"/> class that uses an existing CancellationTokenSource.
-            </summary>
-            <param name="cts">CancellationTokenSource used for cancellation.</param>
-        </member>
-        <member name="M:System.Reactive.Disposables.CancellationDisposable.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:System.Reactive.Disposables.CancellationDisposable"/> class that uses a new CancellationTokenSource.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Disposables.CancellationDisposable.Dispose">
-            <summary>
-            Cancels the CancellationTokenSource.
-            </summary>
-        </member>
-        <member name="P:System.Reactive.Disposables.CancellationDisposable.Token">
-            <summary>
-            Gets the CancellationToken used by this CancellationDisposable.
-            </summary>
-        </member>
-        <member name="P:System.Reactive.Disposables.CancellationDisposable.IsDisposed">
             <summary>
             Gets a value that indicates whether the object is disposed.
             </summary>
@@ -5905,187 +4961,7 @@
             Represents a join pattern.
             </summary>
         </member>
-        <member name="M:System.Reactive.Joins.Pattern`4.And``1(System.IObservable{``0})">
-            <summary>
-            Matches when all observable sequences have an available value.
-            </summary>
-        </member>
         <member name="M:System.Reactive.Joins.Pattern`4.Then``1(System.Func{`0,`1,`2,`3,``0})">
-            <summary>
-            Matches when all observable sequences have an available value and projects the values.
-            </summary>
-        </member>
-        <member name="T:System.Reactive.Joins.Pattern`5">
-            <summary>
-            Represents a join pattern.
-            </summary>    
-        </member>
-        <member name="M:System.Reactive.Joins.Pattern`5.And``1(System.IObservable{``0})">
-            <summary>
-            Matches when all observable sequences have an available value.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Joins.Pattern`5.Then``1(System.Func{`0,`1,`2,`3,`4,``0})">
-            <summary>
-            Matches when all observable sequences have an available value and projects the values.
-            </summary>
-        </member>
-        <member name="T:System.Reactive.Joins.Pattern`6">
-            <summary>
-            Represents a join pattern.
-            </summary>    
-        </member>
-        <member name="M:System.Reactive.Joins.Pattern`6.And``1(System.IObservable{``0})">
-            <summary>
-            Matches when all observable sequences have an available value.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Joins.Pattern`6.Then``1(System.Func{`0,`1,`2,`3,`4,`5,``0})">
-            <summary>
-            Matches when all observable sequences have an available value and projects the values.
-            </summary>
-        </member>
-        <member name="T:System.Reactive.Joins.Pattern`7">
-            <summary>
-            Represents a join pattern.
-            </summary>    
-        </member>
-        <member name="M:System.Reactive.Joins.Pattern`7.And``1(System.IObservable{``0})">
-            <summary>
-            Matches when all observable sequences have an available value.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Joins.Pattern`7.Then``1(System.Func{`0,`1,`2,`3,`4,`5,`6,``0})">
-            <summary>
-            Matches when all observable sequences have an available value and projects the values.
-            </summary>
-        </member>
-        <member name="T:System.Reactive.Joins.Pattern`8">
-            <summary>
-            Represents a join pattern.
-            </summary>    
-        </member>
-        <member name="M:System.Reactive.Joins.Pattern`8.And``1(System.IObservable{``0})">
-            <summary>
-            Matches when all observable sequences have an available value.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Joins.Pattern`8.Then``1(System.Func{`0,`1,`2,`3,`4,`5,`6,`7,``0})">
-            <summary>
-            Matches when all observable sequences have an available value and projects the values.
-            </summary>
-        </member>
-        <member name="T:System.Reactive.Joins.Pattern`9">
-            <summary>
-            Represents a join pattern.
-            </summary>    
-        </member>
-        <member name="M:System.Reactive.Joins.Pattern`9.And``1(System.IObservable{``0})">
-            <summary>
-            Matches when all observable sequences have an available value.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Joins.Pattern`9.Then``1(System.Func{`0,`1,`2,`3,`4,`5,`6,`7,`8,``0})">
-            <summary>
-            Matches when all observable sequences have an available value and projects the values.
-            </summary>
-        </member>
-        <member name="T:System.Reactive.Joins.Pattern`10">
-            <summary>
-            Represents a join pattern.
-            </summary>    
-        </member>
-        <member name="M:System.Reactive.Joins.Pattern`10.And``1(System.IObservable{``0})">
-            <summary>
-            Matches when all observable sequences have an available value.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Joins.Pattern`10.Then``1(System.Func{`0,`1,`2,`3,`4,`5,`6,`7,`8,`9,``0})">
-            <summary>
-            Matches when all observable sequences have an available value and projects the values.
-            </summary>
-        </member>
-        <member name="T:System.Reactive.Joins.Pattern`11">
-            <summary>
-            Represents a join pattern.
-            </summary>    
-        </member>
-        <member name="M:System.Reactive.Joins.Pattern`11.And``1(System.IObservable{``0})">
-            <summary>
-            Matches when all observable sequences have an available value.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Joins.Pattern`11.Then``1(System.Func{`0,`1,`2,`3,`4,`5,`6,`7,`8,`9,`10,``0})">
-            <summary>
-            Matches when all observable sequences have an available value and projects the values.
-            </summary>
-        </member>
-        <member name="T:System.Reactive.Joins.Pattern`12">
-            <summary>
-            Represents a join pattern.
-            </summary>    
-        </member>
-        <member name="M:System.Reactive.Joins.Pattern`12.And``1(System.IObservable{``0})">
-            <summary>
-            Matches when all observable sequences have an available value.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Joins.Pattern`12.Then``1(System.Func{`0,`1,`2,`3,`4,`5,`6,`7,`8,`9,`10,`11,``0})">
-            <summary>
-            Matches when all observable sequences have an available value and projects the values.
-            </summary>
-        </member>
-        <member name="T:System.Reactive.Joins.Pattern`13">
-            <summary>
-            Represents a join pattern.
-            </summary>    
-        </member>
-        <member name="M:System.Reactive.Joins.Pattern`13.And``1(System.IObservable{``0})">
-            <summary>
-            Matches when all observable sequences have an available value.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Joins.Pattern`13.Then``1(System.Func{`0,`1,`2,`3,`4,`5,`6,`7,`8,`9,`10,`11,`12,``0})">
-            <summary>
-            Matches when all observable sequences have an available value and projects the values.
-            </summary>
-        </member>
-        <member name="T:System.Reactive.Joins.Pattern`14">
-            <summary>
-            Represents a join pattern.
-            </summary>    
-        </member>
-        <member name="M:System.Reactive.Joins.Pattern`14.And``1(System.IObservable{``0})">
-            <summary>
-            Matches when all observable sequences have an available value.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Joins.Pattern`14.Then``1(System.Func{`0,`1,`2,`3,`4,`5,`6,`7,`8,`9,`10,`11,`12,`13,``0})">
-            <summary>
-            Matches when all observable sequences have an available value and projects the values.
-            </summary>
-        </member>
-        <member name="T:System.Reactive.Joins.Pattern`15">
-            <summary>
-            Represents a join pattern.
-            </summary>    
-        </member>
-        <member name="M:System.Reactive.Joins.Pattern`15.And``1(System.IObservable{``0})">
-            <summary>
-            Matches when all observable sequences have an available value.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Joins.Pattern`15.Then``1(System.Func{`0,`1,`2,`3,`4,`5,`6,`7,`8,`9,`10,`11,`12,`13,`14,``0})">
-            <summary>
-            Matches when all observable sequences have an available value and projects the values.
-            </summary>
-        </member>
-        <member name="T:System.Reactive.Joins.Pattern`16">
-            <summary>
-            Represents a join pattern.
-            </summary>    
-        </member>
-        <member name="M:System.Reactive.Joins.Pattern`16.Then``1(System.Func{`0,`1,`2,`3,`4,`5,`6,`7,`8,`9,`10,`11,`12,`13,`14,`15,``0})">
             <summary>
             Matches when all observable sequences have an available value and projects the values.
             </summary>
@@ -6400,57 +5276,6 @@
             <summary>
             Releases all resources used by the current instance of the <see cref="T:System.Reactive.Subjects.ReplaySubject`1"/> class and unsubscribe all observers.
             </summary>
-        </member>
-        <member name="T:System.Reactive.Threading.Tasks.TaskObservableExtensions">
-            <summary>
-            Provides a set of static methods for converting Tasks to IObservables.
-            </summary>
-        </member>
-        <member name="M:System.Reactive.Threading.Tasks.TaskObservableExtensions.ToObservable(System.Threading.Tasks.Task)">
-            <summary>
-            Returns an observable sequence that signals when the task completes.
-            </summary>
-            <param name="task">Task to convert to an observable sequence.</param>
-            <returns>An observable sequence that produces a unit value when the task completes, or propagates the exception produced by the task.</returns>
-        </member>
-        <member name="M:System.Reactive.Threading.Tasks.TaskObservableExtensions.ToObservable``1(System.Threading.Tasks.Task{``0})">
-            <summary>
-            Returns an observable sequence that propagates the result of the task.
-            </summary>
-            <param name="task">Task to convert to an observable sequence.</param>
-            <returns>An observable sequence that produces the task's result, or propagates the exception produced by the task.</returns>
-        </member>
-        <member name="M:System.Reactive.Threading.Tasks.TaskObservableExtensions.ToTask``1(System.IObservable{``0})">
-            <summary>
-            Returns a task that contains the last value of the observable sequence.
-            </summary>
-            <param name="observable">Observable sequence to convert to a task.</param>
-            <returns>A task that contains the last value of the observable sequence.</returns>
-        </member>
-        <member name="M:System.Reactive.Threading.Tasks.TaskObservableExtensions.ToTask``1(System.IObservable{``0},System.Object)">
-            <summary>
-            Returns a task that contains the last value of the observable sequence.
-            </summary>
-            <param name="observable">Observable sequence to convert to a task.</param>
-            <param name="state">The state to use as the underlying task's AsyncState.</param>
-            <returns>A task that contains the last value of the observable sequence.</returns>
-        </member>
-        <member name="M:System.Reactive.Threading.Tasks.TaskObservableExtensions.ToTask``1(System.IObservable{``0},System.Threading.CancellationToken)">
-            <summary>
-            Returns a task that contains the last value of the observable sequence.
-            </summary>
-            <param name="observable">Observable sequence to convert to a task.</param>
-            <param name="cancellationToken">Cancellation token that can be used to cancel the task, causing unsubscription from the observable sequence.</param>
-            <returns>A task that contains the last value of the observable sequence.</returns>
-        </member>
-        <member name="M:System.Reactive.Threading.Tasks.TaskObservableExtensions.ToTask``1(System.IObservable{``0},System.Threading.CancellationToken,System.Object)">
-            <summary>
-            Returns a task that contains the last value of the observable sequence.
-            </summary>
-            <param name="observable">Observable sequence to convert to a task.</param>
-            <param name="cancellationToken">Cancellation token that can be used to cancel the task, causing unsubscription from the observable sequence.</param>
-            <param name="state">The state to use as the underlying task's AsyncState.</param>
-            <returns>A task that contains the last value of the observable sequence.</returns>
         </member>
         <member name="T:System.Reactive.TimeInterval`1">
             <summary>

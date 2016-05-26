@@ -2,7 +2,6 @@
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
-using AdoManager;
 using Models;
 using Newtonsoft.Json;
 using ServiceLifeController.Properties;

@@ -18,6 +18,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)RegistryHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ServicesHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedLinks.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)StringCipher.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WindowsEventLog.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Email.html" />
   </ItemGroup>
 </Project>

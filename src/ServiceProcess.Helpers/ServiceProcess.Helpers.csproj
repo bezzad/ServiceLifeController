@@ -40,21 +40,24 @@
     <Reference Include="ReactiveUI">
       <HintPath>..\packages\reactiveui-core.2.3.2.0\lib\Net4\ReactiveUI.dll</HintPath>
     </Reference>
-    <Reference Include="ReactiveUI.Blend">
+    <Reference Include="ReactiveUI.Blend, Version=2.3.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\reactiveui-xaml.2.3.2.0\lib\Net4\ReactiveUI.Blend.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="ReactiveUI.Xaml">
+    <Reference Include="ReactiveUI.Xaml, Version=2.3.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\reactiveui-xaml.2.3.2.0\lib\Net4\ReactiveUI.Xaml.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Reactive, Version=1.1.10605.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Rx_Experimental-Main.1.1.10605\lib\Net4\System.Reactive.dll</HintPath>
+    <Reference Include="System.Reactive, Version=1.1.11111.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rx_Experimental-Main.1.1.11111\lib\Net4\System.Reactive.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="System.Reactive.Windows.Threading">
-      <HintPath>..\packages\Rx_Experimental-Xaml.1.1.10605\lib\Net4\System.Reactive.Windows.Threading.dll</HintPath>
+    <Reference Include="System.Reactive.Windows.Threading, Version=1.1.11111.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rx_Experimental-Xaml.1.1.11111\lib\Net4\System.Reactive.Windows.Threading.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml" />
@@ -94,6 +97,7 @@
     <Compile Include="Views\ServiceView.xaml.cs">
       <DependentUpon>ServiceView.xaml</DependentUpon>
     </Compile>
+    <None Include="app.config" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
