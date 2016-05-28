@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 using Models;
@@ -19,17 +20,16 @@ namespace ServiceLifeController.Views
 
         void dgvServices_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            var src = (SortableBindingList<ServiceInfo>)dgvServices.DataSource;
-
             _setting.CoveredServices.Clear();
             lstSelectedServices.Items.Clear();
 
             foreach (DataGridViewRow row in dgvServices.Rows)
             {
-                if ((bool?)row.Cells["Selected"].Value == true)
+                if (row.Cells["Selected"].Value != DBNull.Value && (bool?)row.Cells["Selected"].Value == true)
                 {
-                    _setting.CoveredServices.Add(src[row.Index]);
-                    lstSelectedServices.Items.Add(src[row.Index].Name);
+                    var serv = row.ToObject<ServiceInfo>();
+                    _setting.CoveredServices.Add(serv);
+                    lstSelectedServices.Items.Add(serv.Name);
                 }
             }
         }
@@ -76,8 +76,6 @@ namespace ServiceLifeController.Views
 
         private void SetStoredSelectedServices()
         {
-            //lstSelectedServices.Items.AddRange(setting.CoveredServices.Select(cs=> cs.Name).ToArray());
-
             foreach (DataGridViewRow row in dgvServices.Rows)
             {
                 if (_setting.CoveredServices.Exists(cs => cs.Name == row.Cells["Name"]?.Value.ToString()))
@@ -91,20 +89,29 @@ namespace ServiceLifeController.Views
 
         private void LoadGridByServicesInfo()
         {
-            var services = ServicesHelper.GetAllServices();
-            var servicesSource = new SortableBindingList<ServiceInfo>(services);
+            //var services = ServicesHelper.GetAllServices();
+            //var servicesSource = new SortableBindingList<ServiceInfo>(services);
 
-            dgvServices.DataSource = servicesSource;
+            //dgvServices.DataSource = servicesSource;
+
+            //SetGridColumnsToReadOnly(dgvServices);
+
+            //var colSelected = new DataGridViewCheckBoxColumn(false)
+            //{
+            //    Name = "Selected",
+            //    HeaderText = "Selected"
+            //};
+
+            //dgvServices.Columns.Insert(0, colSelected);
+
+            var services = ServicesHelper.GetAllServices();
+            var servicesSource = services.ToDataTable();
 
             SetGridColumnsToReadOnly(dgvServices);
 
-            var colSelected = new DataGridViewCheckBoxColumn(false)
-            {
-                Name = "Selected",
-                HeaderText = "Selected"
-            };
+            servicesSource.Columns.Add("Selected", typeof(bool)).SetOrdinal(0);
 
-            dgvServices.Columns.Insert(0, colSelected);
+            dgvServices.DataSource = servicesSource;
         }
 
         private void SetGridColumnsToReadOnly(DataGridView dgv)

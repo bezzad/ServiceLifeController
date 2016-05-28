@@ -6,6 +6,7 @@ using Models;
 using Newtonsoft.Json;
 using ServiceLifeController.Properties;
 using SharedControllerHelper;
+using SharedControllerHelper.Models;
 
 namespace ServiceLifeController.Views
 {
@@ -21,11 +22,22 @@ namespace ServiceLifeController.Views
             InitializeComponent();
 
             SettingObject = setting;
-
-            LoadSettingData();
         }
 
+        protected override void OnLoaded(object sender, EventArgs e)
+        {
+            base.OnLoaded(sender, e);
 
+            // Fill ComboBox of Notify Status Change On:
+            var items = typeof(ServiceControllerStatusChanging).GetEnumValues().OfType<ServiceControllerStatusChanging>();
+            var enumNameValue = items.Select(val => new { Name = val.ToString(), Value = (int)val }).ToList();
+            cmbStatusOn.DataSource = enumNameValue;
+            cmbStatusOn.DisplayMember = "Name";
+            cmbStatusOn.ValueMember = "Value";
+
+            // Read Setting file:
+            LoadSettingData();
+        }
 
         private void btnSaveSetting_Click(object sender, EventArgs e)
         {
@@ -39,7 +51,7 @@ namespace ServiceLifeController.Views
 
                 FileManager.WriteFileSafely(path, data);
 
-                MessageBox.Show(Resources.SaveSettingSuccessfull);
+                MessageBox.Show($"{Resources.SaveSettingSuccessfull}\n\r\n\rPath: {path}");
                 this.Close();
             }
             catch (Exception exp)
@@ -52,14 +64,19 @@ namespace ServiceLifeController.Views
         {
             if (SettingObject == null) return;
 
-            txtTimerInterval.Value = SettingObject.TimerIntervalMilliseconds < 10000 ? "10000" : SettingObject.TimerIntervalMilliseconds.ToString(CultureInfo.InvariantCulture);
-            txtSenderMobileNo.Value = SettingObject.SenderMobileNo;
+            txtTimerInterval.Value = SettingObject.TimerIntervalSec < 10 ? "10" : SettingObject.TimerIntervalSec.ToString(CultureInfo.InvariantCulture);
+            txtSenderMobileNo.Value = SettingObject.SmsSenderNumber;
             txtSenderEmailAddress.Value = SettingObject.SenderEmailAddress;
-            txtSenderEmailPassword.Value = SettingObject.SenderEmailPassword?.Decrypt();
+            txtSenderEmailPassword.Value = SettingObject.GetSenderEmailNoHashPassword();
             txtNotifyMsgTitle.Value = SettingObject.NotifyMessageTitle;
             txtNotifyMessageContent.Value = SettingObject.NotifyMessageContent;
-            txtReceiverMobiles.Value = string.Join(Splitter, SettingObject.ReceiverMobilesNo);
-            txtReceiverEmails.Value = string.Join(Splitter, SettingObject.ReceiverEmails);
+            txtReceiverMobiles.Value = string.Join(Splitter + Environment.NewLine, SettingObject.SmsReceiverMobilesNo);
+            txtReceiverEmails.Value = string.Join(Splitter + Environment.NewLine, SettingObject.ReceiverEmails);
+            txtEmailHost.Value = SettingObject.EmailHost;
+            txtEmailHostPort.Value = SettingObject.EmailHostPort.ToString();
+            txtSmsServiceUsername.Value = SettingObject.SmsServiceUsername;
+            txtSmsServicePassword.Value = SettingObject.GetSmsServiceNoHashPassword();
+            cmbStatusOn.SelectedValue = (int)SettingObject.NotifyJustStatusChangingTo;
         }
 
 
@@ -67,22 +84,27 @@ namespace ServiceLifeController.Views
         {
             if (SettingObject == null) SettingObject = new SettingModel();
 
-            SettingObject.TimerIntervalMilliseconds = string.IsNullOrEmpty(txtTimerInterval.Value)
-                ? 60000
+            SettingObject.TimerIntervalSec = string.IsNullOrEmpty(txtTimerInterval.Value)
+                ? 60
                 : double.Parse(txtTimerInterval.Value);
 
-            SettingObject.TimerIntervalMilliseconds =
-            SettingObject.TimerIntervalMilliseconds < 10000
-                ? 60000
-                : SettingObject.TimerIntervalMilliseconds;
+            SettingObject.TimerIntervalSec =
+            SettingObject.TimerIntervalSec < 10
+                ? 10
+                : SettingObject.TimerIntervalSec;
 
-            SettingObject.SenderMobileNo = txtSenderMobileNo.Value;
+            SettingObject.SmsSenderNumber = txtSenderMobileNo.Value;
             SettingObject.SenderEmailAddress = txtSenderEmailAddress.Value;
-            SettingObject.SenderEmailPassword = txtSenderEmailPassword.Value?.Encrypt();
+            SettingObject.SenderEmailPassword = txtSenderEmailPassword.Value;
             SettingObject.NotifyMessageTitle = txtNotifyMsgTitle.Value;
             SettingObject.NotifyMessageContent = txtNotifyMessageContent.Value;
-            SettingObject.ReceiverMobilesNo = txtReceiverMobiles.Value.Split(Splitter.ToCharArray(), StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim(TrimChars)).ToList();
+            SettingObject.SmsReceiverMobilesNo = txtReceiverMobiles.Value.Split(Splitter.ToCharArray(), StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim(TrimChars)).ToList();
             SettingObject.ReceiverEmails = txtReceiverEmails.Value.Split(Splitter.ToCharArray(), StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim(TrimChars)).ToList();
+            SettingObject.EmailHost = string.IsNullOrEmpty(txtEmailHost.Value) ? "mail.shoniz.com" : txtEmailHost.Value;
+            SettingObject.EmailHostPort = string.IsNullOrEmpty(txtEmailHostPort.Value) ? 587 : int.Parse(txtEmailHostPort.Value);
+            SettingObject.SmsServiceUsername = txtSmsServiceUsername.Value;
+            SettingObject.SmsServicePassword = txtSmsServicePassword.Value;
+            SettingObject.NotifyJustStatusChangingTo = (ServiceControllerStatusChanging)cmbStatusOn.SelectedValue;
         }
     }
 }

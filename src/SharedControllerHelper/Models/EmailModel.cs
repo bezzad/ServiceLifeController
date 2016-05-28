@@ -14,5 +14,7 @@ namespace SharedControllerHelper.Models
         public string Version { get; set; } = Assembly.GetCallingAssembly().GetName().Version?.ToString();
         public DateTime EmailDateTime { get; set; } = DateTime.Now;
         public string Message { get; set; }
+        public string EmailHost { get; set; } = "mail.shoniz.com";
+        public int EmailHostPort { get; set; } = 587;
     }
 }

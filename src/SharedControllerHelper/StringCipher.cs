@@ -36,13 +36,16 @@ namespace SharedControllerHelper
                     cryptoStream.Write(plainTextBytes, 0, plainTextBytes.Length);
                     cryptoStream.FlushFinalBlock();
                     var cipherTextBytes = memoryStream.ToArray();
-                    return Convert.ToBase64String(cipherTextBytes);
+                    return "#" + Convert.ToBase64String(cipherTextBytes);
                 }
             }
         }
 
         public static string Decrypt(this string cipherText, string passPhrase)
         {
+            if (cipherText?.StartsWith("#") == true)
+                cipherText = cipherText.Remove(0, 1);
+
             var cipherTextBytes = Convert.FromBase64String(cipherText);
             using (var password = new PasswordDeriveBytes(passPhrase, null))
             {

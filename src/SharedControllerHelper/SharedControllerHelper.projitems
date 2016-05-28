@@ -11,6 +11,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)EmailHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)FileManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HelperExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\EmailModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\ILog.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Log.cs" />

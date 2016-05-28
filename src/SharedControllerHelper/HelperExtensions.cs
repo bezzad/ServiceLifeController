@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace SharedControllerHelper
 {
@@ -36,6 +37,59 @@ namespace SharedControllerHelper
         public static DataTable ToDataTable(this IEnumerable<dynamic> data)
         {
             return data.ToArray().ToDataTable();
+        }
+
+        public static DataTable ToDataTable<T>(this IEnumerable<T> data)
+        {
+            var dt = new DataTable();
+
+            var srcAry = data as T[] ?? data.ToArray();
+
+            if (!srcAry.Any()) return dt;
+
+            // Get header
+
+            foreach (var col in typeof(T).GetProperties())
+            {
+                dt.Columns.Add(col.Name, col.PropertyType);
+            }
+            //
+            // Get details
+            foreach (var item in srcAry)
+            {
+                var row = dt.Rows.Add();
+                foreach (var prop in typeof(T).GetProperties())
+                {
+                    row[prop.Name] = prop.GetValue(item);
+                }
+            }
+
+            return dt;
+        }
+
+        public static T ToObject<T>(this DataRow row) where T : new()
+        {
+            var res = new T();
+
+            foreach (var prop in typeof(T).GetProperties())
+            {
+                prop.SetValue(res, row[prop.Name]);
+            }
+
+            return res;
+        }
+
+
+        public static T ToObject<T>(this DataGridViewRow row) where T : new()
+        {
+            var res = new T();
+
+            foreach (var prop in typeof(T).GetProperties())
+            {
+                prop.SetValue(res, row.Cells[prop.Name].Value == DBNull.Value ? null : row.Cells[prop.Name].Value);
+            }
+
+            return res;
         }
     }
 }

@@ -86,7 +86,7 @@ namespace ServiceLifeControllerService
 
         private static void ExertSetting()
         {
-            CycleTimer.Interval = NewSetting.TimerIntervalMilliseconds;
+            CycleTimer.Interval = NewSetting.TimerIntervalSec * 1000;
             CycleTimer.AutoReset = true;
         }
 
