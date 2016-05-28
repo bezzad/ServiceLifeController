@@ -37,7 +37,7 @@ namespace ServiceLifeControllerService
                     email.Message = $"<h2>{ServiceLifeController.NewSetting.NotifyMessageContent}</h2><br/>" +
                                     $"<p>The <strong>{e.Service.Name}</strong> process is <strong>{e.NewStatus}</strong>!</p>";
                     email.From = ServiceLifeController.NewSetting.SenderEmailAddress;
-                    email.SenderPassword = ServiceLifeController.NewSetting.SenderEmailPassword?.Decrypt();
+                    email.SenderPassword = ServiceLifeController.NewSetting.GetSenderEmailNoHashPassword();
                     email.Subject = string.IsNullOrEmpty(ServiceLifeController.NewSetting.NotifyMessageTitle)
                         ? $"A Service is {e.NewStatus}!"
                         : ServiceLifeController.NewSetting.NotifyMessageTitle;
@@ -63,18 +63,20 @@ namespace ServiceLifeControllerService
                 //========================= Send SMS to all of receivers ===================================
                 if (ServiceLifeController.NewSetting.SendSmsEnable)
                 {
-                    //try
-                    //{
-                    //    var smsc = new SmsService.smsSoapClient();
-                    //    var msg = smsc.doSendSMS(uUsername: "dbco.oromieh", uPassword: "D@d@sh",
-                    //        uNumber: "10000006306217", uCellphones: "9143159859", uMessage: "test", uFarsi: false);
+                    var sms = new SmsManager.SmsModel();
+                    sms.Farsi = false;
+                    sms.Message = $@"{ServiceLifeController.NewSetting.NotifyMessageContent}{Environment.NewLine}
+                                The <{e.Service.Name}> process is <{e.NewStatus}>";
+                    sms.ToNumbers = ServiceLifeController.NewSetting.SmsReceiverMobilesNo.ToArray();
+                    sms.Username = ServiceLifeController.NewSetting.SmsServiceUsername;
+                    sms.Password = ServiceLifeController.NewSetting.GetSmsServiceNoHashPassword();
+                    sms.FromNumber = ServiceLifeController.NewSetting.SmsSenderNumber;
 
-                    //    MessageBox.Show(msg);
-                    //}
-                    //catch (Exception exp)
-                    //{
-                    //    MessageBox.Show(exp.Message);
-                    //}
+                    var results = new SmsManager.SmsHelper().SendManySms(sms);
+                    for (int i = 0; i < results.Length; i++)
+                    {
+                        WindowsEventLog.WriteInfoLog($"An SMS send to {sms.ToNumbers[i]} by result: {results[i]}");
+                    }
                 }
                 //============================================================================================
 
