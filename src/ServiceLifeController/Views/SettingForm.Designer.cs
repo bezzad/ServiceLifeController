@@ -47,6 +47,8 @@
             this.txtSmsServicePassword = new Windows.Forms.HintTextBox(this.components);
             this.txtEmailHost = new Windows.Forms.HintTextBox(this.components);
             this.txtEmailHostPort = new Windows.Forms.HintTextBox(this.components);
+            this.chkEnableEmail = new System.Windows.Forms.CheckBox();
+            this.chkEnableSMS = new System.Windows.Forms.CheckBox();
             this.gbSms = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.gbEmailSetting = new System.Windows.Forms.GroupBox();
@@ -335,6 +337,32 @@
             this.toolTip.SetToolTip(this.txtEmailHostPort, "Email Host Port");
             this.txtEmailHostPort.Value = "";
             // 
+            // chkEnableEmail
+            // 
+            this.chkEnableEmail.AutoSize = true;
+            this.chkEnableEmail.Checked = true;
+            this.chkEnableEmail.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkEnableEmail.Location = new System.Drawing.Point(462, 12);
+            this.chkEnableEmail.Name = "chkEnableEmail";
+            this.chkEnableEmail.Size = new System.Drawing.Size(18, 17);
+            this.chkEnableEmail.TabIndex = 7;
+            this.toolTip.SetToolTip(this.chkEnableEmail, "Enable Email Notify");
+            this.chkEnableEmail.UseVisualStyleBackColor = true;
+            this.chkEnableEmail.CheckedChanged += new System.EventHandler(this.chkEnableEmail_CheckedChanged);
+            // 
+            // chkEnableSMS
+            // 
+            this.chkEnableSMS.AutoSize = true;
+            this.chkEnableSMS.Checked = true;
+            this.chkEnableSMS.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkEnableSMS.Location = new System.Drawing.Point(977, 12);
+            this.chkEnableSMS.Name = "chkEnableSMS";
+            this.chkEnableSMS.Size = new System.Drawing.Size(18, 17);
+            this.chkEnableSMS.TabIndex = 12;
+            this.toolTip.SetToolTip(this.chkEnableSMS, "Enable SMS Notify");
+            this.chkEnableSMS.UseVisualStyleBackColor = true;
+            this.chkEnableSMS.CheckedChanged += new System.EventHandler(this.chkEnableSMS_CheckedChanged);
+            // 
             // gbSms
             // 
             this.gbSms.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -383,6 +411,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1221, 526);
+            this.Controls.Add(this.chkEnableSMS);
+            this.Controls.Add(this.chkEnableEmail);
             this.Controls.Add(this.gbEmailSetting);
             this.Controls.Add(this.gbSms);
             this.Controls.Add(this.gbBaseInfo);
@@ -397,6 +427,7 @@
             this.gbEmailSetting.ResumeLayout(false);
             this.gbEmailSetting.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -423,5 +454,7 @@
         private Windows.Forms.HintTextBox txtEmailHostPort;
         private System.Windows.Forms.ComboBox cmbStatusOn;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox chkEnableEmail;
+        private System.Windows.Forms.CheckBox chkEnableSMS;
     }
 }

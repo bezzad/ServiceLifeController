@@ -77,6 +77,8 @@ namespace ServiceLifeController.Views
             txtSmsServiceUsername.Value = SettingObject.SmsServiceUsername;
             txtSmsServicePassword.Value = SettingObject.GetSmsServiceNoHashPassword();
             cmbStatusOn.SelectedValue = (int)SettingObject.NotifyJustStatusChangingTo;
+            chkEnableSMS.Checked = SettingObject.SendSmsEnable;
+            chkEnableEmail.Checked = SettingObject.SendEmailNotifyEnable;
         }
 
 
@@ -105,6 +107,18 @@ namespace ServiceLifeController.Views
             SettingObject.SmsServiceUsername = txtSmsServiceUsername.Value;
             SettingObject.SmsServicePassword = txtSmsServicePassword.Value;
             SettingObject.NotifyJustStatusChangingTo = (ServiceControllerStatusChanging)cmbStatusOn.SelectedValue;
+            SettingObject.SendEmailNotifyEnable = chkEnableEmail.Checked;
+            SettingObject.SendSmsEnable = chkEnableSMS.Checked;
+        }
+
+        private void chkEnableEmail_CheckedChanged(object sender, EventArgs e)
+        {
+            gbEmailSetting.Enabled = chkEnableEmail.Checked;
+        }
+
+        private void chkEnableSMS_CheckedChanged(object sender, EventArgs e)
+        {
+            gbSms.Enabled = chkEnableSMS.Checked;
         }
     }
 }
