@@ -28,16 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvServices = new System.Windows.Forms.DataGridView();
             this.gbAllServices = new System.Windows.Forms.GroupBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.gbTools = new System.Windows.Forms.GroupBox();
             this.gbSelectedServices = new System.Windows.Forms.GroupBox();
-            this.lstSelectedServices = new System.Windows.Forms.ListBox();
             this.btnShowEventLogs = new System.Windows.Forms.Button();
             this.btnSaveSetting = new System.Windows.Forms.Button();
             this.splitter1 = new System.Windows.Forms.Splitter();
+            this.dgvSelectedServices = new System.Windows.Forms.DataGridView();
+            this.ColServiceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColKeepServiceStatusOn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServices)).BeginInit();
             this.gbAllServices.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -46,6 +51,7 @@
             this.splitContainer1.SuspendLayout();
             this.gbTools.SuspendLayout();
             this.gbSelectedServices.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSelectedServices)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvServices
@@ -53,9 +59,10 @@
             this.dgvServices.AllowUserToAddRows = false;
             this.dgvServices.AllowUserToDeleteRows = false;
             this.dgvServices.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvServices.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvServices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dgvServices.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvServices.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dgvServices.ColumnHeadersHeight = 30;
             this.dgvServices.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvServices.Location = new System.Drawing.Point(3, 18);
             this.dgvServices.Name = "dgvServices";
@@ -111,23 +118,13 @@
             // 
             this.gbSelectedServices.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbSelectedServices.Controls.Add(this.lstSelectedServices);
+            this.gbSelectedServices.Controls.Add(this.dgvSelectedServices);
             this.gbSelectedServices.Location = new System.Drawing.Point(6, 29);
             this.gbSelectedServices.Name = "gbSelectedServices";
             this.gbSelectedServices.Size = new System.Drawing.Size(533, 608);
             this.gbSelectedServices.TabIndex = 3;
             this.gbSelectedServices.TabStop = false;
             this.gbSelectedServices.Text = "Selected Services";
-            // 
-            // lstSelectedServices
-            // 
-            this.lstSelectedServices.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lstSelectedServices.FormattingEnabled = true;
-            this.lstSelectedServices.ItemHeight = 16;
-            this.lstSelectedServices.Location = new System.Drawing.Point(3, 18);
-            this.lstSelectedServices.Name = "lstSelectedServices";
-            this.lstSelectedServices.Size = new System.Drawing.Size(527, 587);
-            this.lstSelectedServices.TabIndex = 0;
             // 
             // btnShowEventLogs
             // 
@@ -162,6 +159,59 @@
             this.splitter1.TabIndex = 0;
             this.splitter1.TabStop = false;
             // 
+            // dgvSelectedServices
+            // 
+            this.dgvSelectedServices.AllowUserToAddRows = false;
+            this.dgvSelectedServices.AllowUserToDeleteRows = false;
+            this.dgvSelectedServices.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvSelectedServices.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvSelectedServices.BackgroundColor = System.Drawing.Color.Azure;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSelectedServices.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvSelectedServices.ColumnHeadersHeight = 30;
+            this.dgvSelectedServices.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColServiceName,
+            this.ColKeepServiceStatusOn});
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSelectedServices.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvSelectedServices.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvSelectedServices.Location = new System.Drawing.Point(3, 18);
+            this.dgvSelectedServices.Name = "dgvSelectedServices";
+            this.dgvSelectedServices.RowHeadersVisible = false;
+            this.dgvSelectedServices.RowTemplate.Height = 24;
+            this.dgvSelectedServices.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvSelectedServices.Size = new System.Drawing.Size(527, 587);
+            this.dgvSelectedServices.TabIndex = 0;
+            // 
+            // ColServiceName
+            // 
+            this.ColServiceName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColServiceName.HeaderText = "Service Name";
+            this.ColServiceName.MinimumWidth = 100;
+            this.ColServiceName.Name = "ColServiceName";
+            this.ColServiceName.ReadOnly = true;
+            // 
+            // ColKeepServiceStatusOn
+            // 
+            this.ColKeepServiceStatusOn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColKeepServiceStatusOn.HeaderText = "Keep Service Status On";
+            this.ColKeepServiceStatusOn.MinimumWidth = 100;
+            this.ColKeepServiceStatusOn.Name = "ColKeepServiceStatusOn";
+            this.ColKeepServiceStatusOn.Width = 167;
+            // 
             // ServicesControllerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -169,7 +219,7 @@
             this.ClientSize = new System.Drawing.Size(1312, 721);
             this.Controls.Add(this.splitContainer1);
             this.Name = "ServicesControllerForm";
-            this.Text = "Services Controller";
+            this.Text = "Services Controller  (Run as Admin)";
             ((System.ComponentModel.ISupportInitialize)(this.dgvServices)).EndInit();
             this.gbAllServices.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -178,6 +228,7 @@
             this.splitContainer1.ResumeLayout(false);
             this.gbTools.ResumeLayout(false);
             this.gbSelectedServices.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSelectedServices)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -189,10 +240,12 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.GroupBox gbTools;
-        private System.Windows.Forms.ListBox lstSelectedServices;
         private System.Windows.Forms.Button btnSaveSetting;
         private System.Windows.Forms.Button btnShowEventLogs;
         private System.Windows.Forms.GroupBox gbSelectedServices;
+        private System.Windows.Forms.DataGridView dgvSelectedServices;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColServiceName;
+        private System.Windows.Forms.DataGridViewComboBoxColumn ColKeepServiceStatusOn;
     }
 }
 
