@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using Models;
 using Newtonsoft.Json;
 using SharedControllerHelper;
+using SharedControllerHelper.Models;
 
 namespace ServiceLifeController.Views
 {
@@ -46,8 +47,7 @@ namespace ServiceLifeController.Views
                 if (settingJson == null) return;
 
                 _setting = JsonConvert.DeserializeObject<SettingModel>(settingJson);
-
-
+                
                 SetStoredSelectedServices();
             }
             catch (Exception exp)
@@ -60,13 +60,13 @@ namespace ServiceLifeController.Views
         {
             foreach (DataGridViewRow row in dgvServices.Rows)
             {
-                if (_setting.CoveredServices.Exists(cs => cs.Name == row.Cells["Name"]?.Value.ToString()))
+                if (_setting.CoveredServices.Exists(cs => cs.Service.Name == row.Cells["Name"]?.Value.ToString()))
                 {
                     row.Cells["Selected"].Value = true;
                 }
             }
 
-            lstSelectedServices.Items.AddRange(_setting.CoveredServices.Select(cs => cs.Name).ToArray());
+            lstSelectedServices.Items.AddRange(_setting.CoveredServices.Select(cs => cs.Service.Name).ToArray());
         }
 
         private void LoadGridByServicesInfo()
@@ -111,7 +111,7 @@ namespace ServiceLifeController.Views
                 if (row.Cells["Selected"].Value != DBNull.Value && (bool?)row.Cells["Selected"].Value == true)
                 {
                     var serv = row.ToObject<ServiceInfo>();
-                    _setting.CoveredServices.Add(serv);
+                    _setting.CoveredServices.Add(new KeepServiceStatus() {Service = serv});
                     lstSelectedServices.Items.Add(serv.Name);
                 }
             }

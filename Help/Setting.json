@@ -1,47 +1,60 @@
 ﻿{
-  "TimerIntervalSec": 60.0,
+  "TimerIntervalSec": 50.0,
   "SendSmsEnable": true,
   "SendEmailNotifyEnable": true,
   "NotifyMessageTitle": "Shoniz Service Status Changing Alert",
   "NotifyMessageContent": "Warning:",
-  "SmsSenderNumber": "123456",
-  "SmsServiceUsername": "***",
-  "SmsServicePassword": "****",
+  "SmsSenderNumber": "10000006306217",
+  "SmsServiceUsername": "dbco.oromieh",
+  "SmsServicePassword": "#Xp7MSdA/C5Im42SZQQivRw==",
   "SmsReceiverMobilesNo": [
     "9149149202",
     "9143159859",
-    "9143058600",
-    ""
+    "9143107800"
   ],
   "SenderEmailAddress": "pourakbar@shoniz.com",
-  "SenderEmailPassword": "****",
-  "EmailHost": "mail.gmail.com",
+  "SenderEmailPassword": "#Zpuo5cE4I1U6vFPC4WpI3Q==",
+  "EmailHost": "mail.shoniz.com",
   "EmailHostPort": 587,
   "ReceiverEmails": [
     "pourakbar@shoniz.com",
     "behzad.khosravifar@gmail.com",
     "husein.msc@gmail.com",
-    "mirabi.reza@gmail.com",
-    "rrahim2@live.utm.my",
-    "yasharvc@yahoo.com",
-    "info@tablighsho.com"
+    "mirabi.reza@gmail.com"
   ],
   "CoveredServices": [
     {
-      "Name": "SignalRService",
-      "ServiceName": "SignalRService",
-      "Description": "",
-      "Status": 4,
-      "StartupType": 16,
-      "LogInAs": "LocalSystem"
+      "Service": {
+        "Name": "Digifort Analytics Server",
+        "ServiceName": "DigifortAnalyticsServer",
+        "Description": "Digifort Analytics Server",
+        "Status": 4,
+        "StartupType": 272,
+        "LogInAs": "LocalSystem"
+      },
+      "KeepStatusOn": 0
     },
     {
-      "Name": "Smart Card Device Enumeration Service",
-      "ServiceName": "ScDeviceEnum",
-      "Description": "Creates software device nodes for all smart card readers accessible to a given session. If this service is disabled, WinRT APIs will not be able to enumerate smart card readers.",
-      "Status": 1,
-      "StartupType": 32,
-      "LogInAs": "LocalSystem"
+      "Service": {
+        "Name": "Digifort License Plate Recognition Server",
+        "ServiceName": "DigifortLPRServer",
+        "Description": "Digifort License Plate Recognition Server",
+        "Status": 4,
+        "StartupType": 272,
+        "LogInAs": "LocalSystem"
+      },
+      "KeepStatusOn": 0
+    },
+    {
+      "Service": {
+        "Name": "Digifort Server",
+        "ServiceName": "DigifortServer",
+        "Description": "",
+        "Status": 4,
+        "StartupType": 16,
+        "LogInAs": "LocalSystem"
+      },
+      "KeepStatusOn": 0
     }
   ],
   "NotifyJustStatusChangingTo": 127

@@ -97,18 +97,18 @@ namespace ServiceLifeControllerService
                 var allServices = ServicesHelper.GetAllServices(); // all services
                 try
                 {
-                    foreach (ServiceInfo service in NewSetting.CoveredServices)
+                    foreach (var keepService in NewSetting.CoveredServices)
                     {
                         // find any new state of covered services
                         var serviceNewStatus =
-                            allServices.FirstOrDefault(x => x.Name.Equals(service.Name, StringComparison.CurrentCultureIgnoreCase))?.Status;
+                            allServices.FirstOrDefault(x => x.Name.Equals(keepService.Service.Name, StringComparison.CurrentCultureIgnoreCase))?.Status;
 
                         // find any old state of covered services
                         var serviceOldStatus =
-                            OldSetting.CoveredServices.FirstOrDefault(s => s.Name.Equals(service.Name, StringComparison.CurrentCultureIgnoreCase))?.Status;
+                            OldSetting.CoveredServices.FirstOrDefault(s => s.Service.Name.Equals(keepService.Service.Name, StringComparison.CurrentCultureIgnoreCase))?.Service.Status;
 
                         // set new state to new setting service
-                        service.Status = serviceNewStatus ?? ServiceControllerStatus.Stopped;
+                        keepService.Service.Status = serviceNewStatus ?? ServiceControllerStatus.Stopped;
 
                         // the service stopped just now!!!
                         ServiceControllerStatusChanging newStatus;
@@ -119,7 +119,7 @@ namespace ServiceLifeControllerService
                         {
                             if (NewSetting.NotifyJustStatusChangingTo.HasFlag(newStatus))
                             {
-                                OnServiceStatusChanged(new ServiceNotifyEventArgs(service, serviceNewStatus ?? ServiceControllerStatus.Stopped));
+                                OnServiceStatusChanged(new ServiceNotifyEventArgs(keepService.Service, serviceNewStatus ?? ServiceControllerStatus.Stopped));
                             }
                         }
                     }

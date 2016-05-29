@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -37,15 +38,14 @@ namespace Models
             set { _senderEmailPassword = (value ?? "").StartsWith("#") ? value.Decrypt() : value; }
         }
 
-        
+
         public string EmailHost { get; set; } = "mail.shoniz.com";
         public int EmailHostPort { get; set; } = 587;
         public List<string> ReceiverEmails { get; set; } = new List<string>();
 
-        public List<ServiceInfo> CoveredServices { get; set; } = new List<ServiceInfo>();
+        public List<KeepServiceStatus> CoveredServices { get; set; } = new List<KeepServiceStatus>();
 
         public ServiceControllerStatusChanging NotifyJustStatusChangingTo { get; set; } = ServiceControllerStatusChanging.AllChangingStatus;
-
 
         public string GetSenderEmailNoHashPassword()
         {

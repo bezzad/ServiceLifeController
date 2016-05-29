@@ -352,6 +352,7 @@
             // 
             // chkEnableSMS
             // 
+            this.chkEnableSMS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chkEnableSMS.AutoSize = true;
             this.chkEnableSMS.Checked = true;
             this.chkEnableSMS.CheckState = System.Windows.Forms.CheckState.Checked;

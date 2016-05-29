@@ -14,9 +14,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)HelperExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\EmailModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\ILog.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\KeepServiceStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Log.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\ServiceControllerStatusChanging.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\ServiceInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ServiceStableStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\SettingModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RegistryHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ServicesHelper.cs" />
