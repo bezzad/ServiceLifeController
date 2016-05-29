@@ -53,8 +53,6 @@
     <Compile Include="..\GlobalAssemblyInfo.cs">
       <Link>Properties\GlobalAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="Core\PropertyComparer.cs" />
-    <Compile Include="Core\SortableBindingList.cs" />
     <Compile Include="Views\BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>

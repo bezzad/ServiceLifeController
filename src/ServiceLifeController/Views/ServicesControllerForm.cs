@@ -4,7 +4,6 @@ using System.Linq;
 using System.Windows.Forms;
 using Models;
 using Newtonsoft.Json;
-using ServiceLifeController.Core;
 using SharedControllerHelper;
 
 namespace ServiceLifeController.Views
@@ -13,33 +12,12 @@ namespace ServiceLifeController.Views
     {
         private SettingModel _setting = new SettingModel();
 
+
+
         public ServicesControllerForm()
         {
             InitializeComponent();
         }
-
-        void dgvServices_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            _setting.CoveredServices.Clear();
-            lstSelectedServices.Items.Clear();
-
-            foreach (DataGridViewRow row in dgvServices.Rows)
-            {
-                if (row.Cells["Selected"].Value != DBNull.Value && (bool?)row.Cells["Selected"].Value == true)
-                {
-                    var serv = row.ToObject<ServiceInfo>();
-                    _setting.CoveredServices.Add(serv);
-                    lstSelectedServices.Items.Add(serv.Name);
-                }
-            }
-        }
-
-        void dgvServices_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            dgvServices.CommitEdit(DataGridViewDataErrorContexts.Commit);
-        }
-
-
 
         protected override void OnLoaded(object sender, EventArgs e)
         {
@@ -52,6 +30,10 @@ namespace ServiceLifeController.Views
             dgvServices.CellContentClick += dgvServices_CellContentClick;
             dgvServices.CellValueChanged += dgvServices_CellValueChanged;
         }
+
+
+
+
 
         private void LoadSettingData()
         {
@@ -89,39 +71,25 @@ namespace ServiceLifeController.Views
 
         private void LoadGridByServicesInfo()
         {
-            //var services = ServicesHelper.GetAllServices();
-            //var servicesSource = new SortableBindingList<ServiceInfo>(services);
-
-            //dgvServices.DataSource = servicesSource;
-
-            //SetGridColumnsToReadOnly(dgvServices);
-
-            //var colSelected = new DataGridViewCheckBoxColumn(false)
-            //{
-            //    Name = "Selected",
-            //    HeaderText = "Selected"
-            //};
-
-            //dgvServices.Columns.Insert(0, colSelected);
-
             var services = ServicesHelper.GetAllServices();
             var servicesSource = services.ToDataTable();
 
-            SetGridColumnsToReadOnly(dgvServices);
+            SetColumnsToReadOnly(servicesSource);
 
             servicesSource.Columns.Add("Selected", typeof(bool)).SetOrdinal(0);
 
             dgvServices.DataSource = servicesSource;
         }
 
-        private void SetGridColumnsToReadOnly(DataGridView dgv)
+        private void SetColumnsToReadOnly(DataTable dt)
         {
-            foreach (DataGridViewColumn col in dgv.Columns)
+            foreach (DataColumn col in dt.Columns)
             {
                 col.ReadOnly = true;
-                col.SortMode = DataGridViewColumnSortMode.Automatic;
             }
         }
+
+
 
         private void btnSaveSetting_Click(object sender, EventArgs e)
         {
@@ -131,6 +99,27 @@ namespace ServiceLifeController.Views
         private void btnShowEventLogs_Click(object sender, EventArgs e)
         {
             new ServiceLogViewerForm().Show(this);
+        }
+
+        void dgvServices_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            _setting.CoveredServices.Clear();
+            lstSelectedServices.Items.Clear();
+
+            foreach (DataGridViewRow row in dgvServices.Rows)
+            {
+                if (row.Cells["Selected"].Value != DBNull.Value && (bool?)row.Cells["Selected"].Value == true)
+                {
+                    var serv = row.ToObject<ServiceInfo>();
+                    _setting.CoveredServices.Add(serv);
+                    lstSelectedServices.Items.Add(serv.Name);
+                }
+            }
+        }
+
+        void dgvServices_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dgvServices.CommitEdit(DataGridViewDataErrorContexts.Commit);
         }
     }
 }

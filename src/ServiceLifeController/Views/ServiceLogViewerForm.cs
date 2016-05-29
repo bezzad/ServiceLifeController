@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Models;
-using ServiceLifeController.Core;
 using SharedControllerHelper;
 
 namespace ServiceLifeController.Views
@@ -43,7 +42,7 @@ namespace ServiceLifeController.Views
 
             if (logs != null)
             {
-                dgvLogs.DataSource = new SortableBindingList<Log>(logs);
+                dgvLogs.DataSource = logs.ToDataTable();
             }
         }
 

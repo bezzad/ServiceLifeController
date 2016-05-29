@@ -26,6 +26,8 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SharedControllerHelper", "S
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Help", "Help", "{CDCE030B-6907-439C-A6A5-5C0682480F20}"
 	ProjectSection(SolutionItems) = preProject
+		..\LICENSE = ..\LICENSE
+		..\README.md = ..\README.md
 		..\Help\Setting.json = ..\Help\Setting.json
 	EndProjectSection
 EndProject
