@@ -2,15 +2,13 @@
 using System.IO;
 using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace SharedControllerHelper
 {
     public static class FileManager
     {
         public static string DefaultApplicationDataPath => Path.Combine(
-            Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
-            SharedControllerHelper.SharedLinks.SettingFileName);
+            Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), SharedLinks.SettingFileName);
 
 
         public static bool WriteFileSafely(string path, string data)

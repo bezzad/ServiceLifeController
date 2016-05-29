@@ -46,8 +46,6 @@ namespace ServiceProcess.Helpers
             t.Wait();
 
         }
-
-
     }
 
 }

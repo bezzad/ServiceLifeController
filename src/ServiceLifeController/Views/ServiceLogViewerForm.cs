@@ -18,6 +18,7 @@ namespace ServiceLifeController.Views
         private void btnClearLogs_Click(object sender, EventArgs e)
         {
             WindowsEventLog.DeleteCurrentSource();
+            btnFetchLogs.PerformClick();
         }
 
         private void btnFetchLogs_Click(object sender, EventArgs e)

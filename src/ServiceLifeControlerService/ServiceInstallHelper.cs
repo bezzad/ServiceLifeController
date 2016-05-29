@@ -167,7 +167,7 @@ namespace ServiceLifeControllerService
                     if (controller.Status != ServiceControllerStatus.Running)
                     {
                         controller.Start();
-                        controller.WaitForStatus(ServiceControllerStatus.Running, TimeSpan.FromSeconds(10));
+                        controller.WaitForStatus(ServiceControllerStatus.Running, TimeSpan.FromSeconds(60));
                     }
                 }
                 catch (Exception ex)
@@ -236,10 +236,7 @@ namespace ServiceLifeControllerService
         {
             WindowsIdentity identity = WindowsIdentity.GetCurrent();
 
-            if (identity != null)
-                return (new WindowsPrincipal(identity)).IsInRole(WindowsBuiltInRole.Administrator);
-
-            return false;
+            return (new WindowsPrincipal(identity)).IsInRole(WindowsBuiltInRole.Administrator);
         }
 
         public static void RestartElevated(string fileName, params string[] args)
