@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SmsManager.SmsService {
+namespace ServiceLifeControllerService.SmsService {
     using System.Data;
     
     
@@ -88,12 +88,12 @@ namespace SmsManager.SmsService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface smsSoapChannel : SmsManager.SmsService.smsSoap, System.ServiceModel.IClientChannel {
+    public interface smsSoapChannel : ServiceLifeControllerService.SmsService.smsSoap, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class smsSoapClient : System.ServiceModel.ClientBase<SmsManager.SmsService.smsSoap>, SmsManager.SmsService.smsSoap {
+    public partial class smsSoapClient : System.ServiceModel.ClientBase<ServiceLifeControllerService.SmsService.smsSoap>, ServiceLifeControllerService.SmsService.smsSoap {
         
         public smsSoapClient() {
         }

@@ -16,7 +16,7 @@ namespace ServiceLifeControllerService
 
             var servicesToRun = new ServiceBase[] 
             { 
-                new ServiceLifeControllerService() 
+                new SLCService() 
             };
 
             //ServiceBase.Run(servicesToRun);

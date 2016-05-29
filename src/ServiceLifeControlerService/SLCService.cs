@@ -1,13 +1,14 @@
 ﻿using System;
+using System.Globalization;
 using System.ServiceProcess;
 using SharedControllerHelper;
 using SharedControllerHelper.Models;
 
 namespace ServiceLifeControllerService
 {
-    partial class ServiceLifeControllerService : ServiceBase
+    partial class SLCService : ServiceBase
     {
-        public ServiceLifeControllerService()
+        public SLCService()
         {
             InitializeComponent();
 
@@ -65,8 +66,8 @@ namespace ServiceLifeControllerService
                 {
                     var sms = new SmsManager.SmsModel();
                     sms.Farsi = false;
-                    sms.Message = $@"{ServiceLifeController.NewSetting.NotifyMessageContent}{Environment.NewLine}
-                                The <{e.Service.Name}> process is <{e.NewStatus}>";
+                    sms.Message = $@"{ServiceLifeController.NewSetting.NotifyMessageContent}{Environment.NewLine}"
+                        + $"The <{e.Service.Name}> process is <{e.NewStatus}>";
                     sms.ToNumbers = ServiceLifeController.NewSetting.SmsReceiverMobilesNo.ToArray();
                     sms.Username = ServiceLifeController.NewSetting.SmsServiceUsername;
                     sms.Password = ServiceLifeController.NewSetting.GetSmsServiceNoHashPassword();
@@ -75,7 +76,12 @@ namespace ServiceLifeControllerService
                     var results = new SmsManager.SmsHelper().SendManySms(sms);
                     for (int i = 0; i < results.Length; i++)
                     {
-                        WindowsEventLog.WriteInfoLog($"An SMS send to {sms.ToNumbers[i]} by result: {results[i]}");
+                        if (results[i].StartsWith("Send Ok", true, CultureInfo.InvariantCulture))
+                            WindowsEventLog.WriteInfoLog($"An SMS send to {sms.ToNumbers[i]} by result: {results[i]}");
+                        else
+                        {
+                            WindowsEventLog.WriteWarningLog($"An SMS can't send to {sms.ToNumbers[i]}, result: {results[i]}");
+                        }
                     }
                 }
                 //============================================================================================

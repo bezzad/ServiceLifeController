@@ -29,8 +29,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Help", "Help", "{CDCE030B-6
 		..\Help\Setting.json = ..\Help\Setting.json
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmsManager", "SmsManager\SmsManager.csproj", "{38A908F1-A98E-4F8E-BC6C-D0FA33E35634}"
-EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		SharedControllerHelper\SharedControllerHelper.projitems*{8d484152-ae38-4327-bd1c-e64b9506f79b}*SharedItemsImports = 4
@@ -58,10 +56,6 @@ Global
 		{CD5DA55B-C69B-45C7-AEFE-C9F4990CD873}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD5DA55B-C69B-45C7-AEFE-C9F4990CD873}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD5DA55B-C69B-45C7-AEFE-C9F4990CD873}.Release|Any CPU.Build.0 = Release|Any CPU
-		{38A908F1-A98E-4F8E-BC6C-D0FA33E35634}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{38A908F1-A98E-4F8E-BC6C-D0FA33E35634}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{38A908F1-A98E-4F8E-BC6C-D0FA33E35634}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{38A908F1-A98E-4F8E-BC6C-D0FA33E35634}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

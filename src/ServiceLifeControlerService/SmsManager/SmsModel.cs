@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace SmsManager
+namespace ServiceLifeControllerService.SmsManager
 {
     public class SmsModel
     {
@@ -15,8 +15,14 @@ namespace SmsManager
 
         public string[] GetDuplicateMessgesForReceivers()
         {
-            return ToNumbers.Select(tn => $"{Message}{Environment.CommandLine}{MessageTime.ToString("F")}").ToArray();
+            return ToNumbers.Select(tn => $"{Message}{Environment.NewLine}{MessageTime.ToString("F")}").ToArray();
         }
+
+        public string GetMessgeForReceiver()
+        {
+            return $"{Message}{Environment.CommandLine}{MessageTime.ToString("F")}";
+        }
+
         public bool[] GetDuplicateLanguagesForReceivers()
         {
             return ToNumbers.Select(tn => Farsi).ToArray();

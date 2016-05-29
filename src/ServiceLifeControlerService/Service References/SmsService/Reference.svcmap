@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="dda1d4d2-21ee-4ebd-a91b-f1ea1fa1b8d9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="70393774-a8f5-4d54-b6ce-953dbe89f49d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,8 +22,8 @@
     <MetadataSource Address="http://www.sms1000.ir/webservice/sms.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="sms.disco" MetadataType="Disco" ID="e04f7102-a54a-45f0-b982-441b40e6582e" SourceId="1" SourceUrl="http://www.sms1000.ir/webservice/sms.asmx?disco" />
-    <MetadataFile FileName="sms.wsdl" MetadataType="Wsdl" ID="b95b0e4e-ffab-4b8f-aa46-f263bfcbd939" SourceId="1" SourceUrl="http://www.sms1000.ir/webservice/sms.asmx?wsdl" />
+    <MetadataFile FileName="sms.disco" MetadataType="Disco" ID="8bc45b58-5014-480b-bb4b-52382a257532" SourceId="1" SourceUrl="http://www.sms1000.ir/webservice/sms.asmx?disco" />
+    <MetadataFile FileName="sms.wsdl" MetadataType="Wsdl" ID="40048858-d33e-48df-8cbf-d9df880911b8" SourceId="1" SourceUrl="http://www.sms1000.ir/webservice/sms.asmx?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

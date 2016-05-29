@@ -58,6 +58,8 @@
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
@@ -68,6 +70,11 @@
     <Compile Include="..\GlobalAssemblyInfo.cs">
       <Link>Properties\GlobalAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Service References\SmsService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="ServiceInstaller.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -75,26 +82,26 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceInstallHelper.cs" />
     <Compile Include="ServiceLifeController.cs" />
-    <Compile Include="ServiceLifeControllerService.cs">
+    <Compile Include="SLCService.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ServiceLifeControllerService.Designer.cs">
-      <DependentUpon>ServiceLifeControllerService.cs</DependentUpon>
+    <Compile Include="SLCService.Designer.cs">
+      <DependentUpon>SLCService.cs</DependentUpon>
     </Compile>
     <Compile Include="ServiceNotifyEventArgs.cs" />
+    <Compile Include="SmsManager\SmsHelper.cs" />
+    <Compile Include="SmsManager\SmsModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <None Include="Service References\SmsService\sms.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ServiceProcess.Helpers\ServiceProcess.Helpers.csproj">
       <Project>{59bc7605-809f-4420-b2b6-72c4b9f48907}</Project>
       <Name>ServiceProcess.Helpers</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SmsManager\SmsManager.csproj">
-      <Project>{38a908f1-a98e-4f8e-bc6c-d0fa33e35634}</Project>
-      <Name>SmsManager</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -111,6 +118,27 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\SmsService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SmsService\sms.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SmsService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SmsService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SmsService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="..\SharedControllerHelper\SharedControllerHelper.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
