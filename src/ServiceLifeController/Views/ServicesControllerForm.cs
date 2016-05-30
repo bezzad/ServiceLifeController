@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
 using Models;
@@ -31,7 +32,7 @@ namespace ServiceLifeController.Views
         protected override void OnLoaded(object sender, EventArgs e)
         {
             base.OnLoaded(sender, e);
-
+            
             FillKeepServiceStatusOnCombo();
 
             LoadGridByServicesInfo();

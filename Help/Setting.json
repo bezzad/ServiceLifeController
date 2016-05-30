@@ -1,5 +1,5 @@
 ﻿{
-  "TimerIntervalSec": 50.0,
+  "TimerIntervalSec": 60.0,
   "SendSmsEnable": true,
   "SendEmailNotifyEnable": true,
   "NotifyMessageTitle": "Shoniz Service Status Changing Alert",
@@ -8,19 +8,15 @@
   "SmsServiceUsername": "dbco.oromieh",
   "SmsServicePassword": "#Xp7MSdA/C5Im42SZQQivRw==",
   "SmsReceiverMobilesNo": [
-    "9149149202",
-    "9143159859",
-    "9143107800"
+    "9149149202"
   ],
   "SenderEmailAddress": "pourakbar@shoniz.com",
   "SenderEmailPassword": "#Zpuo5cE4I1U6vFPC4WpI3Q==",
   "EmailHost": "mail.shoniz.com",
   "EmailHostPort": 587,
   "ReceiverEmails": [
-    "pourakbar@shoniz.com",
     "behzad.khosravifar@gmail.com",
-    "husein.msc@gmail.com",
-    "mirabi.reza@gmail.com"
+    "husein.msc@gmail.com"
   ],
   "CoveredServices": [
     {
@@ -32,7 +28,7 @@
         "StartupType": 272,
         "LogInAs": "LocalSystem"
       },
-      "KeepStatusOn": 0
+      "KeepStatusOn": 1
     },
     {
       "Service": {
@@ -43,7 +39,7 @@
         "StartupType": 272,
         "LogInAs": "LocalSystem"
       },
-      "KeepStatusOn": 0
+      "KeepStatusOn": 1
     },
     {
       "Service": {
@@ -54,7 +50,18 @@
         "StartupType": 16,
         "LogInAs": "LocalSystem"
       },
-      "KeepStatusOn": 0
+      "KeepStatusOn": 1
+    },
+    {
+      "Service": {
+        "Name": "Firebird Server - Digifort",
+        "ServiceName": "FirebirdServerDigifort",
+        "Description": "Firebird Database Server - www.firebirdsql.org",
+        "Status": 4,
+        "StartupType": 16,
+        "LogInAs": "LocalSystem"
+      },
+      "KeepStatusOn": 1
     }
   ],
   "NotifyJustStatusChangingTo": 127

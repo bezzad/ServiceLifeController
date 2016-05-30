@@ -95,8 +95,10 @@ Simple Mail Transfer Protocol (SMTP) is the standard protocol for sending emails
 
 By default, the SMTP protocol works on three ports:
 
-Port 25 - this is the default SMTP non-encrypted port
-Port 2525 - this port is opened on all SiteGround servers in case port 25 is filtered (by your ISP for example) and you want to send non-encrypted emails with SMTP
-Port 465 - this is the port used, if you want to send messages using SMTP securely
+* Port 25 - this is the default SMTP non-encrypted port
+* Port 2525 - this port is opened on all SiteGround servers in case port 25 is filtered (by your ISP for example) and you want to send non-encrypted emails with SMTP
+* Port 465 - this is the port used, if you want to send messages using SMTP securely
 
-And for sending SMS from this app you need to open HTTP protocol.
+
+
+* Sending SMS from this app you need to open HTTP protocol.

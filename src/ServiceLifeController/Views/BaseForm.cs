@@ -12,13 +12,13 @@ namespace ServiceLifeController.Views
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            if (Program.IsAdmin())
-            {
-                this.Text += "  (Run as Admin)";
-            }
+
+            var version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString(3);
+            var admin = Program.IsAdmin() ? "(Run as Admin)" : "";
+
+            Text = $"{Text} ver{version}  {admin}";
 
             Application.Idle += OnLoaded;
-
         }
 
         protected virtual void OnLoaded(object sender, EventArgs e)
@@ -63,6 +63,18 @@ namespace ServiceLifeController.Views
             }
 
             base.Dispose(disposing);
+        }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // BaseForm
+            // 
+            this.ClientSize = new System.Drawing.Size(282, 253);
+            this.Name = "BaseForm";
+            this.ResumeLayout(false);
+
         }
     }
 }

@@ -154,9 +154,9 @@ namespace ServiceLifeControllerService
             return installer;
         }
 
-        private static void StartService(string serviceName)
+        public static bool StartService(string serviceName)
         {
-            if (!IsInstalled(serviceName)) return;
+            if (!IsInstalled(serviceName)) return false;
 
             using (var controller = new ServiceController(serviceName))
             {
@@ -169,17 +169,19 @@ namespace ServiceLifeControllerService
                         controller.Start();
                         controller.WaitForStatus(ServiceControllerStatus.Running, TimeSpan.FromSeconds(60));
                     }
+                    return true;
                 }
                 catch (Exception ex)
                 {
                     WindowsEventLog.WriteErrorLog($@"\nError in starting service method \n{ex.Message}");
                 }
+                return false;
             }
         }
 
-        private static void StopService(string serviceName)
+        public static bool StopService(string serviceName)
         {
-            if (!IsInstalled(serviceName)) return;
+            if (!IsInstalled(serviceName)) return false;
             using (var controller = new ServiceController(serviceName))
             {
                 try
@@ -192,11 +194,38 @@ namespace ServiceLifeControllerService
                         controller.WaitForStatus(ServiceControllerStatus.Stopped,
                             TimeSpan.FromSeconds(10));
                     }
+                    return true;
                 }
                 catch (Exception ex)
                 {
                     WindowsEventLog.WriteErrorLog($@"\nError in stopping service method \n{ex.Message}");
                 }
+                return false;
+            }
+        }
+
+        public static bool PauseService(string serviceName)
+        {
+            if (!IsInstalled(serviceName)) return false;
+            using (var controller = new ServiceController(serviceName))
+            {
+                try
+                {
+                    WindowsEventLog.WriteInfoLog(@"Trying to paused the Service...");
+
+                    if (controller.Status != ServiceControllerStatus.Paused)
+                    {
+                        controller.Stop();
+                        controller.WaitForStatus(ServiceControllerStatus.Paused,
+                            TimeSpan.FromSeconds(60));
+                    }
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    WindowsEventLog.WriteErrorLog($@"\nError in stopping service method \n{ex.Message}");
+                }
+                return false;
             }
         }
 

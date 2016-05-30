@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ServiceProcess;
 using Models;
+using SharedControllerHelper.Models;
 
 namespace ServiceLifeControllerService
 {
@@ -8,15 +9,15 @@ namespace ServiceLifeControllerService
     //An EventArgs class must always derive from System.EventArgs.
     public class ServiceNotifyEventArgs : EventArgs
     {
-        public ServiceInfo Service { get; set; }
+        public KeepServiceStatus KeepService { get; set; }
         public ServiceControllerStatus NewStatus { get; set; }
         public ServiceControllerStatus OldStatus { get; set; }
 
-        public ServiceNotifyEventArgs(ServiceInfo service, ServiceControllerStatus newStatus)
+        public ServiceNotifyEventArgs(KeepServiceStatus kss, ServiceControllerStatus newStatus)
         {
-            Service = service;
+            KeepService = kss;
             NewStatus = newStatus;
-            OldStatus = Service.Status;
+            OldStatus = KeepService.Service.Status;
         }
     }
 

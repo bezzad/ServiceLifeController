@@ -24,7 +24,7 @@ namespace ServiceLifeControllerService
         public static void OnServiceStatusChanged(ServiceNotifyEventArgs e)
         {
             ServiceStatusChanged?.Invoke(e);
-            WindowsEventLog.WriteWarningLog($"The {e.Service.Name} service is {e.NewStatus}!");
+            WindowsEventLog.WriteWarningLog($"The {e.KeepService.Service.Name} service is {e.NewStatus}!");
         }
 
 
@@ -119,7 +119,7 @@ namespace ServiceLifeControllerService
                         {
                             if (NewSetting.NotifyJustStatusChangingTo.HasFlag(newStatus))
                             {
-                                OnServiceStatusChanged(new ServiceNotifyEventArgs(keepService.Service, serviceNewStatus ?? ServiceControllerStatus.Stopped));
+                                OnServiceStatusChanged(new ServiceNotifyEventArgs(keepService, serviceNewStatus ?? ServiceControllerStatus.Stopped));
                             }
                         }
                     }

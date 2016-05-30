@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Mail;
-using System.Text;
 using SharedControllerHelper.Models;
 
 namespace SharedControllerHelper
@@ -18,6 +17,8 @@ namespace SharedControllerHelper
                 var server = GetMailServer(email.From, email.SenderPassword);
 
                 await server.SendMailAsync(mail);
+
+                WindowsEventLog.WriteInfoLog($"Notify emails successfully sent to {string.Join(" - ", mail.To)}");
             }
             catch (Exception exp)
             {
