@@ -19,10 +19,6 @@ namespace ServiceLifeController.Views
         protected virtual void OnLoaded(object sender, EventArgs e)
         {
             Application.Idle -= OnLoaded;
-            if (Program.IsAdmin())
-            {
-                this.Text += "  (Run as Admin)";
-            }
         }
 
 

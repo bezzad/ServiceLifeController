@@ -37,12 +37,12 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.gbTools = new System.Windows.Forms.GroupBox();
             this.gbSelectedServices = new System.Windows.Forms.GroupBox();
-            this.btnShowEventLogs = new System.Windows.Forms.Button();
-            this.btnSaveSetting = new System.Windows.Forms.Button();
-            this.splitter1 = new System.Windows.Forms.Splitter();
             this.dgvSelectedServices = new System.Windows.Forms.DataGridView();
             this.ColServiceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColKeepServiceStatusOn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.btnShowEventLogs = new System.Windows.Forms.Button();
+            this.btnSaveSetting = new System.Windows.Forms.Button();
+            this.splitter1 = new System.Windows.Forms.Splitter();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServices)).BeginInit();
             this.gbAllServices.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -65,6 +65,7 @@
             this.dgvServices.ColumnHeadersHeight = 30;
             this.dgvServices.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvServices.Location = new System.Drawing.Point(3, 18);
+            this.dgvServices.MultiSelect = false;
             this.dgvServices.Name = "dgvServices";
             this.dgvServices.RowTemplate.Height = 24;
             this.dgvServices.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -126,39 +127,6 @@
             this.gbSelectedServices.TabStop = false;
             this.gbSelectedServices.Text = "Selected Services";
             // 
-            // btnShowEventLogs
-            // 
-            this.btnShowEventLogs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnShowEventLogs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btnShowEventLogs.Location = new System.Drawing.Point(182, 643);
-            this.btnShowEventLogs.Name = "btnShowEventLogs";
-            this.btnShowEventLogs.Size = new System.Drawing.Size(174, 66);
-            this.btnShowEventLogs.TabIndex = 2;
-            this.btnShowEventLogs.Text = "Show &Event Logs";
-            this.btnShowEventLogs.UseVisualStyleBackColor = true;
-            this.btnShowEventLogs.Click += new System.EventHandler(this.btnShowEventLogs_Click);
-            // 
-            // btnSaveSetting
-            // 
-            this.btnSaveSetting.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSaveSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btnSaveSetting.Location = new System.Drawing.Point(362, 643);
-            this.btnSaveSetting.Name = "btnSaveSetting";
-            this.btnSaveSetting.Size = new System.Drawing.Size(174, 66);
-            this.btnSaveSetting.TabIndex = 1;
-            this.btnSaveSetting.Text = "&Setting";
-            this.btnSaveSetting.UseVisualStyleBackColor = true;
-            this.btnSaveSetting.Click += new System.EventHandler(this.btnSaveSetting_Click);
-            // 
-            // splitter1
-            // 
-            this.splitter1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.splitter1.Location = new System.Drawing.Point(0, 0);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 721);
-            this.splitter1.TabIndex = 0;
-            this.splitter1.TabStop = false;
-            // 
             // dgvSelectedServices
             // 
             this.dgvSelectedServices.AllowUserToAddRows = false;
@@ -212,6 +180,39 @@
             this.ColKeepServiceStatusOn.Name = "ColKeepServiceStatusOn";
             this.ColKeepServiceStatusOn.Width = 167;
             // 
+            // btnShowEventLogs
+            // 
+            this.btnShowEventLogs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnShowEventLogs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnShowEventLogs.Location = new System.Drawing.Point(182, 643);
+            this.btnShowEventLogs.Name = "btnShowEventLogs";
+            this.btnShowEventLogs.Size = new System.Drawing.Size(174, 66);
+            this.btnShowEventLogs.TabIndex = 2;
+            this.btnShowEventLogs.Text = "Show &Event Logs";
+            this.btnShowEventLogs.UseVisualStyleBackColor = true;
+            this.btnShowEventLogs.Click += new System.EventHandler(this.btnShowEventLogs_Click);
+            // 
+            // btnSaveSetting
+            // 
+            this.btnSaveSetting.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSaveSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnSaveSetting.Location = new System.Drawing.Point(362, 643);
+            this.btnSaveSetting.Name = "btnSaveSetting";
+            this.btnSaveSetting.Size = new System.Drawing.Size(174, 66);
+            this.btnSaveSetting.TabIndex = 1;
+            this.btnSaveSetting.Text = "&Setting";
+            this.btnSaveSetting.UseVisualStyleBackColor = true;
+            this.btnSaveSetting.Click += new System.EventHandler(this.btnSaveSetting_Click);
+            // 
+            // splitter1
+            // 
+            this.splitter1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.splitter1.Location = new System.Drawing.Point(0, 0);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(3, 721);
+            this.splitter1.TabIndex = 0;
+            this.splitter1.TabStop = false;
+            // 
             // ServicesControllerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -219,7 +220,7 @@
             this.ClientSize = new System.Drawing.Size(1312, 721);
             this.Controls.Add(this.splitContainer1);
             this.Name = "ServicesControllerForm";
-            this.Text = "Services Controller  (Run as Admin)";
+            this.Text = "Services Controller  (Run as Admin)  (Run as Admin)";
             ((System.ComponentModel.ISupportInitialize)(this.dgvServices)).EndInit();
             this.gbAllServices.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);

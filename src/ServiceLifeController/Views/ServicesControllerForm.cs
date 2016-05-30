@@ -11,14 +11,22 @@ namespace ServiceLifeController.Views
 {
     public partial class ServicesControllerForm : BaseForm
     {
+        #region Fields
+
         private SettingModel _setting = new SettingModel();
 
+        #endregion
 
+        #region Constructors
 
         public ServicesControllerForm()
         {
             InitializeComponent();
         }
+
+        #endregion
+
+        #region Overrids
 
         protected override void OnLoaded(object sender, EventArgs e)
         {
@@ -32,7 +40,16 @@ namespace ServiceLifeController.Views
 
             dgvServices.CellContentClick += dgvServices_CellContentClick;
             dgvServices.CellValueChanged += dgvServices_CellValueChanged;
+
+            dgvSelectedServices.CellContentClick += dgvSelectedServices_CellContentClick;
+            dgvSelectedServices.CellValueChanged += dgvSelectedServices_CellValueChanged;
+
+            dgvSelectedServices.SelectionChanged += dgvSelectedServices_SelectionChanged;
         }
+
+        #endregion
+
+        #region Methods
 
         private void FillKeepServiceStatusOnCombo()
         {
@@ -44,7 +61,6 @@ namespace ServiceLifeController.Views
             ColKeepServiceStatusOn.DisplayMember = "Name";
             ColKeepServiceStatusOn.ValueMember = "Value";
         }
-
 
         private void LoadSettingData()
         {
@@ -109,6 +125,20 @@ namespace ServiceLifeController.Views
             (dgvSelectedServices.Rows[index].Cells["ColKeepServiceStatusOn"] as DataGridViewComboBoxCell).Value = (int)data.KeepStatusOn;
         }
 
+        private void RemoveRowToSelectedServicesGrid(ServiceInfo serv)
+        {
+            foreach (DataGridViewRow row in dgvSelectedServices.Rows)
+            {
+                if (row.Cells["ColServiceName"].Value?.ToString() == serv.Name)
+                    dgvSelectedServices.Rows.Remove(row);
+            }
+        }
+
+        #endregion
+
+        #region Event Handlers
+
+
         private void btnSaveSetting_Click(object sender, EventArgs e)
         {
             new SettingForm(_setting).ShowDialog(this);
@@ -123,10 +153,11 @@ namespace ServiceLifeController.Views
         {
             foreach (DataGridViewRow row in dgvServices.Rows)
             {
-                if (row.Cells["Selected"].Value == DBNull.Value) row.Cells["Selected"].Value = false;
+                if (row.Cells["Selected"].Value == DBNull.Value) continue;
 
+                var serviceName = row.Cells["Name"].Value?.ToString();
                 var isSelected =
-                    _setting.CoveredServices.Any(x => x.Service.Name == row.Cells["ServiceName"].Value?.ToString());
+                    _setting.CoveredServices.Any(x => x.Service.Name == serviceName);
 
                 if ((bool?)row.Cells["Selected"].Value == true && !isSelected)
                 {
@@ -135,18 +166,60 @@ namespace ServiceLifeController.Views
                     _setting.CoveredServices.Add(kss);
                     AddRowToSelectedServicesGrid(kss);
                 }
-                else if((bool?)row.Cells["Selected"].Value == false && isSelected)
+                else if ((bool?)row.Cells["Selected"].Value == false && isSelected)
                 {
-                    _setting.CoveredServices.RemoveAll(x => x.Service.Name == row.Cells["ServiceName"].Value?.ToString());
-                    ///Remove 
+                    // Remove from setting object
+                    _setting.CoveredServices.RemoveAll(x => x.Service.Name == serviceName);
+                    //
+                    // Remove from Selected Services Grid
+                    RemoveRowToSelectedServicesGrid(row.ToObject<ServiceInfo>());
                 }
             }
         }
-
 
         void dgvServices_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             dgvServices.CommitEdit(DataGridViewDataErrorContexts.Commit);
         }
+
+        private void dgvSelectedServices_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            var servName = dgvSelectedServices.Rows[e.RowIndex].Cells["ColServiceName"].Value?.ToString();
+
+            var dgvComboCell = dgvSelectedServices.Rows[e.RowIndex].Cells["ColKeepServiceStatusOn"] as DataGridViewComboBoxCell;
+
+            if (dgvComboCell == null) return;
+
+            var servKeepStatus = dgvComboCell.Value ?? 0;
+
+            var kss = _setting.CoveredServices.FirstOrDefault(x => x.Service.Name == servName);
+            if (kss != null) kss.KeepStatusOn = (ServiceStableStatus)servKeepStatus;
+        }
+
+        private void dgvSelectedServices_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dgvSelectedServices.CommitEdit(DataGridViewDataErrorContexts.Commit);
+        }
+
+        private void dgvSelectedServices_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvSelectedServices.SelectedRows.Count > 0)
+            {
+                var selectedRow = dgvSelectedServices.SelectedRows[0];
+                var servName = selectedRow.Cells["ColServiceName"].Value?.ToString();
+
+                foreach (DataGridViewRow row in dgvServices.Rows)
+                {
+                    if (row.Cells["Name"].Value?.ToString() == servName)
+                    {
+                        row.Selected = true;
+                        dgvServices.FirstDisplayedScrollingRowIndex = row.Index;
+                        return;
+                    }
+                }
+            }
+        }
+
+        #endregion
     }
 }
