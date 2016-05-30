@@ -63,7 +63,7 @@
             this.btnSaveSetting.Location = new System.Drawing.Point(84, 430);
             this.btnSaveSetting.Name = "btnSaveSetting";
             this.btnSaveSetting.Size = new System.Drawing.Size(186, 73);
-            this.btnSaveSetting.TabIndex = 2;
+            this.btnSaveSetting.TabIndex = 5;
             this.btnSaveSetting.Text = "&Save Setting";
             this.btnSaveSetting.UseVisualStyleBackColor = true;
             this.btnSaveSetting.Click += new System.EventHandler(this.btnSaveSetting_Click);
@@ -78,7 +78,7 @@
             this.txtTimerInterval.Location = new System.Drawing.Point(84, 36);
             this.txtTimerInterval.Name = "txtTimerInterval";
             this.txtTimerInterval.Size = new System.Drawing.Size(160, 27);
-            this.txtTimerInterval.TabIndex = 3;
+            this.txtTimerInterval.TabIndex = 0;
             this.txtTimerInterval.Text = "Timer Interval (sec)";
             this.txtTimerInterval.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtTimerInterval.TextForeColor = System.Drawing.Color.Black;
@@ -98,7 +98,7 @@
             this.gbBaseInfo.Location = new System.Drawing.Point(12, 12);
             this.gbBaseInfo.Name = "gbBaseInfo";
             this.gbBaseInfo.Size = new System.Drawing.Size(329, 397);
-            this.gbBaseInfo.TabIndex = 4;
+            this.gbBaseInfo.TabIndex = 0;
             this.gbBaseInfo.TabStop = false;
             this.gbBaseInfo.Text = "Base Settings";
             // 
@@ -118,7 +118,7 @@
             this.cmbStatusOn.Location = new System.Drawing.Point(40, 113);
             this.cmbStatusOn.Name = "cmbStatusOn";
             this.cmbStatusOn.Size = new System.Drawing.Size(253, 24);
-            this.cmbStatusOn.TabIndex = 6;
+            this.cmbStatusOn.TabIndex = 1;
             // 
             // txtNotifyMessageContent
             // 
@@ -132,7 +132,7 @@
             this.txtNotifyMessageContent.Multiline = true;
             this.txtNotifyMessageContent.Name = "txtNotifyMessageContent";
             this.txtNotifyMessageContent.Size = new System.Drawing.Size(253, 121);
-            this.txtNotifyMessageContent.TabIndex = 5;
+            this.txtNotifyMessageContent.TabIndex = 3;
             this.txtNotifyMessageContent.Text = "\r\n\r\n\r\nNotify Message Content\r\n";
             this.txtNotifyMessageContent.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtNotifyMessageContent.TextForeColor = System.Drawing.Color.Black;
@@ -148,7 +148,7 @@
             this.txtNotifyMsgTitle.Multiline = true;
             this.txtNotifyMsgTitle.Name = "txtNotifyMsgTitle";
             this.txtNotifyMsgTitle.Size = new System.Drawing.Size(253, 51);
-            this.txtNotifyMsgTitle.TabIndex = 4;
+            this.txtNotifyMsgTitle.TabIndex = 2;
             this.txtNotifyMsgTitle.Text = "\r\nNotify Message Title";
             this.txtNotifyMsgTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtNotifyMsgTitle.TextForeColor = System.Drawing.Color.Black;
@@ -164,7 +164,7 @@
             this.txtSmsServiceUsername.Location = new System.Drawing.Point(40, 65);
             this.txtSmsServiceUsername.Name = "txtSmsServiceUsername";
             this.txtSmsServiceUsername.Size = new System.Drawing.Size(253, 27);
-            this.txtSmsServiceUsername.TabIndex = 10;
+            this.txtSmsServiceUsername.TabIndex = 1;
             this.txtSmsServiceUsername.Text = "SMS Service Username\r\n";
             this.txtSmsServiceUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtSmsServiceUsername.TextForeColor = System.Drawing.Color.Black;
@@ -191,7 +191,7 @@
             this.txtSenderEmailPassword.Location = new System.Drawing.Point(178, 70);
             this.txtSenderEmailPassword.Name = "txtSenderEmailPassword";
             this.txtSenderEmailPassword.Size = new System.Drawing.Size(313, 26);
-            this.txtSenderEmailPassword.TabIndex = 8;
+            this.txtSenderEmailPassword.TabIndex = 1;
             this.txtSenderEmailPassword.Text = "1234";
             this.txtSenderEmailPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtSenderEmailPassword.TextForeColor = System.Drawing.Color.Black;
@@ -209,7 +209,7 @@
             this.txtSenderEmailAddress.Location = new System.Drawing.Point(11, 36);
             this.txtSenderEmailAddress.Name = "txtSenderEmailAddress";
             this.txtSenderEmailAddress.Size = new System.Drawing.Size(480, 27);
-            this.txtSenderEmailAddress.TabIndex = 7;
+            this.txtSenderEmailAddress.TabIndex = 0;
             this.txtSenderEmailAddress.Text = "Sender Email Address";
             this.txtSenderEmailAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtSenderEmailAddress.TextForeColor = System.Drawing.Color.Black;
@@ -226,7 +226,7 @@
             this.txtSenderMobileNo.Location = new System.Drawing.Point(40, 32);
             this.txtSenderMobileNo.Name = "txtSenderMobileNo";
             this.txtSenderMobileNo.Size = new System.Drawing.Size(253, 27);
-            this.txtSenderMobileNo.TabIndex = 6;
+            this.txtSenderMobileNo.TabIndex = 0;
             this.txtSenderMobileNo.Text = "SMS Sender Number";
             this.txtSenderMobileNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtSenderMobileNo.TextForeColor = System.Drawing.Color.Black;
@@ -254,7 +254,7 @@
             this.txtReceiverMobiles.Multiline = true;
             this.txtReceiverMobiles.Name = "txtReceiverMobiles";
             this.txtReceiverMobiles.Size = new System.Drawing.Size(253, 322);
-            this.txtReceiverMobiles.TabIndex = 0;
+            this.txtReceiverMobiles.TabIndex = 3;
             this.txtReceiverMobiles.Text = "\r\nEnter Receiver Mobiles No\r\nExample:\r\n9149149202, \r\n9149203656, \r\n9176543210,\r\n " +
     "...\r\n\r\n\r\n";
             this.txtReceiverMobiles.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -276,7 +276,7 @@
             this.txtReceiverEmails.Multiline = true;
             this.txtReceiverEmails.Name = "txtReceiverEmails";
             this.txtReceiverEmails.Size = new System.Drawing.Size(480, 335);
-            this.txtReceiverEmails.TabIndex = 0;
+            this.txtReceiverEmails.TabIndex = 4;
             this.txtReceiverEmails.Text = "\r\nEnter Receiver Emails\r\nExample:\r\nBehzad.khosravifar@gmail.com, Ahmad.Aghazadeh." +
     "a@gmail.com, ...\r\n";
             this.txtReceiverEmails.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -294,7 +294,7 @@
             this.txtSmsServicePassword.Location = new System.Drawing.Point(40, 129);
             this.txtSmsServicePassword.Name = "txtSmsServicePassword";
             this.txtSmsServicePassword.Size = new System.Drawing.Size(253, 26);
-            this.txtSmsServicePassword.TabIndex = 11;
+            this.txtSmsServicePassword.TabIndex = 2;
             this.txtSmsServicePassword.Text = "12345";
             this.txtSmsServicePassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtSmsServicePassword.TextForeColor = System.Drawing.Color.Black;
@@ -312,7 +312,7 @@
             this.txtEmailHost.Location = new System.Drawing.Point(11, 113);
             this.txtEmailHost.Name = "txtEmailHost";
             this.txtEmailHost.Size = new System.Drawing.Size(271, 30);
-            this.txtEmailHost.TabIndex = 10;
+            this.txtEmailHost.TabIndex = 2;
             this.txtEmailHost.Text = "Email Host (ex: mail.shoniz.com)";
             this.txtEmailHost.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtEmailHost.TextForeColor = System.Drawing.Color.Black;
@@ -330,7 +330,7 @@
             this.txtEmailHostPort.Location = new System.Drawing.Point(288, 113);
             this.txtEmailHostPort.Name = "txtEmailHostPort";
             this.txtEmailHostPort.Size = new System.Drawing.Size(203, 30);
-            this.txtEmailHostPort.TabIndex = 11;
+            this.txtEmailHostPort.TabIndex = 3;
             this.txtEmailHostPort.Text = "Email Host Port (ex: 587)";
             this.txtEmailHostPort.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtEmailHostPort.TextForeColor = System.Drawing.Color.Black;
@@ -345,7 +345,7 @@
             this.chkEnableEmail.Location = new System.Drawing.Point(462, 12);
             this.chkEnableEmail.Name = "chkEnableEmail";
             this.chkEnableEmail.Size = new System.Drawing.Size(18, 17);
-            this.chkEnableEmail.TabIndex = 7;
+            this.chkEnableEmail.TabIndex = 2;
             this.toolTip.SetToolTip(this.chkEnableEmail, "Enable Email Notify");
             this.chkEnableEmail.UseVisualStyleBackColor = true;
             this.chkEnableEmail.CheckedChanged += new System.EventHandler(this.chkEnableEmail_CheckedChanged);
@@ -359,7 +359,7 @@
             this.chkEnableSMS.Location = new System.Drawing.Point(977, 12);
             this.chkEnableSMS.Name = "chkEnableSMS";
             this.chkEnableSMS.Size = new System.Drawing.Size(18, 17);
-            this.chkEnableSMS.TabIndex = 12;
+            this.chkEnableSMS.TabIndex = 4;
             this.toolTip.SetToolTip(this.chkEnableSMS, "Enable SMS Notify");
             this.chkEnableSMS.UseVisualStyleBackColor = true;
             this.chkEnableSMS.CheckedChanged += new System.EventHandler(this.chkEnableSMS_CheckedChanged);
@@ -376,7 +376,7 @@
             this.gbSms.Location = new System.Drawing.Point(880, 12);
             this.gbSms.Name = "gbSms";
             this.gbSms.Size = new System.Drawing.Size(329, 502);
-            this.gbSms.TabIndex = 5;
+            this.gbSms.TabIndex = 3;
             this.gbSms.TabStop = false;
             this.gbSms.Text = "SMS Setting";
             // 
@@ -403,7 +403,7 @@
             this.gbEmailSetting.Location = new System.Drawing.Point(361, 12);
             this.gbEmailSetting.Name = "gbEmailSetting";
             this.gbEmailSetting.Size = new System.Drawing.Size(502, 502);
-            this.gbEmailSetting.TabIndex = 6;
+            this.gbEmailSetting.TabIndex = 1;
             this.gbEmailSetting.TabStop = false;
             this.gbEmailSetting.Text = "Email Setting";
             // 

@@ -2,8 +2,20 @@
 [![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/Behzadkhosravifar/ServiceLifeController/blob/master/LICENSE)
 [![GitHub license](https://img.shields.io/badge/first--timers--only-friendly-blue.svg)](http://www.firsttimersonly.com/)
 
-Controll windows services life for stopping time alert an notify from email and sms
+Controll windows services life for stopping or running or any else status of service time by notification from 
+Email and SMS (by defaulte in based of I.R.Iran Telecommunications System).
 
+This project created by two part of project, first part is a windows service which controll other OS services by pooling the status of service.
+
+
+---------------------------
+### How to use
+After the compile you have a folder by name `output` in main directory.
+Goto `output\ServiceLifeController\` and execute `ServiceLifeController.exe` file to open **Service Controller** application.
+This app can bind your setting to main win service to controll any time and realtime your choosed services.
+
+The **Service Controller** application main form is like this: <br>
+![Service Controller]()
 ---------------------------
 ### Service Life Controller Server
 If you want to install or unistall a service for Service Life Controller service or just run the server without installing, do following commands:

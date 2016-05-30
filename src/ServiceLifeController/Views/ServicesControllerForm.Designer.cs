@@ -187,7 +187,7 @@
             this.btnShowEventLogs.Location = new System.Drawing.Point(182, 643);
             this.btnShowEventLogs.Name = "btnShowEventLogs";
             this.btnShowEventLogs.Size = new System.Drawing.Size(174, 66);
-            this.btnShowEventLogs.TabIndex = 2;
+            this.btnShowEventLogs.TabIndex = 1;
             this.btnShowEventLogs.Text = "Show &Event Logs";
             this.btnShowEventLogs.UseVisualStyleBackColor = true;
             this.btnShowEventLogs.Click += new System.EventHandler(this.btnShowEventLogs_Click);
@@ -199,7 +199,7 @@
             this.btnSaveSetting.Location = new System.Drawing.Point(362, 643);
             this.btnSaveSetting.Name = "btnSaveSetting";
             this.btnSaveSetting.Size = new System.Drawing.Size(174, 66);
-            this.btnSaveSetting.TabIndex = 1;
+            this.btnSaveSetting.TabIndex = 0;
             this.btnSaveSetting.Text = "&Setting";
             this.btnSaveSetting.UseVisualStyleBackColor = true;
             this.btnSaveSetting.Click += new System.EventHandler(this.btnSaveSetting_Click);
@@ -220,7 +220,7 @@
             this.ClientSize = new System.Drawing.Size(1312, 721);
             this.Controls.Add(this.splitContainer1);
             this.Name = "ServicesControllerForm";
-            this.Text = "Services Controller  (Run as Admin)  (Run as Admin)";
+            this.Text = "Services Controller";
             ((System.ComponentModel.ISupportInitialize)(this.dgvServices)).EndInit();
             this.gbAllServices.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
