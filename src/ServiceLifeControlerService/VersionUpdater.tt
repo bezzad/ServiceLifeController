@@ -21,7 +21,6 @@
 //------------------------------------------------------------------------------
 
 <#
-    // string path = Path.GetDirectoryName(dte.Solution.FullName)
     string path =  Host.ResolvePath(".."); // path is: AdoManager\src\
 		
 	var AssemblyFilePath = Path.Combine(path, "GlobalAssemblyInfo.cs");	
@@ -33,7 +32,7 @@
 	{
 		var AssemblyFileData = File.ReadAllText(AssemblyFilePath);
 		
-		var asmVerPattern = @"(\[assembly: [\w\.]*Version\("")(?<asmVer>\d+\.\d+\.\d+)(""\)\])";
+	var asmVerPattern = @"(\[assembly: [\w\.]*Version\("")(?<asmVer>[\d+\.\d+]*)(""\)\])";
         var match = Regex.Match(AssemblyFileData, asmVerPattern);
         var gAsmVer = match.Groups["asmVer"].Value;
         var oldVersion = new Version(gAsmVer);
