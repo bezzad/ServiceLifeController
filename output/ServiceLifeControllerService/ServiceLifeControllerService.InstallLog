@@ -6,3 +6,24 @@ Affected parameters are:
 Removing EventLog source SLCService.
 Service SLCService is being removed from the system...
 Service SLCService was successfully removed from the system.
+Installing assembly 'D:\MyProject\ServiceLifeController\output\ServiceLifeControllerService\ServiceLifeControllerService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\MyProject\ServiceLifeController\output\ServiceLifeControllerService\ServiceLifeControllerService.InstallLog
+   assemblypath = D:\MyProject\ServiceLifeController\output\ServiceLifeControllerService\ServiceLifeControllerService.exe
+Installing service SLCService...
+Service SLCService has been successfully installed.
+Creating EventLog source SLCService in log Application...
+Committing assembly 'D:\MyProject\ServiceLifeController\output\ServiceLifeControllerService\ServiceLifeControllerService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\MyProject\ServiceLifeController\output\ServiceLifeControllerService\ServiceLifeControllerService.InstallLog
+   assemblypath = D:\MyProject\ServiceLifeController\output\ServiceLifeControllerService\ServiceLifeControllerService.exe
+Uninstalling assembly 'D:\MyProject\ServiceLifeController\output\ServiceLifeControllerService\ServiceLifeControllerService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\MyProject\ServiceLifeController\output\ServiceLifeControllerService\ServiceLifeControllerService.InstallLog
+   assemblypath = D:\MyProject\ServiceLifeController\output\ServiceLifeControllerService\ServiceLifeControllerService.exe
+Removing EventLog source SLCService.
+Service SLCService is being removed from the system...
+Service SLCService was successfully removed from the system.

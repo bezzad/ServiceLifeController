@@ -39,7 +39,7 @@ namespace Models
         }
 
 
-        public string EmailHost { get; set; } = "mail.shoniz.com";
+        public string EmailHost { get; set; }
         public int EmailHostPort { get; set; } = 587;
         public List<string> ReceiverEmails { get; set; } = new List<string>();
 

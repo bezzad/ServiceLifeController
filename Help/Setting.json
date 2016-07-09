@@ -10,9 +10,9 @@
   "SmsReceiverMobilesNo": [
     "9149149202"
   ],
-  "SenderEmailAddress": "pourakbar@shoniz.com",
+  "SenderEmailAddress": "xxx@shoniz.com",
   "SenderEmailPassword": "#Zpuo5cE4I1U6vFPC4WpI3Q==",
-  "EmailHost": "mail.shoniz.com",
+  "EmailHost": "mail.company.com",
   "EmailHostPort": 587,
   "ReceiverEmails": [
     "behzad.khosravifar@gmail.com",

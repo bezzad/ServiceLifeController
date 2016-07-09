@@ -3,3 +3,17 @@
 The uninstall is beginning.
 See the contents of the log file for the D:\Behzad\ServiceLifeController\output\ServiceLifeControllerService\ServiceLifeControllerService.exe assembly's progress.
 The file is located at D:\Behzad\ServiceLifeController\output\ServiceLifeControllerService\ServiceLifeControllerService.InstallLog.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the D:\MyProject\ServiceLifeController\output\ServiceLifeControllerService\ServiceLifeControllerService.exe assembly's progress.
+The file is located at D:\MyProject\ServiceLifeController\output\ServiceLifeControllerService\ServiceLifeControllerService.InstallLog.
+
+The Install phase completed successfully, and the Commit phase is beginning.
+See the contents of the log file for the D:\MyProject\ServiceLifeController\output\ServiceLifeControllerService\ServiceLifeControllerService.exe assembly's progress.
+The file is located at D:\MyProject\ServiceLifeController\output\ServiceLifeControllerService\ServiceLifeControllerService.InstallLog.
+
+The Commit phase completed successfully.
+
+The transacted install has completed.

@@ -13,8 +13,8 @@ namespace SharedControllerHelper
             try
             {
                 var mail = email.GetMailMessage();
-
-                var server = GetMailServer(email.From, email.SenderPassword);
+                
+                var server = GetMailServer(email);
 
                 await server.SendMailAsync(mail);
 
@@ -54,15 +54,15 @@ namespace SharedControllerHelper
             return mail;
         }
 
-        private static SmtpClient GetMailServer(string mailServiceAddress, string mailServicePass)
+        private static SmtpClient GetMailServer(EmailModel mail)
         {
             var server = new SmtpClient
             {
-                Host = "mail.shoniz.com",
-                Port = 587,
+                Host = mail.EmailHost,
+                Port = mail.EmailHostPort,
                 DeliveryMethod = SmtpDeliveryMethod.Network,
                 UseDefaultCredentials = false,
-                Credentials = new NetworkCredential(mailServiceAddress, mailServicePass)
+                Credentials = new NetworkCredential(mail.From, mail.SenderPassword)
             };
 
             return server;
