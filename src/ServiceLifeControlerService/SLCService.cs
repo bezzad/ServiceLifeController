@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Globalization;
 using System.ServiceProcess;
 using SharedControllerHelper;
 using SharedControllerHelper.Models;
@@ -38,7 +37,7 @@ namespace ServiceLifeControllerService
                         : ServiceLifeController.NewSetting.NotifyMessageTitle;
 
             var smsMsg = $@"{ServiceLifeController.NewSetting.NotifyMessageContent}{Environment.NewLine}" +
-                         $"The <{e.KeepService.Service.Name}> process is '{e.NewStatus}'. {Environment.NewLine}";
+                         $"The <{e.KeepService.Service.Name}> process is [{e.NewStatus}]. {Environment.NewLine}";
 
             SendNotify(e, emailSubject, emailMsg, smsMsg);
 
@@ -80,7 +79,7 @@ namespace ServiceLifeControllerService
                             emailSubject = $"{e.KeepService.Service.Name} Rollbacked to {e.KeepService.KeepStatusOn} state Successfully";
 
                             emailMsg = $"<p style='color: #90EE90'>The <strong>{e.KeepService.Service.Name}</strong> process be rollbacked to <strong>{e.KeepService.KeepStatusOn}</strong> Successfully.</p>";
-                            
+
                             smsMsg = $@"Ok !{Environment.NewLine}" +
                                         $"The '{e.KeepService.Service.Name}' process be rollbacked to '{e.KeepService.KeepStatusOn}' Successfully.{Environment.NewLine}";
 
@@ -135,8 +134,8 @@ namespace ServiceLifeControllerService
             emailMessage = preEmailMsg + emailMessage + postEmailMsg;
 
 
-            var preSmsMsg = Debugger.IsAttached ? $"Message sent in 'Developer' mode {Environment.MachineName}" : "";
-            var postSmsMsg = $"Server Name is '{Environment.MachineName}'";
+            var preSmsMsg = Debugger.IsAttached ? $"Message sent in [Developer] mode. {Environment.MachineName}" : "";
+            var postSmsMsg = $"Server Name is [{Environment.MachineName}]";
 
             smsMessage = preSmsMsg + smsMessage + postSmsMsg;
 
@@ -173,22 +172,20 @@ namespace ServiceLifeControllerService
                 //========================= Send SMS to all of receivers ===================================
                 if (ServiceLifeController.NewSetting.SendSmsEnable)
                 {
-                    var sms = new SmsManager.SmsModel();
-                    sms.Farsi = false;
-                    sms.Message = smsMessage;
-                    sms.ToNumbers = ServiceLifeController.NewSetting.SmsReceiverMobilesNo.ToArray();
-                    sms.Username = ServiceLifeController.NewSetting.SmsServiceUsername;
-                    sms.Password = ServiceLifeController.NewSetting.GetSmsServiceNoHashPassword();
-                    sms.FromNumber = ServiceLifeController.NewSetting.SmsSenderNumber;
+                    var results = new SmsManager.SmsHelper().SendManySms(
+                        ServiceLifeController.NewSetting.SmsServiceUsername,
+                        ServiceLifeController.NewSetting.GetSmsServiceNoHashPassword(),
+                        smsMessage,
+                        ServiceLifeController.NewSetting.SmsSenderNumber,
+                        ServiceLifeController.NewSetting.SmsReceiverMobilesNo.ToArray());
 
-                    var results = new SmsManager.SmsHelper().SendManySms(sms);
-                    for (int i = 0; i < results.Length; i++)
+                    for (var i = 0; i < results.Count; i++)
                     {
-                        if (results[i].StartsWith("Send Ok", true, CultureInfo.InvariantCulture))
-                            WindowsEventLog.WriteInfoLog($"An SMS send to {sms.ToNumbers[i]} by result: {results[i]}");
+                        if (results[i].Retrieval == SmsManager.Retrieval.Successful)
+                            WindowsEventLog.WriteInfoLog($"An SMS send to {results[i].ToNumber} by status: {results[i].Status} , recId: {results[i].RecId}");
                         else
                         {
-                            WindowsEventLog.WriteWarningLog($"An SMS can't send to {sms.ToNumbers[i]}, result: {results[i]}");
+                            WindowsEventLog.WriteWarningLog($"An SMS can't send to {results[i].ToNumber}, status: {results[i].Status} , recId: {results[i].RecId}");
                         }
                     }
                 }
