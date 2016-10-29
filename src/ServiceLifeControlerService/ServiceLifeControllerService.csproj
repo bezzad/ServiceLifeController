@@ -59,9 +59,11 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Management" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
@@ -72,10 +74,10 @@
     <Compile Include="..\GlobalAssemblyInfo.cs">
       <Link>Properties\GlobalAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="Service References\SmsService\Reference.cs">
+    <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="ServiceInstaller.cs">
       <SubType>Component</SubType>
@@ -92,13 +94,29 @@
     </Compile>
     <Compile Include="ServiceNotifyEventArgs.cs" />
     <Compile Include="SmsManager\SmsHelper.cs" />
-    <Compile Include="SmsManager\SmsModel.cs" />
+    <Compile Include="SmsManager\ShortMessageServiceModel.cs" />
+    <Compile Include="Web References\SmsWebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
-    <None Include="Service References\SmsService\sms.wsdl" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\SmsWebService\MessagesBL.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SmsWebService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\SmsWebService\send.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ServiceProcess.Helpers\ServiceProcess.Helpers.csproj">
@@ -125,24 +143,6 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\SmsService\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\SmsService\sms.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\SmsService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\SmsService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\SmsService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="VersionUpdater.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>VersionUpdater.txt</LastGenOutput>
@@ -152,6 +152,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>VersionUpdater.tt</DependentUpon>
     </Content>
+    <None Include="Web References\SmsWebService\send.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://api.payamak-panel.com/post/send.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\SmsWebService\</RelPath>
+      <UpdateFromURL>http://api.payamak-panel.com/post/send.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>ServiceLifeControllerService_SmsWebService_Send</CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <Import Project="..\SharedControllerHelper\SharedControllerHelper.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
