@@ -2,12 +2,9 @@
 [![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/Behzadkhosravifar/ServiceLifeController/blob/master/LICENSE)
 [![GitHub license](https://img.shields.io/badge/first--timers--only-friendly-blue.svg)](http://www.firsttimersonly.com/)
 
-Controll windows services life for stopping or running or any else status of service time by notification from 
-Email and SMS (by default in based of I.R.Iran Telecommunications System).
+Control windows services life for stopping or running or any else status of service time by notification from Email and SMS (by default is based on I.R.Iran Telecommunications System).
 
-This project created by two part of project, first part is a windows service application which controll other OS services by pooling the status of service.
-And other parts is a service controller win32 application to bind your choosed services to main win service for life controlling.
-
+This project created by two-part of the project, the first part is a windows service application that controls other OS services by pooling the status of the service. And Another part is a service controller win32 application to bind your chosen services to the main win service for life-controlling.
 
 ---------------------------
 ### How to use
